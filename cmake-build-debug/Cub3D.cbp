@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Cub3D"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\MLX42\;CMake Files\MLX42\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/lpraca-l/Documents/Cub3D/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cub3d">
+				<Option output="/home/lpraca-l/Documents/Cub3D/cmake-build-debug/cub3d" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lpraca-l/Documents/Cub3D/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/lpraca-l/Documents/Cub3D/lib42/include"/>
+					<Add directory="/home/lpraca-l/Documents/Cub3D/MLX42/include"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/x86_64-linux-gnu/c++/12"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/llvm-12/lib/clang/12.0.1/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 cub3d"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cub3d/fast">
+				<Option output="/home/lpraca-l/Documents/Cub3D/cmake-build-debug/cub3d" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lpraca-l/Documents/Cub3D/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/lpraca-l/Documents/Cub3D/lib42/include"/>
+					<Add directory="/home/lpraca-l/Documents/Cub3D/MLX42/include"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/x86_64-linux-gnu/c++/12"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/llvm-12/lib/clang/12.0.1/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 cub3d/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_cub3d">
+				<Option output="/home/lpraca-l/Documents/Cub3D/cmake-build-debug/test_cub3d" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lpraca-l/Documents/Cub3D/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/lpraca-l/Documents/Cub3D/lib42/include"/>
+					<Add directory="/home/lpraca-l/Documents/Cub3D/MLX42/include"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/x86_64-linux-gnu/c++/12"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/llvm-12/lib/clang/12.0.1/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_cub3d"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_cub3d/fast">
+				<Option output="/home/lpraca-l/Documents/Cub3D/cmake-build-debug/test_cub3d" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lpraca-l/Documents/Cub3D/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/lpraca-l/Documents/Cub3D/lib42/include"/>
+					<Add directory="/home/lpraca-l/Documents/Cub3D/MLX42/include"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/x86_64-linux-gnu/c++/12"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/llvm-12/lib/clang/12.0.1/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_cub3d/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/lpraca-l/Documents/Cub3D/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/lpraca-l/Documents/Cub3D/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/lpraca-l/Documents/Cub3D/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/lpraca-l/Documents/Cub3D/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/lpraca-l/Documents/Cub3D/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/home/lpraca-l/Documents/Cub3D/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mlx42">
+				<Option output="/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/libmlx42.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/lpraca-l/Documents/Cub3D/MLX42/include"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/x86_64-linux-gnu/c++/12"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/llvm-12/lib/clang/12.0.1/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/Makefile&quot;  VERBOSE=1 mlx42"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mlx42/fast">
+				<Option output="/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/libmlx42.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/lpraca-l/Documents/Cub3D/MLX42/include"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/x86_64-linux-gnu/c++/12"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/llvm-12/lib/clang/12.0.1/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/Makefile&quot;  VERBOSE=1 mlx42/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/lib/glad/glad.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/lib/png/lodepng.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/font/mlx_font.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/mlx_cursor.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/mlx_exit.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/mlx_images.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/mlx_init.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/mlx_keys.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/mlx_loop.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/mlx_monitor.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/mlx_mouse.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/mlx_put_pixel.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/mlx_window.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/textures/mlx_png.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/textures/mlx_texture.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/textures/mlx_xpm42.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/utils/mlx_compare.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/utils/mlx_error.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/utils/mlx_list.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/src/utils/mlx_utils.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/mlx_frag_shader.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/mlx_frag_shader.c.rule">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/mlx_vert_shader.c">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/mlx_vert_shader.c.rule">
+			<Option target="mlx42"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/main.c">
+			<Option target="cub3d"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/src/parsing/parsing.c">
+			<Option target="cub3d"/>
+			<Option target="test_cub3d"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/test/main.c">
+			<Option target="test_cub3d"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\MLX42\"/>
+		</Unit>
+		<Unit filename="/home/lpraca-l/Documents/Cub3D/MLX42/cmake/Findglfw3.cmake">
+			<Option virtualFolder="CMake Files\MLX42\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

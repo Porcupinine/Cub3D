@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/so_long.dir/main.c.o CMakeFiles/so_long.dir/src/parsing/parsing.c.o -o so_long  /home/lpraca-l/Documents/Cub3D/lib42/libft.a MLX42/libmlx42.a /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so /usr/lib/x86_64-linux-gnu/libglfw.so 
