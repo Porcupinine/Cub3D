@@ -15,8 +15,10 @@
 void	ft_error(char *error)
 {
 	size_t	str_len;
+	int x;
 
 	str_len = ft_strlen(error);
-	write(2, error, str_len);
+	x = write(2, error, str_len);
+	(void)x;
 	exit(1);
 }

@@ -8,13 +8,38 @@ set(CMAKE_C_STANDARD 90)
 add_subdirectory(${CMAKE_SOURCE_DIR}/MLX42)
 include_directories(${CMAKE_SOURCE_DIR}/lib42/include)
 
-SET(SOURCES
-      src/parsing/parsing.c)
 
-add_executable(cub3d main.c ${SOURCES} )
+SET(SOURCES
+		src/parsing/parsing.c
+		src/utils/empty_line.c
+		includes/utils.h
+		src/utils/first_map_line.c
+		src/parsing/parse_textures.c
+		src/parsing/parse_map.c
+		src/utils/print_data.c)
+
+add_executable(cub3d main.c ${SOURCES}
+		src/utils/all_digits.c
+		src/utils/remove_new_line.c)
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
 target_link_libraries(cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42)
 
 
 add_executable(test_cub3d ${SOURCES} test/main.c)
 target_link_libraries(test_cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42)
+
+#-------------------------------------------------------------------------
+#add_custom_target(BuildTheLib ALL
+#COMMAND make ...
+## (as you have now)
+#)
+#
+#add_library(TheLib STATIC IMPORTED)
+#set_target_properties(TheLib
+#IMPORTED_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/path/to/lib.a # Make sure to use absolute path here
+#INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/lib_include
+#INTERFACE_COMPILE_DEFINITIONS "USING_THELIB;THELIB_STATIC"
+#)
+#add_dependencies(TheLib BuildTheLib) # So that anyone linking against TheLib causes BuildTheLib to build first
+#
+#target_link_libraries(MY_TARGET PRIVATE TheLib)

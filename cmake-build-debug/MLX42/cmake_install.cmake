@@ -1,4 +1,4 @@
-# Install script for directory: /home/lpraca-l/Documents/Cub3D/MLX42
+# Install script for directory: /sam/Codam/cub3d/MLX42
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -51,10 +51,10 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/local/include" TYPE DIRECTORY FILES "/home/lpraca-l/Documents/Cub3D/MLX42/./include/MLX42" FILES_MATCHING REGEX "/MLX42\\.h$")
+  file(INSTALL DESTINATION "/usr/local/include" TYPE DIRECTORY FILES "/sam/Codam/cub3d/MLX42/./include/MLX42" FILES_MATCHING REGEX "/MLX42\\.h$")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/lpraca-l/Documents/Cub3D/cmake-build-debug/MLX42/libmlx42.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/sam/Codam/cub3d/cmake-build-debug/MLX42/libmlx42.a")
 endif()
 

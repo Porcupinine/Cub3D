@@ -1,58 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   parsing.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: laura <laura@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/01/18 13:48:52 by laura         #+#    #+#                 */
+/*   Updated: 2024/01/18 13:48:52 by laura         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/parsing.h"
+#include "../../includes/utils.h"
 #include "../../lib42/include/libft.h"
 #include "../../lib42/include/get_next_line.h"
 #include <fcntl.h>
-
-char *get_path (char* str)
-{
-	int count;
-	int start;
-	char *sub;
-
-	count = 0;
-	start = 0;
-	while (str[count] != '\0')
-	{
-		if (str[count] == '.' && str[count + 1] == '/')
-		{
-			start = count;
-			while(ft_isalpha(str[count]) != 0)
-				count++;
-			sub = ft_substr(str, start, count - start);
-		}
-		if (str[count] != ' ')
-			return (NULL);
-		count++;
-	}
-	return(sub);
-}
-
-int search_textures(int fd, t_parse_data *cub_data)
-{
-	char *line;
-	line = get_next_line(fd);
-	if (ft_strnstr(line, "NO", ft_strlen(line)) != 0)
-	{
-		if(get_path(line) != NULL)
-			cub_data->
-		//check if valid path
-	}
-	if (ft_strnstr(line, "SO", ft_strlen(line)) != 0)
-	{
-
-		//check if valid path
-	}
-	if (ft_strnstr(line, "WE", ft_strlen(line)) != 0)
-	{
-
-		//check if valid path
-	}
-	if (ft_strnstr(line, "EA", ft_strlen(line)) != 0)
-	{
-
-		//check if valid path
-	}
-}
 
 static void	check_extension(char *str)
 {
@@ -63,6 +25,29 @@ static void	check_extension(char *str)
 		ft_error("Error\nNo extension\n");
 	if (ft_memcmp(ext, ".cub", 5))
 		ft_error("Error\nWrong extension\n");
+}
+
+int parse_data(int fd, t_parse_data *cub_data)
+{
+	char *line;
+
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
+		if (ft_strnstr(line, "NO ", ft_strlen(line)) != 0 ||
+		ft_strnstr(line, "SO ", ft_strlen(line)) != 0 ||
+		ft_strnstr(line, "WE ", ft_strlen(line)) != 0 ||
+		ft_strnstr(line, "EA ", ft_strlen(line)) != 0)
+			get_textures(line, cub_data);
+		else if (ft_strnstr(line, "F ", ft_strlen(line)) != 0 ||
+		ft_strnstr(line, "C ", ft_strlen(line)) != 0)
+			get_fc(line, cub_data);
+		else if (test_isspace(line) == 1)
+			;
+		else if(first_map_line(line) == 1)
+			get_map(fd, cub_data);
+		line = get_next_line(fd);
+	}
 }
 
 t_parse_data *get_data(char *file)
@@ -78,6 +63,6 @@ t_parse_data *get_data(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		ft_error("Fail to read file\n");
-	search_textures(fd, cub_data);
+	parse_data(fd, cub_data);
 	return (cub_data);
 }

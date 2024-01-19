@@ -41,6 +41,7 @@ behavior if you want to.
 
 #include <unistd.h>
 #include "get_next_line.h"
+#include "../include/libft.h"
 
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 10
@@ -68,12 +69,12 @@ static int	get_line(char *buff, char **lines, long buff_len, long *len)
 	if (*lines == NULL)
 	{
 		if (*len == buff_len)
-			(*lines) = ft_strlcpy(buff + start, line_size);
+			(*lines) = ft_strlcpy_gnl(buff + start, line_size);
 		else if (buff[*len] == '\n' || buff[*len] == '\0')
 		{
 			if (buff[*len] == '\n')
 				line_size++;
-			(*lines) = ft_strlcpy(buff + start, line_size);
+			(*lines) = ft_strlcpy_gnl(buff + start, line_size);
 			(*len)++;
 			return (2);
 		}
@@ -83,14 +84,14 @@ static int	get_line(char *buff, char **lines, long buff_len, long *len)
 		temp = *lines;
 		if (*len == buff_len )
 		{
-			(*lines) = ft_strjoin((*lines), &(buff[start]), line_size);
+			(*lines) = ft_strjoin_gnl((*lines), &(buff[start]), line_size);
 			free(temp);
 		}
 		else if (buff[*len] == '\n' || buff[*len] == '\0')
 		{
 			if (buff[*len] == '\n')
 				line_size++;
-			(*lines) = ft_strjoin((*lines), &(buff[start]), line_size);
+			(*lines) = ft_strjoin_gnl((*lines), &(buff[start]), line_size);
 			(*len)++;
 			free(temp);
 			return (2);
