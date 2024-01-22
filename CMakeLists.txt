@@ -20,7 +20,8 @@ SET(SOURCES
 
 add_executable(cub3d main.c ${SOURCES}
 		src/utils/all_digits.c
-		src/utils/remove_new_line.c)
+		src/utils/remove_new_line.c
+		src/utils/rgba.c)
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
 target_link_libraries(cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42)
 

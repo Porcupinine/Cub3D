@@ -19,7 +19,7 @@ int	first_map_line(char*str)
 	count = 0;
 	while (str[count] != '\0')
 	{
-		if (ft_strchr(" 1", str[count]) == 0)
+		if (ft_strchr(" 1\n0", str[count]) == 0)
 			return (0);
 		count++;
 	}

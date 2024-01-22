@@ -23,4 +23,6 @@ int main (int argc, char **argv) {
 	t_parse_data *cub_data;
 	cub_data = get_data(argv[1]);
 	print_paths(cub_data);
+	print_colors(cub_data);
+	print_map(cub_data);
 }

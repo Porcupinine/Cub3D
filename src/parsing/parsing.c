@@ -27,27 +27,32 @@ static void	check_extension(char *str)
 		ft_error("Error\nWrong extension\n");
 }
 
-int parse_data(int fd, t_parse_data *cub_data)
+int parse_data(int fd, char *file, t_parse_data *cub_data)
 {
 	char *line;
 
-	line = get_next_line(fd);
-	while (line != NULL)
+	while ((line = get_next_line(fd)))
 	{
-		if (ft_strnstr(line, "NO ", ft_strlen(line)) != 0 ||
+		if(first_map_line(line) == 1 && test_isspace(line) != 1)
+		{
+			close(fd);
+			get_map(file, cub_data);
+			break;
+		}
+		else if (ft_strnstr(line, "NO ", ft_strlen(line)) != 0 ||
 		ft_strnstr(line, "SO ", ft_strlen(line)) != 0 ||
 		ft_strnstr(line, "WE ", ft_strlen(line)) != 0 ||
 		ft_strnstr(line, "EA ", ft_strlen(line)) != 0)
-			get_textures(line, cub_data);
+			if (get_textures(line, cub_data) == 1)
+				return (1);
 		else if (ft_strnstr(line, "F ", ft_strlen(line)) != 0 ||
 		ft_strnstr(line, "C ", ft_strlen(line)) != 0)
-			get_fc(line, cub_data);
+			if(get_fc(line, cub_data) == 1)
+				return (1);
 		else if (test_isspace(line) == 1)
 			;
-		else if(first_map_line(line) == 1)
-			get_map(fd, cub_data);
-		line = get_next_line(fd);
 	}
+	return (0);
 }
 
 t_parse_data *get_data(char *file)
@@ -63,6 +68,6 @@ t_parse_data *get_data(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		ft_error("Fail to read file\n");
-	parse_data(fd, cub_data);
+	parse_data(fd, file, cub_data);
 	return (cub_data);
 }
