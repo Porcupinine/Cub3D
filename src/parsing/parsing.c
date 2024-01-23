@@ -53,8 +53,10 @@ int parse_data(int fd, char *file, t_map_data *cub_data)
 			if(get_fc(line, cub_data) == 1)
 				return (1);
 		}
-//		else if (test_isspace(line) == 1)
-//			;
+		else if (test_isspace(line) == 1)
+			continue ;
+		else
+			ft_error("Ivalid data\n");
 	}
 	return (0);
 }
