@@ -16,10 +16,10 @@
 
 static void check_around(char **map, int x, int y, char *str)
 {
-	if(ft_strrchr(str, map[x][y - 1]) == 0 && \
-	ft_strrchr(str, map[x][y + 1]) == 0 && \
-	ft_strrchr(str, map[x - 1][y]) == 0 && \
-	ft_strrchr(str, map[x + 1][y]) == 0)
+	if(ft_strchr(str, map[x][y - 1]) == 0 || \
+	ft_strchr(str, map[x][y + 1]) == 0 || \
+	ft_strchr(str, map[x - 1][y]) == 0 || \
+	ft_strchr(str, map[x + 1][y]) == 0)
 		ft_error("Invalid map\n");
 }
 

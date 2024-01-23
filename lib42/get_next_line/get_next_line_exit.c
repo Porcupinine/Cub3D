@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.c                                    :+:    :+:            */
+/*   get_next_line_exit.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lpraca-l <lpraca-l@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/04 19:17:01 by lpraca-l      #+#    #+#                 */
-/*   Updated: 2023/05/30 12:25:03 by lpraca-l      ########   odam.nl         */
+/*   Updated: 2024/01/23 12:00:16 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,7 @@ char	*get_next_line_exit(int fd)
 	static long		len = 0;
 	static long		buff_len = 0;
 	long			ret;
+	ret = 0;
 
 	lines = NULL;
 	while (1)
