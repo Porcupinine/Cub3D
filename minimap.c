@@ -1,47 +1,11 @@
 #include "cub3d.h"
 
-
-//just colored wall
-
-// void draw_map_colored(t_cub *data)
-// {
-// 	int x = 0;
-// 	int y = 0;
-// 	int count_x = 0;
-// 	int count_y = 0;
-
-// 	while (y < data->height)
-// 	{
-// 		while (x < data->width)
-// 		{
-// 			if (data->matrix[y][x] == 30)
-// 			{
-// 				int count_x = 0;
-// 				int count_y = 0;
-// 				while (count_y < data->scale_map)
-// 				{
-// 					while (count_x < data->scale_map)
-// 					{
-// 						mlx_put_pixel(data->img2, x * data->scale_map + count_x, y * data->scale_map + count_y, COLOR_BLUE); // Fix: Corrected placement
-// 						count_x++;
-// 					}
-// 					count_x = 0;
-// 					count_y++;
-// 				}
-// 			}
-// 			x++;
-// 		}
-// 		x = 0;
-// 		y++;
-// 	}
-// }
 void	draw_wall(t_cub *data, mlx_t *mlx, int x, int y)
 {
 	mlx_texture_t	*texture_wall;
-	mlx_texture_t	*player;
 	mlx_image_t		*img_wall;
 
-	texture_wall = mlx_load_png("wall.png");
+	texture_wall = mlx_load_png("wood.png");
 	if (!texture_wall)
 		perror("ERR");
 	img_wall = mlx_texture_to_image(mlx, texture_wall);
@@ -51,52 +15,46 @@ void	draw_wall(t_cub *data, mlx_t *mlx, int x, int y)
 		perror("ERR");
 }
 
-void draw_direction(t_cub *data) //check for us
+void draw_direction(t_cub *data)
 {
-
-    double dx = fabs(data->dirX  - data->posX);
-    double dy = fabs(data->dirY - data->posY);
-    double x = data->posX;
-    double y = data->posY;
-    int n = 30;
-    double x_inc = (data->dirX > data->posX) ? 1 : -1;
-    double y_inc = (data->dirY > data->posY) ? 1 : -1;
-    double error = dx - dy;
-    dx *= 2;
-    dy *= 2;
-
-    for (; n > 0; --n)
+	double x = data->posX;
+	double y = data->posY;
+    int n = (fm(data->dirX) + fm(data->dirY)) * 50;
+    double error = fm(data->dirX) - fm(data->dirY);
+    while (n > 0)
     {
-        mlx_put_pixel(data->img2, (int)data->posX * data->scale_map + x, (int)data->posY * data->scale_map + y, COLOR_RED);
-        if (error > 0)
+		if (((int)data->posX * data->scale_map + x) < 0 || ((int)data->posX * data->scale_map + x) > data->width * data->scale_map
+			|| ((int)data->posY * data->scale_map + y) < 0 || ((int)data->posY * data->scale_map + y) > data->height * data->scale_map)
+			break;
+        mlx_put_pixel(data->img2, data->posX * data->scale_map + x, data->posY * data->scale_map + y, COLOR_RED);
+	    if (error > 0)
         {
-            x += x_inc;
-            error -= dy;
+            x += data->dirX;
+            error -= fm(data->dirY);
         }
         else
         {
-            y += y_inc;
-            error += dx;
+            y += data->dirY;
+            error += fm(data->dirX);
         }
+		n--;
     }
 }
 
+
 void draw_player(t_cub *data)
 {
-	int x = 0;
-	int y = 0;
-	int mapX = (int)data->posX;
-	int mapY = (int)data->posY;
-	while(y < data->scale_map)
-	{
-		while(x < data->scale_map)
-		{
-			mlx_put_pixel(data->img2, mapX * data->scale_map + x, mapY * data->scale_map + y, COLOR_RED); // Fix: Corrected placement
-			x++;
-		}
-		x = 0;
-		y++;
-	}
+	mlx_texture_t	*player;
+
+	player = mlx_load_png("play.png");
+	if (!player)
+		perror("ERR");
+	data->img_player = mlx_texture_to_image(data->mlx, player);
+	if (!data->img_player)
+		perror("ERR");
+	mlx_resize_image(data->img_player, 10, 10);
+	if (mlx_image_to_window(data->mlx, data->img_player, data->posX * data->scale_map, data->posY * data->scale_map) < 0)
+		perror("ERR");
 	draw_direction(data);
 
 }
@@ -122,22 +80,22 @@ void draw_map(t_cub *data)
 }
 
 
-void minimap_background(t_cub *data)
+void minimap_background(t_cub *data) //Need to make decisions about scale
 {
 	int x;
 	int y;
-	int scale;
+	//int scale;
 
 	x = 0;
 	y = 0;
-	data->scale_map = (data->width < data->height) ? WIDTH /data->width / 6 : HEIGHT / data->height / 6 ;
-	printf("Scale %d width %d height %d\n", data->scale_map, data->width, data->height);
-
-	while (y < data->height * data->scale_map)
+	//data->scale_map = (data->width < data->height) ? WIDTH /data->width / 6 : HEIGHT / data->height / 6 ;
+	//printf("Scale %d width %d height %d\n", data->scale_map, data->width, data->height);
+	data->scale_map = 30;
+	while (y <= (data->height * data->scale_map))
 	{
-		while (x < data->width * data->scale_map)
+		while (x < ((data->width -1)* data->scale_map))
 		{
-			mlx_put_pixel(data->img2, x, y, COLOR_BLUE); // Fix: Added y * scale
+			mlx_put_pixel(data->img2, x, y, COLOR_BLUE);
 			x++;
 		}
 		x = 0;
