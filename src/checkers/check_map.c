@@ -73,4 +73,6 @@ void check_map(t_data *cub_data)
 		}
 		x++;
 	}
+	if (cub_data->player == NULL)
+		ft_error("Invalid map!\n");
 }

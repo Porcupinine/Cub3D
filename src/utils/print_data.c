@@ -28,6 +28,7 @@ void print_colors(t_map_data *cub_data)
 	get_g(cub_data->floor), get_b(cub_data->floor), get_r(cub_data->celling), \
 	get_g(cub_data->celling), get_b(cub_data->celling));
 }
+
 void	print_map(t_map_data *cub_data)
 {
 	int	y;

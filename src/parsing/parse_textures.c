@@ -56,6 +56,13 @@ static int check_rgba(char **rgba_char)
 	{
 		if(all_digits(rgba_char[count]) == 0)
 			ft_error("Invalid data\n");
+		if(ft_strlen(rgba_char[count]) == 3 && ft_strncmp(rgba_char[count],"255", 3) > 0)
+		{
+			printf("nb: %s\n", rgba_char[count]);
+			ft_error("Invalid data > 255\n");
+		}
+		if(ft_strncmp(rgba_char[count], "0", 1) < 0)
+			ft_error("Invalid data < 0\n");
 		count++;
 	}
 	return(0);
@@ -69,6 +76,7 @@ static int get_color ( char *str)
 
 	count = 0;
 	rgba = 0;
+	rgba_char = NULL;
 	str[ft_strlen(str) - 1] = '\0';
 	while (str[count] != '\0')
 	{
@@ -128,3 +136,4 @@ int get_fc(char *line, t_map_data *cub_data)
 	}
 	return (0);
 }
+

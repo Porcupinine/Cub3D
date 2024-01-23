@@ -73,7 +73,6 @@ static int	string_malloc_fail(char **arr, int count_arr)
 
 char	**ft_split(char const *s, char c)
 {
-	printf("str: %s\n", s);
 	int		words;
 	char	**arr;
 	int		count_str;
@@ -82,7 +81,6 @@ char	**ft_split(char const *s, char c)
 	count_str = 0;
 	count_arr = 0;
 	words = count_words(s, c);
-	printf("str: %s\n", s);
 	arr = ft_calloc((words + 1), sizeof(char *));
 	if (arr == NULL)
 		return (NULL);
