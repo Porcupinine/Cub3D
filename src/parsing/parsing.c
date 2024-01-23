@@ -27,7 +27,7 @@ static void	check_extension(char *str)
 		ft_error("Error\nWrong extension\n");
 }
 
-int parse_data(int fd, char *file, t_parse_data *cub_data)
+int parse_data(int fd, char *file, t_map_data *cub_data)
 {
 	char *line;
 
@@ -43,25 +43,30 @@ int parse_data(int fd, char *file, t_parse_data *cub_data)
 		ft_strnstr(line, "SO ", ft_strlen(line)) != 0 ||
 		ft_strnstr(line, "WE ", ft_strlen(line)) != 0 ||
 		ft_strnstr(line, "EA ", ft_strlen(line)) != 0)
+		{
 			if (get_textures(line, cub_data) == 1)
 				return (1);
+		}
 		else if (ft_strnstr(line, "F ", ft_strlen(line)) != 0 ||
 		ft_strnstr(line, "C ", ft_strlen(line)) != 0)
+		{
 			if(get_fc(line, cub_data) == 1)
 				return (1);
-		else if (test_isspace(line) == 1)
-			;
+		}
+//		else if (test_isspace(line) == 1)
+//			;
 	}
 	return (0);
 }
+//TODO check for lines with trash
 
-t_parse_data *get_data(char *file)
+t_map_data *get_data(char *file)
 {
 	int fd;
 	void *cub_data;
 
 	fd = 0;
-	cub_data = ft_calloc(1, sizeof(t_parse_data));
+	cub_data = ft_calloc(1, sizeof(t_map_data));
 	if (cub_data == NULL)
 		ft_error("Malloc fail\n");
 	check_extension(file);

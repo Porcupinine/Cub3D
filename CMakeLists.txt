@@ -3,6 +3,7 @@ project(Cub3D)
 
 set(CMAKE_C_STANDARD 90)
 
+add_compile_options(-Wall -Wextra -Werror)
 #add_compile_options(-fsanitize=address -fsanitize=leak)
 #add_link_options(-fsanitize=address -fsanitize=leak)
 add_subdirectory(${CMAKE_SOURCE_DIR}/MLX42)
@@ -21,7 +22,11 @@ SET(SOURCES
 add_executable(cub3d main.c ${SOURCES}
 		src/utils/all_digits.c
 		src/utils/remove_new_line.c
-		src/utils/rgba.c)
+		src/utils/rgba.c
+		src/checkers/check_paths.c
+		src/checkers/check_map.c
+		includes/structs.h
+		includes/checks.h)
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
 target_link_libraries(cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42)
 

@@ -15,20 +15,20 @@
 #include "../../includes/utils.h"
 #include <stdio.h>
 
-void print_paths(t_parse_data *cub_data)
+void print_paths(t_map_data *cub_data)
 {
 	printf("NO: %s\nSO: %s\nWE: %s\nEA: %s\nF: %d\nC: %d\n", \
 	cub_data->no_path, cub_data->ea_path, cub_data->we_path, \
 	cub_data->ea_path, cub_data->floor, cub_data->celling);
 }
 
-void print_colors(t_parse_data *cub_data)
+void print_colors(t_map_data *cub_data)
 {
 	printf("F: %d.%d,%d\nC: %d,%d,%d\n", get_r(cub_data->floor), \
 	get_g(cub_data->floor), get_b(cub_data->floor), get_r(cub_data->celling), \
 	get_g(cub_data->celling), get_b(cub_data->celling));
 }
-void	print_map(t_parse_data *cub_data)
+void	print_map(t_map_data *cub_data)
 {
 	int	y;
 

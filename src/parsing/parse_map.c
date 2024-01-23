@@ -43,7 +43,7 @@ static int	map_y_size(char *file)
 	return (count);
 }
 
-static void copy_map(char *file, t_parse_data *cub_data)
+static void copy_map(char *file, t_map_data *cub_data)
 {
 	int		count;
 	char	*line;
@@ -68,13 +68,10 @@ static void copy_map(char *file, t_parse_data *cub_data)
 	}
 }
 
-void get_map(char *file, t_parse_data *cub_data)
+void get_map(char *file, t_map_data *cub_data)
 {
 	int		fd;
-	int		count;
-	char	*line;
 
-	count = 0;
 	cub_data->map_y = map_y_size(file);
 	cub_data->map = malloc(cub_data->map_y* sizeof(char *));
 	if (cub_data->map == NULL)

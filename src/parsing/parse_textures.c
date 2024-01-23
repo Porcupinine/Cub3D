@@ -86,7 +86,7 @@ static int get_color ( char *str)
 	return (rgba);
 }
 
-int get_textures(char* line, t_parse_data *cub_data)
+int get_textures(char* line, t_map_data *cub_data)
 {
 	if (ft_strnstr(line, "NO", ft_strlen(line)) != 0) {
 		if (cub_data->no_path != NULL)
@@ -112,17 +112,17 @@ int get_textures(char* line, t_parse_data *cub_data)
 	return (0);
 }
 
-int get_fc(char *line, t_parse_data *cub_data)
+int get_fc(char *line, t_map_data *cub_data)
 {
 	if (ft_strnstr(line, "F ", ft_strlen(line)) != 0)
 	{
-		if (cub_data->floor != NULL) //how do I test if it already exists??
+		if (cub_data->floor != 0) //how do I test if it already exists??
 			return (1);
 		cub_data->floor = get_color(line);
 	}
 	if (ft_strnstr(line, "C ", ft_strlen(line)) != 0)
 	{
-		if (cub_data->celling != NULL)
+		if (cub_data->celling != 0)
 			return (1);
 		cub_data->celling = get_color(line);
 	}
