@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   parse_map.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: laura <laura@student.codam.nl>               +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/01/18 13:50:46 by laura         #+#    #+#                 */
-/*   Updated: 2024/01/18 13:50:46 by laura         ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   parse_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/18 13:50:46 by laura             #+#    #+#             */
+/*   Updated: 2024/01/25 16:46:55 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,21 @@
 #include "../../lib42/include/libft.h"
 #include "../../lib42/include/get_next_line.h"
 #include <fcntl.h>
+
+static void map_x_size(t_map_data *cub_data) 
+{
+    int y;
+    int len;
+
+    y = 0;
+    len = 0;
+    while(cub_data->map_y > y) {
+       if ((int)ft_strlen(cub_data->map[y]) > len)
+          len = (int)ft_strlen(cub_data->map[y]);
+       y++;
+    }
+    cub_data->map_x = len;
+}
 
 static int	map_y_size(char *file)
 {
@@ -81,4 +96,5 @@ void get_map(char *file, t_map_data *cub_data)
 		ft_error("Fail to read file\n");
 	copy_map(file, cub_data);
 	close(fd);
+	map_x_size(cub_data);
 }

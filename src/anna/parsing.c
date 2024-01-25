@@ -40,7 +40,7 @@ char	*ft_strdup(const char *s)
 	return (ptr);
 }
 
-int	*map_to_int(t_cub *data, char *str)
+int	*map_to_int(t_data *cub_data, char *str)
 {
 	int		i;
 	int		*res;
@@ -58,7 +58,7 @@ int	*map_to_int(t_cub *data, char *str)
 	return (res);
 }
 
-int	read_map(char *file, t_cub *data)
+int	read_map(char *file, t_data *cub_data)
 {
 	int		i;
 	int		fd;

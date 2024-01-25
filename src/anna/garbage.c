@@ -1,4 +1,4 @@
-// void draw_direction(t_cub *data) //check for us
+// void draw_direction(t_data *cub_data) //check for us
 // {
 
 //     double x_end = data->posX + data->dirX;
@@ -32,7 +32,7 @@
 
 //just colored wall
 
-// void draw_map_colored(t_cub *data)
+// void draw_map_colored(t_data *cub_data)
 // {
 // 	int x = 0;
 // 	int y = 0;
@@ -109,7 +109,7 @@
 
 
 
-// void testing(t_cub *data)
+// void testing(t_data *cub_data)
 // {
 // 	// double planeX = 0, planeY = 0.66; // the 2d raycaster version of camera plane
 // 	//printf("pos x %f pos y %f, dir x, y %f %f\n", data->posX, data->posY, data->dirX, data->dirY);

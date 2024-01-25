@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   get_next_line.c                                    :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lpraca-l <lpraca-l@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/04 19:17:01 by lpraca-l      #+#    #+#                 */
-/*   Updated: 2023/07/20 11:42:18 by laura         ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/04 19:17:01 by lpraca-l          #+#    #+#             */
+/*   Updated: 2024/01/25 15:35:52 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ behavior if you want to.
 */
 
 #include <unistd.h>
-#include "get_next_line.h"
+#include "../include/get_next_line.h"
 #include "../include/libft.h"
 
 #ifndef BUFFER_SIZE

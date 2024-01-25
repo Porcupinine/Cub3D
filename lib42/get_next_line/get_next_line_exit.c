@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   get_next_line_exit.c                               :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lpraca-l <lpraca-l@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/04 19:17:01 by lpraca-l      #+#    #+#                 */
-/*   Updated: 2024/01/23 12:00:16 by laura         ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_exit.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/04 19:17:01 by lpraca-l          #+#    #+#             */
+/*   Updated: 2024/01/25 15:35:42 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ behavior if you want to.
 */
 
 #include <unistd.h>
-#include "get_next_line.h"
+#include "../include/get_next_line.h"
 
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 10

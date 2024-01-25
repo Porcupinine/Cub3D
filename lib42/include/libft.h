@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   libft.h                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lpraca-l <lplacerdadesign@gmail.com>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/09 19:47:08 by lpraca-l      #+#    #+#                 */
-/*   Updated: 2023/05/23 15:14:27 by lpraca-l      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/09 19:47:08 by lpraca-l          #+#    #+#             */
+/*   Updated: 2024/01/25 16:57:16 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -368,4 +368,5 @@ void	ft_error(char *error);
  * @return new string
  */
 char	*append_char(char const *s1, char const c);
+
 #endif
