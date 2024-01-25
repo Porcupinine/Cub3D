@@ -9,7 +9,6 @@ LFT = $(LFT_DIR)/$(LFT_NAME)
 HEADERS	:= -I ./includes -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRCS =	hooks.c \
-		src/calculations/positive_double.c \
 		main.c \
 		src/parsing/parsing.c \
 		src/parsing/parse_textures.c \
@@ -21,6 +20,7 @@ SRCS =	hooks.c \
 		src/utils/remove_new_line.c \
 		src/utils/rgba.c \
 		src/checkers/check_map.c \
+		src/calculations/positive_double.c \
 		lib42/get_next_line/get_next_line.c \
 		lib42/get_next_line/get_next_line_utils.c \
 		lib42/get_next_line/get_next_line_exit.c \

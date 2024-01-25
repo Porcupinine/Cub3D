@@ -7,8 +7,6 @@
 # include <fcntl.h>
 # include <math.h>
 # include <errno.h>
-# include "../MLX42/include/MLX42/MLX42.h"
-# include "../libs/libft/libft.h"
 # include "structs.h"
 # define BUFFER_SIZE 1
 # define WIDTH 600

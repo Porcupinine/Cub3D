@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:05:45 by laura             #+#    #+#             */
-/*   Updated: 2024/01/25 16:54:23 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:09:31 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int main (int argc, char **argv)
 		return (1);
 	}
 	t_data *cub_data;
-	cub_data->scale_map = 50; //temp
-	cub_data->map_data->map_x = 50; //temp
 	cub_data = ft_calloc(1, sizeof (t_data));
 	if (cub_data == NULL)
 		ft_error("Malloc fail\n");
+	cub_data->scale_map = 50; //temp
+	cub_data->map_data->map_x = 50; //temp
 	cub_data->map_data = get_data(argv[1]);
 	// print_colors(cub_data->map_data);
 	// print_map(cub_data->map_data);

@@ -12,7 +12,7 @@ ASANFLAGS += -fsanitize=address -fsanitize=leak
 HEADERS	:= -I ./include
 
 #------------------------------------------------------------------------Source
-SRC     := libft/ft_error.c libft/ft_atoi.c libft/ft_bzero.c \
+SRC     := libft/ft_atoi.c libft/ft_error.c libft/ft_bzero.c \
 libft/ft_calloc.c libft/ft_isalnum.c libft/ft_isalpha.c \
 libft/ft_isascii.c libft/ft_isdigit.c libft/ft_isprint.c \
 libft/ft_itoa.c libft/ft_memcmp.c libft/ft_memcpy.c \

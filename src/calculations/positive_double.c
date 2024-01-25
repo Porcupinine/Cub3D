@@ -1,5 +1,5 @@
-#include "../includes/cub3d.h"
-#include "../includes/parsing.h"
+#include "../../includes/cub3d.h"
+#include "../../includes/parsing.h"
 
 
 double fm(double a)
