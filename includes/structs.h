@@ -24,6 +24,7 @@ typedef struct s_map_data {
 	int 				celling;
 	char				**map;
 	int					map_y;
+	int					map_x;
 }t_map_data;
 
 typedef struct s_player {
