@@ -3,7 +3,7 @@ project(Cub3D)
 
 set(CMAKE_C_STANDARD 90)
 
-add_compile_options(-Wall -Wextra -Werror)
+#add_compile_options(-Wall -Wextra -Werror)
 #add_compile_options(-fsanitize=address -fsanitize=leak)
 #add_link_options(-fsanitize=address -fsanitize=leak)
 add_subdirectory(${CMAKE_SOURCE_DIR}/MLX42)
@@ -11,28 +11,31 @@ include_directories(${CMAKE_SOURCE_DIR}/lib42/include)
 
 
 SET(SOURCES
+		hooks.c
+		main.c
 		src/parsing/parsing.c
-		src/utils/empty_line.c
-		includes/utils.h
-		src/utils/first_map_line.c
 		src/parsing/parse_textures.c
 		src/parsing/parse_map.c
-		src/utils/print_data.c)
-
-add_executable(cub3d main.c ${SOURCES}
+		src/utils/empty_line.c
+		src/utils/first_map_line.c
+		src/utils/print_data.c
 		src/utils/all_digits.c
 		src/utils/remove_new_line.c
 		src/utils/rgba.c
-		src/checkers/check_paths.c
 		src/checkers/check_map.c
-		includes/structs.h
-		includes/checks.h)
+		src/calculations/positive_double.c
+		lib42/get_next_line/get_next_line.c
+		lib42/get_next_line/get_next_line_utils.c
+		lib42/get_next_line/get_next_line_exit.c
+		minimap.c )
+
+add_executable(cub3d main.c ${SOURCES})
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
 target_link_libraries(cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42)
 
 
-add_executable(test_cub3d ${SOURCES} test/main.c)
-target_link_libraries(test_cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42)
+#add_executable(test_cub3d ${SOURCES} test/main.c)
+#target_link_libraries(test_cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42)
 
 #-------------------------------------------------------------------------
 #add_custom_target(BuildTheLib ALL

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   check_map.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: laura <laura@student.codam.nl>               +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/01/22 09:59:25 by laura         #+#    #+#                 */
-/*   Updated: 2024/01/22 09:59:25 by laura         ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   check_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/22 09:59:25 by laura             #+#    #+#             */
+/*   Updated: 2024/01/25 16:17:38 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,29 @@ static void check_topbot(char **map, int x) {
 		y++;
 	}
 }
+void	find_direction(t_data *cub_data, char dir)
+{
+	if (dir == 'N' || dir == 'S')
+		cub_data->player->dirX = 0;
+	if (dir == 'E' || dir == 'W')
+		cub_data->player->dirY  = 0;
+	if (dir == 'E')
+		cub_data->player->dirX  = 1;
+	if (dir == 'W')
+		cub_data->player->dirX = -1;
+	if (dir == 'N')
+		cub_data->player->dirY = -1;
+	if (dir == 'S')
+		cub_data->player->dirY = 1;
+	// data->plane_X = 0;
+	// data->plane_Y = 0.66; //angle FOV
+	// data->angle = atan2(data->dirY, data->dirX);
+	// if (data->angle < 0)
+	// 	data->angle += (2 * PI);
+	// if (data->angle > (2 * PI))
+	// 	data->angle -= (2 * PI);
+	// printf("ANGLE %f and dir %f %f for %d\n", data->angle, data->dirX, data->dirY, data->matrix[y][x]);
+}
 
 static void found_player(t_data *cub_data, int x, int y)
 {
@@ -48,9 +71,10 @@ static void found_player(t_data *cub_data, int x, int y)
 	cub_data->player = ft_calloc(1, sizeof (t_player));
 	if (cub_data->player == NULL)
 		ft_error("Malloc fail\n");
-	cub_data->player->x = x;
-	cub_data->player->y = y;
+	cub_data->player->posX = (double)x;
+	cub_data->player->posY = (double)y;
 	cub_data->player->orientation = cub_data->map_data->map[x][y];
+	find_direction(cub_data, cub_data->map_data->map[x][y]);
 }
 
 void check_map(t_data *cub_data)
