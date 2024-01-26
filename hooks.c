@@ -1,5 +1,6 @@
 #include "includes/cub3d.h"
 #include "includes/parsing.h"
+#include <stdio.h>
 
 void	delete_images(t_data *data)
 {

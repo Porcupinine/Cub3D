@@ -6,13 +6,13 @@
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/19 17:46:34 by laura         #+#    #+#                 */
-/*   Updated: 2024/01/19 17:46:34 by laura         ########   odam.nl         */
+/*   Updated: 2024/01/26 11:47:24 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib42/include/libft.h"
 
-void remove_new_line(char *str)
+void	remove_new_line(char *str)
 {
 	str[ft_strlen(str)] = '\0';
 }
