@@ -41,7 +41,7 @@ static int	check_floor_celing(const char *line)
 			ft_strnstr(line, "C ", ft_strlen(line)) != 0);
 }
 
-int	parse_data(int fd, char *file, t_map_data *cub_data)
+static int	parse_data(int fd, char *file, t_map_data *cub_data)
 {
 	char	*line;
 

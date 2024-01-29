@@ -27,7 +27,8 @@ SET(SOURCES
 		lib42/get_next_line/get_next_line.c
 		lib42/get_next_line/get_next_line_utils.c
 		lib42/get_next_line/get_next_line_exit.c
-		minimap.c )
+		minimap.c
+		src/checkers/check_data.c)
 
 add_executable(cub3d main.c ${SOURCES})
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
