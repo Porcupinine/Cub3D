@@ -7,10 +7,11 @@
 # include <fcntl.h>
 # include <math.h>
 # include <errno.h>
+#include <stdio.h>
 # include "structs.h"
 # define BUFFER_SIZE 1
-# define WIDTH 600
-# define HEIGHT 600
+# define WIDTH 1200
+# define HEIGHT 1200
 # define PI 3.1415
 # define RA 1.047
 # define COLOR_AMMO 0xeda705
@@ -50,9 +51,9 @@
 // char	*ft_strjoin_gnl(char *s1, char *s2);
 // int		ft_strchr_gnl(char *s, char c);
 void	let_s_move(mlx_key_data_t keydata, t_data *data);
-//void	testing(t_data *data);
-void minimap_background(t_data *data);
-double fm(double a);
-
+void	testing(t_data *data);
+void	minimap_background(t_data *data);
+double	fm(double a);
+void draw_env(t_data *data);
 
 #endif

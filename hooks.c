@@ -1,14 +1,18 @@
 #include "includes/cub3d.h"
 #include "includes/parsing.h"
+#include <stdio.h>
 
 void	delete_images(t_data *data)
 {
 	mlx_delete_image(data->mlx, data->img);
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	mlx_image_to_window(data->mlx, data->img, 0, 0);
+	draw_env(data);
 	testing(data);
 	mlx_delete_image(data->mlx, data->img_player);
 	minimap_background(data);
+
+
 }
 
 int wall_check(t_data *data, double y_end, double x_end)
@@ -17,8 +21,8 @@ int wall_check(t_data *data, double y_end, double x_end)
 	int	y;
 	x = (int)x_end;
 	y = (int)y_end;
-	printf("WALL CHECK W POS: %d, %d, matrix %d\n", x, y, data->map_data->map[y][x]);
-	if (data->map_data->map[y][x] == 1)
+	printf("WALL CHECK W POS: %d, %d, matrix %c\n", x, y, data->map_data->map[y][x]);
+	if (data->map_data->map[y][x] == '1')
 	{
 		//add calculation to be closer to wall	
 		return (-1);
@@ -74,6 +78,7 @@ void let_s_move(mlx_key_data_t keydata, t_data *data)
 			data->angle += (2 * PI);
 		data->player->dirX = cos(data->angle);
 		data->player->dirY = sin(data->angle);
+		
 		delete_images(data);
 	}
 	if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
@@ -85,6 +90,7 @@ void let_s_move(mlx_key_data_t keydata, t_data *data)
 		data->player->dirY = sin(data->angle);
 		delete_images(data);
 	}
+	// draw_direction(data);
 	// if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	// {
 	// 	mlx_close_window(data->mlx);

@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 12:25:14 by laura             #+#    #+#             */
-/*   Updated: 2024/01/25 16:24:00 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:07:14 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,18 @@ typedef struct s_player
 	double	posY;
 	double	dirX;
 	double	dirY;
+	mlx_texture_t	*player_png;
 } t_player;
 
 typedef struct s_data
 {
 	t_map_data	*map_data;
-	mlx_t		*mlx;
 	t_player	*player;
+	mlx_t		*mlx;
 	mlx_image_t	*img;
-	double		angle;
 	mlx_image_t	*img2; //minimap background
 	mlx_image_t		*img_player;
+	double		angle;
 	int scale_map; //temporarily
 } t_data;
 

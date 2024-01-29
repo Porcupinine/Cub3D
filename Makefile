@@ -1,5 +1,5 @@
 NAME	:= cub3d
-CFLAGS	:= #-Wextra -Wall -Werror 
+CFLAGS	:= #-Wextra -Wall -Werror -fsanitize=address
 LIBMLX	:= ./MLX42
 LIBS_NAME	:= $(LIBMLX)/build/libmlx42.a 
 LFT_NAME = libft.a
