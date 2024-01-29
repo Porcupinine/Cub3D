@@ -17,9 +17,9 @@
 
 void	print_paths(t_map_data *cub_data)
 {
-	printf("NO: %s\nSO: %s\nWE: %s\nEA: %s\nF: %d\nC: %d\n", \
+	printf("NO: %s\nSO: %s\nWE: %s\nEA: %s\n", \
 	cub_data->no_path, cub_data->ea_path, cub_data->we_path, \
-	cub_data->ea_path, cub_data->floor, cub_data->celling);
+	cub_data->ea_path);
 }
 
 void	print_colors(t_map_data *cub_data)

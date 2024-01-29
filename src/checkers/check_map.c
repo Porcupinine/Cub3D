@@ -20,7 +20,7 @@ static void	check_around(char **map, int x, int y, char *str)
 	ft_strchr(str, map[x][y + 1]) == 0 || \
 	ft_strchr(str, map[x - 1][y]) == 0 || \
 	ft_strchr(str, map[x + 1][y]) == 0)
-		ft_error("Invalid map\n");
+		ft_error("Invalid map. Not surrounded\n");
 }
 
 static void	check_topbot(char **map, int x)
@@ -31,14 +31,14 @@ static void	check_topbot(char **map, int x)
 	while (map[0][y] != '\n' && map[0][y] != '\0')
 	{
 		if (ft_strrchr("0WENS", map[0][y]) != 0)
-			ft_error("Invalid map\n");
+			ft_error("Invalid map. Invalid char\n");
 		y++;
 	}
 	y = 0;
 	while (map[x - 1][y] != '\n' && map[x - 1][y] != '\0')
 	{
 		if (ft_strrchr("0WENS", map[x - 1][y]) != 0)
-			ft_error("Invalid map\n");
+			ft_error("Invalid map. Invalid char\n");
 		y++;
 	}
 }
@@ -103,5 +103,5 @@ void	check_map(t_data *cub_data)
 		x++;
 	}
 	if (cub_data->player == NULL)
-		ft_error("Invalid map!\n");
+		ft_error("Invalid map! No player\n");
 }

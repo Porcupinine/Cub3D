@@ -41,7 +41,7 @@ static int	check_floor_celing(const char *line)
 			ft_strnstr(line, "C ", ft_strlen(line)) != 0);
 }
 
-static int	parse_data(int fd, char *file, t_map_data *cub_data)
+static void	parse_data(int fd, char *file, t_map_data *cub_data)
 {
 	char	*line;
 
@@ -55,18 +55,15 @@ static int	parse_data(int fd, char *file, t_map_data *cub_data)
 		}
 		else if (check_textures(line))
 		{
-			if (get_textures(line, cub_data) == 1)
-				return (1);
+			get_textures(line, cub_data);
 		}
 		else if (check_floor_celing(line))
 		{
-			if (get_fc(line, cub_data) == 1)
-				return (1);
+			get_fc(line, cub_data);
 		}
 		else if (test_isspace(line) != 1)
-			ft_error("Ivalid data\n");
+			ft_error("Invalid data! Trash line \n");
 	}
-	return (0);
 }
 
 t_map_data	*get_data(char *file)

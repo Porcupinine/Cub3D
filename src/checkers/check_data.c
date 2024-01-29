@@ -17,5 +17,5 @@ void check_values(t_map_data *map_data)
 {
 	if(map_data->no_path == NULL || map_data->so_path == NULL || \
 	map_data->we_path == NULL || map_data->ea_path == NULL)
-	ft_error("Invalid map\n");
+	ft_error("Invalid map. Missing information\n");
 }

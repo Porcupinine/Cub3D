@@ -34,7 +34,7 @@ t_map_data *get_data(char *file);
  * @param cub_data
  * @return
  */
-int get_fc(char *line, t_map_data *cub_data);
+void get_fc(char *line, t_map_data *cub_data);
 /**
  * Loops the line to extract the path for the textures used for each side
  * of the walls. If it finds a repeated coordinate or there is no ./ it
@@ -43,7 +43,7 @@ int get_fc(char *line, t_map_data *cub_data);
  * @param cub_data
  * @return
  */
-int get_textures(char* line, t_map_data *cub_data);
+void get_textures(char* line, t_map_data *cub_data);
 /**
  *Count how many lines the map part has and parse it into an array
  * of strings. At the end finds the longest string in the array and

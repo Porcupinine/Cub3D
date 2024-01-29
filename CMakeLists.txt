@@ -12,7 +12,6 @@ include_directories(${CMAKE_SOURCE_DIR}/lib42/include)
 
 SET(SOURCES
 		hooks.c
-		main.c
 		src/parsing/parsing.c
 		src/parsing/parse_textures.c
 		src/parsing/parse_map.c
@@ -35,8 +34,8 @@ set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
 target_link_libraries(cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42 m)
 
 
-#add_executable(test_cub3d ${SOURCES} test/main.c)
-#target_link_libraries(test_cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42)
+add_executable(test_cub3d ${SOURCES} testers/test_parser.c)
+target_link_libraries(test_cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42 m)
 
 #-------------------------------------------------------------------------
 #add_custom_target(BuildTheLib ALL

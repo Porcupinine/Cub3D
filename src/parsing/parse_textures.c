@@ -95,49 +95,47 @@ static int	get_color( char *str)
 	return (rgba);
 }
 
-int	get_textures(char *line, t_map_data *cub_data)
+void	get_textures(char *line, t_map_data *cub_data)
 {
 	if (ft_strnstr(line, "NO", ft_strlen(line)) != 0)
 	{
 		if (cub_data->no_path != NULL)
-			return (1);
+			ft_error("Invalid map! Multiple textures\n");
 		cub_data->no_path = get_path(line);
 	}
 	else if (ft_strnstr(line, "SO", ft_strlen(line)) != 0)
 	{
 		if (cub_data->so_path != NULL)
-			return (1);
+			ft_error("Invalid map! Multiple textures\n");
 		cub_data->so_path = get_path(line);
 	}
 	else if (ft_strnstr(line, "WE", ft_strlen(line)) != 0)
 	{
 		if (cub_data->we_path != NULL)
-			return (1);
+			ft_error("Invalid map! Multiple textures\n");
 		cub_data->we_path = get_path(line);
 	}
 	else if (ft_strnstr(line, "EA", ft_strlen(line)) != 0)
 	{
 		if (cub_data->ea_path != NULL)
-			return (1);
+			ft_error("Invalid map! Multiple textures\n");
 		cub_data->ea_path = get_path(line);
 	}
 	free(line);
-	return (0);
 }
 
-int	get_fc(char *line, t_map_data *cub_data)
+void	get_fc(char *line, t_map_data *cub_data)
 {
 	if (ft_strnstr(line, "F ", ft_strlen(line)) != 0)
 	{
 		if (cub_data->floor != 0) //how do I test if it already exists??
-			return (1);
+			ft_error("Invalid map! Multiple colors\n");
 		cub_data->floor = get_color(line);
 	}
 	if (ft_strnstr(line, "C ", ft_strlen(line)) != 0)
 	{
 		if (cub_data->celling != 0)
-			return (1);
+			ft_error("Invalid map! Multiple colors\n");
 		cub_data->celling = get_color(line);
 	}
-	return (0);
 }

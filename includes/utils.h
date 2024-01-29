@@ -17,8 +17,8 @@
 int	test_isspace(char*str);
 int	first_map_line(char*str);
 void print_map(t_map_data *cub_data);
-// void print_colors(t_map_data *cub_data);
-// void print_paths(t_map_data *cub_data);
+void print_colors(t_map_data *cub_data);
+void print_paths(t_map_data *cub_data);
 int	all_digits(char*str);
 int get_r(int rgba);
 int get_g(int rgba);

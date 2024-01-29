@@ -7,7 +7,7 @@ void	delete_images(t_data *data)
 	mlx_delete_image(data->mlx, data->img);
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	mlx_image_to_window(data->mlx, data->img, 0, 0);
-	testing(data);
+//	testing(data);
 	mlx_delete_image(data->mlx, data->img_player);
 	minimap_background(data);
 }
