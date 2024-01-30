@@ -5,6 +5,9 @@
 		"string_view": "c",
 		"ranges": "c",
 		"span": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"parsing.h": "c",
+		"libft.h": "c",
+		"cmath": "c"
 	}
 }

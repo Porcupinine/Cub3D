@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 12:25:14 by laura             #+#    #+#             */
-/*   Updated: 2024/01/29 15:07:14 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:55:03 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,28 @@ typedef struct s_player
 	char	orientation;
 	double	posX;
 	double	posY;
+	int		mapX;
+	int		mapY;
 	double	dirX;
 	double	dirY;
 	mlx_texture_t	*player_png;
 } t_player;
 
+typedef struct s_ray
+{
+	int		stepX;
+	int		stepY;
+	double	sideX;
+	double	sideY;
+	double	deltaX;
+	double	deltaY;
+	double planeX;
+	double planeY;
+} t_ray;
+
 typedef struct s_data
 {
+	t_ray		*ray;
 	t_map_data	*map_data;
 	t_player	*player;
 	mlx_t		*mlx;

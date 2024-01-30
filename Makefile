@@ -25,6 +25,8 @@ SRCS =	hooks.c \
 		lib42/get_next_line/get_next_line_utils.c \
 		lib42/get_next_line/get_next_line_exit.c \
 		minimap.c \
+		drawing3d.c \
+		findRayAttr.c \
 		
 OBJS	:= ${SRCS:.c=.o}
 
