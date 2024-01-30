@@ -208,3 +208,27 @@
 // 		x++;
 
 // 	}
+
+		// 	double cur_angle = data->angle - halfFOV + delta_rays * x;
+		// printf("ANGLES %f %f\n", data->angle, cur_angle);
+		// if (cur_angle > (2 * PI))
+		// 	cur_angle -= (2 * PI);
+		// if (cur_angle < 0)
+		// 	cur_angle += (2 * PI);
+
+		// int hit = 0;
+		// double x1 = data->player->posX;
+		// double y1 = data->player->posY;
+
+		// while (hit == 0)
+		// {
+		// 	x1 += (double)cos(cur_angle);
+		// 	y1 += (double)sin(cur_angle);
+
+		// 	if (data->map_data->map[(int)y1][(int)x1] == '1')
+		// 		hit = 1;
+		// }
+
+		// double deltaX = x1 - data->player->posX;
+		// double deltaY = y1 - data->player->posY;
+		// double dist = sqrt(deltaX * deltaX + deltaY * deltaY);

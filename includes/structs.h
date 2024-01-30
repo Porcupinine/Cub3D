@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 12:25:14 by laura             #+#    #+#             */
-/*   Updated: 2024/01/25 16:24:00 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:55:03 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ typedef struct s_player
 	char	orientation;
 	double	posX;
 	double	posY;
+	int		mapX;
+	int		mapY;
 	double	dirX;
 	double	dirY;
+	mlx_texture_t	*player_png;
 }	t_player;
 
 typedef struct s_cub_textures
@@ -45,17 +48,31 @@ typedef struct s_cub_textures
 	mlx_texture_t	*w;
 }	t_cub_textures;
 
+typedef struct s_ray
+{
+	int		stepX;
+	int		stepY;
+	double	sideX;
+	double	sideY;
+	double	deltaX;
+	double	deltaY;
+	double planeX;
+	double planeY;
+} t_ray;
+
 typedef struct s_data
 {
+	t_ray		*ray;
 	t_map_data	*map_data;
-	mlx_t		*mlx;
 	t_player	*player;
+	mlx_t		*mlx;
 	mlx_image_t	*img;
-	double		angle;
 	mlx_image_t	*img2; //minimap background
-	mlx_image_t	*img_player;
-	int			scale_map; //temporarily
+	mlx_image_t		*img_player;
+	double		angle;
+	int scale_map; //temporarily
 	t_cub_textures	walls;
-}	t_data;
+} t_data;
+
 
 #endif // CUB3D_STRUCTS_H

@@ -3,17 +3,19 @@
 /*                                                        ::::::::            */
 /*   check_map.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: laura <laura@student.codam.nl>               +#+                     */
+/*   By: lpraca-l <lpraca-l@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/26 11:40:22 by laura         #+#    #+#                 */
-/*   Updated: 2024/01/26 11:40:33 by laura         ########   odam.nl         */
+/*   Created: 2024/01/30 14:42:19 by lpraca-l      #+#    #+#                 */
+/*   Updated: 2024/01/30 14:42:19 by lpraca-l      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parsing.h"
 #include "../../includes/utils.h"
+#include "../../includes/cub3d.h"
 #include "../../lib42/include/libft.h"
 #include <stdio.h>
+#include <math.h>
 
 static void	check_around(char **map, int x, int y, char *str)
 {
@@ -60,11 +62,11 @@ void	find_direction(t_data *cub_data, char dir)
 		cub_data->player->dirY = 1;
 	// data->plane_X = 0;
 	// data->plane_Y = 0.66; //angle FOV
-	// data->angle = atan2(data->dirY, data->dirX);
-	// if (data->angle < 0)
-	// 	data->angle += (2 * PI);
-	// if (data->angle > (2 * PI))
-	// 	data->angle -= (2 * PI);
+	cub_data->angle = atan2(cub_data->player->dirY, cub_data->player->dirX);
+	if (cub_data->angle < 0)
+		cub_data->angle += (2 * PI);
+	if (cub_data->angle > (2 * PI))
+		cub_data->angle -= (2 * PI);
 	// printf("ANGLE %f and dir %f %f for %d\n", data->angle, data->dirX, data->dirY, data->matrix[y][x]);
 }
 
@@ -76,9 +78,9 @@ static void	found_player(t_data *cub_data, int x, int y)
 	cub_data->player = ft_calloc(1, sizeof (t_player));
 	if (cub_data->player == NULL)
 		ft_error("Malloc fail\n");
-	cub_data->player->posX = (double)x;
-	cub_data->player->posY = (double)y;
-	cub_data->player->orientation = cub_data->map_data->map[x][y];
+	cub_data->player->posY = (double)x;
+	cub_data->player->posX = (double)y;
+	//cub_data->player->orientation = cub_data->map_data->map[x][y];
 	find_direction(cub_data, cub_data->map_data->map[x][y]);
 }
 
