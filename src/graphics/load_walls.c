@@ -29,3 +29,5 @@ void	load_textures(t_data *cub_data)
 	if (!cub_data->walls.w)
 		ft_error("Texture fail\n");
 }
+
+
