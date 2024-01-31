@@ -1,14 +1,25 @@
-NAME	:= cub3d
-CFLAGS	:= #-Wextra -Wall -Werror -fsanitize=address
-LIBMLX	:= ./MLX42
-LIBS_NAME	:= $(LIBMLX)/build/libmlx42.a 
-LFT_NAME = libft.a
-LFT_DIR = ./lib42
-LFT = $(LFT_DIR)/$(LFT_NAME)
+#--------------------------------------------------------------------Executable
+NAME := cub3d
 
-HEADERS	:= -I ./includes -I $(LIBMLX)/include
-LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
-SRCS =	hooks.c \
+#----------------------------------------------------------------------Compiler
+CC := cc
+
+#-------------------------------------------------------------------------Flags
+CFLAGS	+= -Wextra -Wall -Werror -O3
+ASANFLAGS += -fsanitize=address -fsanitize=leak
+
+#----------------------------------------------------------------Libraries path
+LIBMLX	:= ./MLX42
+LIB42   := ./lib42
+
+#-----------------------------------------------------------------------Headers
+HEADERS	:= -I ./include -I $(LIBMLX)/include -I $(LIB42)/include
+
+#---------------------------------------------------------------------Libraries
+LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -fPIE -lm $(LIB42)/libft.a
+
+#------------------------------------------------------------------------Source
+SRC		:= hooks.c \
 		main.c \
 		src/parsing/parsing.c \
 		src/parsing/parse_textures.c \
@@ -25,10 +36,9 @@ SRCS =	hooks.c \
 		lib42/get_next_line/get_next_line_utils.c \
 		lib42/get_next_line/get_next_line_exit.c \
 		minimap.c \
-		drawing3d.c \
-		findRayAttr.c \
-		
-OBJS	:= ${SRCS:.c=.o}
+
+#-----------------------------------------------------------------------Objects
+OBJS	:= ${SRC:.c=.o}
 
 #---------------------------------------------------------------------Directory
 OBJ_DIR := objs/
@@ -39,38 +49,24 @@ all: $(NAME)
 
 $(OBJ_DIR)%.o : %.c
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
+	@$(CC) -o $@ -c $< $(HEADERS)
 
-LFT_O := $(shell find $(LFT_DIR) -iname "*.o") 
+libmlx:
+	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
-$(LIBS_NAME):
-	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -sC $(LIBMLX)/build -j4
+lib42_build:
+	@$(MAKE) -C $(LIB42)
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
-	@echo "Compiling.. "
-
-$(NAME): $(LFT) $(LIBS_NAME) $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(LFT) $(HEADERS) -o $(NAME)
-
-$(LFT):
-	make all -sC $(LFT_DIR) 
+$(NAME): libmlx lib42_build $(OBJECTS_PREFIXED)
+	@$(CC) $(OBJECTS_PREFIXED) $(LIBS) $(HEADERS) -o $(NAME)
 
 clean:
-	@rm -f $(OBJS)
-	@rm -f $(LIBMLX)/build/libmlx42.a
-	@rm -f $(LFT_O)
-	@rm -f $(LFT)
+	@rm -rf $(OBJ_DIR)
+	@rm -rf $(LIBMLX)/build
 
 fclean: clean
 	@rm -f $(NAME)
 
-debug:	
-	-fsanitize=address ./cub3d
-
-norm:
-	norminette ./src ./libs/libft fdf.c
-
 re: clean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all, clean, fclean, re, libmlx lib42_build

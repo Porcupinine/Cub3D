@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parse_map.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 13:50:46 by laura             #+#    #+#             */
-/*   Updated: 2024/01/25 16:46:55 by akrepkov         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   parse_map.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: laura <laura@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/01/26 11:40:48 by laura         #+#    #+#                 */
+/*   Updated: 2024/01/26 11:42:32 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,20 @@
 #include "../../lib42/include/get_next_line.h"
 #include <fcntl.h>
 
-static void map_x_size(t_map_data *cub_data) 
+static void	map_x_size(t_map_data *cub_data)
 {
-    int y;
-    int len;
+	int	y;
+	int	len;
 
-    y = 0;
-    len = 0;
-    while(cub_data->map_y > y) {
-       if ((int)ft_strlen(cub_data->map[y]) > len)
-          len = (int)ft_strlen(cub_data->map[y]);
-       y++;
-    }
-    cub_data->map_x = len;
+	y = 0;
+	len = 0;
+	while (cub_data->map_y > y)
+	{
+		if ((int)ft_strlen(cub_data->map[y]) > len)
+			len = (int)ft_strlen(cub_data->map[y]);
+		y++;
+	}
+	cub_data->map_x = len;
 }
 
 static int	map_y_size(char *file)
@@ -45,7 +46,7 @@ static int	map_y_size(char *file)
 		{
 			count++;
 			free(line);
-			break;
+			break ;
 		}
 		free(line);
 	}
@@ -58,7 +59,7 @@ static int	map_y_size(char *file)
 	return (count);
 }
 
-static void copy_map(char *file, t_map_data *cub_data)
+static void	copy_map(char *file, t_map_data *cub_data)
 {
 	int		count;
 	char	*line;
@@ -72,7 +73,7 @@ static void copy_map(char *file, t_map_data *cub_data)
 		{
 			cub_data->map[count] = line;
 			count++;
-			break;
+			break ;
 		}
 		free(line);
 	}
@@ -83,12 +84,12 @@ static void copy_map(char *file, t_map_data *cub_data)
 	}
 }
 
-void get_map(char *file, t_map_data *cub_data)
+void	get_map(char *file, t_map_data *cub_data)
 {
 	int		fd;
 
 	cub_data->map_y = map_y_size(file);
-	cub_data->map = malloc(cub_data->map_y* sizeof(char *));
+	cub_data->map = malloc(cub_data->map_y * sizeof(char *));
 	if (cub_data->map == NULL)
 		ft_error("Malloc fail\n");
 	fd = open(file, O_RDONLY);

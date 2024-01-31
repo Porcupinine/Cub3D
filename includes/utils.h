@@ -14,11 +14,26 @@
 #define CUB3D_UTILS_H
 #include "structs.h"
 
+/**
+ *
+ * @param str
+ * @return 1 if the string is empty and 0 if not
+ */
 int	test_isspace(char*str);
+/**
+ *
+ * @param str
+ * @return 1 if the string only contains spaces, new line, 0 and 1. 0 if not
+ */
 int	first_map_line(char*str);
 void print_map(t_map_data *cub_data);
-// void print_colors(t_map_data *cub_data);
-// void print_paths(t_map_data *cub_data);
+void print_colors(t_map_data *cub_data);
+void print_paths(t_map_data *cub_data);
+/**
+ *
+ * @param str
+ * @return 1 if the string only contains digits, 0 if not
+ */
 int	all_digits(char*str);
 int get_r(int rgba);
 int get_g(int rgba);

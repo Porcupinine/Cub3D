@@ -6,7 +6,7 @@
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/18 13:48:52 by laura         #+#    #+#                 */
-/*   Updated: 2024/01/18 13:48:52 by laura         ########   odam.nl         */
+/*   Updated: 2024/01/26 11:46:43 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,50 +27,49 @@ static void	check_extension(char *str)
 		ft_error("Error\nWrong extension\n");
 }
 
-static int check_textures(const char *line) {
-	return ft_strnstr(line, "NO ", ft_strlen(line)) != 0 ||
-			ft_strnstr(line, "SO ", ft_strlen(line)) != 0 ||
-			ft_strnstr(line, "WE ", ft_strlen(line)) != 0 ||
-			ft_strnstr(line, "EA ", ft_strlen(line)) != 0;
-}
-
-static int check_floor_celing(const char *line) {
-	return ft_strnstr(line, "F ", ft_strlen(line)) != 0 ||
-			ft_strnstr(line, "C ", ft_strlen(line)) != 0;
-}
-
-int parse_data(int fd, char *file, t_map_data *cub_data)
+static int	check_textures(const char *line)
 {
-	char *line;
+	return (ft_strnstr(line, "NO ", ft_strlen(line)) != 0 || \
+			ft_strnstr(line, "SO ", ft_strlen(line)) != 0 || \
+			ft_strnstr(line, "WE ", ft_strlen(line)) != 0 || \
+			ft_strnstr(line, "EA ", ft_strlen(line)) != 0);
+}
+
+static int	check_floor_celing(const char *line)
+{
+	return (ft_strnstr(line, "F ", ft_strlen(line)) != 0 || \
+			ft_strnstr(line, "C ", ft_strlen(line)) != 0);
+}
+
+static void	parse_data(int fd, char *file, t_map_data *cub_data)
+{
+	char	*line;
 
 	while ((line = get_next_line(fd)))
 	{
-		if(first_map_line(line) == 1 && test_isspace(line) != 1)
+		if (first_map_line(line) == 1 && test_isspace(line) != 1)
 		{
 			close(fd);
 			get_map(file, cub_data);
-			break;
+			break ;
 		}
 		else if (check_textures(line))
 		{
-			if (get_textures(line, cub_data) == 1)
-				return (1);
+			get_textures(line, cub_data);
 		}
 		else if (check_floor_celing(line))
 		{
-			if(get_fc(line, cub_data) == 1)
-				return (1);
+			get_fc(line, cub_data);
 		}
 		else if (test_isspace(line) != 1)
-			ft_error("Ivalid data\n");
+			ft_error("Invalid data! Trash line \n");
 	}
-	return (0);
 }
 
-t_map_data *get_data(char *file)
+t_map_data	*get_data(char *file)
 {
-	int fd;
-	void *cub_data;
+	int		fd;
+	void	*cub_data;
 
 	fd = 0;
 	cub_data = ft_calloc(1, sizeof(t_map_data));

@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:05:45 by laura             #+#    #+#             */
-/*   Updated: 2024/01/31 13:50:50 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/01/31 14:14:43 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void draw_env(t_data *data)
 		while (x < WIDTH)
 		{
 			if (y < HEIGHT / 2)
-				mlx_put_pixel(data->img, x, y, 0xbfbd2c);
+				mlx_put_pixel(data->img, x, y, data->map_data->celling);
 			else
-				mlx_put_pixel(data->img, x, y, 0xeda705);
+				mlx_put_pixel(data->img, x, y, data->map_data->floor);
 			x++;
 		}
 		y++;
@@ -136,6 +136,7 @@ int main(int argc, char **argv)
 	init_image(cub_data);
 	game_loop(cub_data);
 	free(cub_data->ray);
+	check_values(cub_data->map_data);
 	mlx_terminate(cub_data->mlx);
 	return (0);
 }

@@ -26,7 +26,7 @@ typedef struct s_map_data
 	char	**map;
 	int		map_y; //height
 	int		map_x; //still to find
-} t_map_data;
+}	t_map_data;
 
 typedef struct s_player
 {
@@ -38,7 +38,15 @@ typedef struct s_player
 	double	dirX;
 	double	dirY;
 	mlx_texture_t	*player_png;
-} t_player;
+}	t_player;
+
+typedef struct s_cub_textures
+{
+	mlx_texture_t	*n;
+	mlx_texture_t	*s;
+	mlx_texture_t	*e;
+	mlx_texture_t	*w;
+}	t_cub_textures;
 
 typedef struct s_ray
 {
@@ -66,6 +74,8 @@ typedef struct s_data
 	double		angle;
 	char texture;
 	int scale_map; //temporarily
+	t_cub_textures	walls;
 } t_data;
+
 
 #endif // CUB3D_STRUCTS_H

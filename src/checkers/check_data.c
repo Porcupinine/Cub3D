@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   remove_new_line.c                                  :+:    :+:            */
+/*   check_data.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: laura <laura@student.codam.nl>               +#+                     */
+/*   By: lpraca-l <lpraca-l@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/19 17:46:34 by laura         #+#    #+#                 */
-/*   Updated: 2024/01/26 11:47:24 by laura         ########   odam.nl         */
+/*   Created: 2024/01/29 14:57:43 by lpraca-l      #+#    #+#                 */
+/*   Updated: 2024/01/29 14:57:43 by lpraca-l      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/parsing.h"
 #include "../../lib42/include/libft.h"
 
-void	remove_new_line(char *str)
+void check_values(t_map_data *map_data)
 {
-	str[ft_strlen(str)] = '\0';
+	if(map_data->no_path == NULL || map_data->so_path == NULL || \
+	map_data->we_path == NULL || map_data->ea_path == NULL)
+	ft_error("Invalid map. Missing information\n");
 }
