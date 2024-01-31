@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: lpraca-l <lpraca-l@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/30 14:42:19 by lpraca-l      #+#    #+#                 */
-/*   Updated: 2024/01/30 14:42:19 by lpraca-l      ########   odam.nl         */
+/*   Created: 2024/01/31 14:06:19 by lpraca-l      #+#    #+#                 */
+/*   Updated: 2024/01/31 14:06:19 by lpraca-l      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,11 @@ void	find_direction(t_data *cub_data, char dir)
 		cub_data->player->dirY = -1;
 	if (dir == 'S')
 		cub_data->player->dirY = 1;
-	// data->plane_X = 0;
-	// data->plane_Y = 0.66; //angle FOV
 	cub_data->angle = atan2(cub_data->player->dirY, cub_data->player->dirX);
 	if (cub_data->angle < 0)
 		cub_data->angle += (2 * PI);
 	if (cub_data->angle > (2 * PI))
 		cub_data->angle -= (2 * PI);
-	// printf("ANGLE %f and dir %f %f for %d\n", data->angle, data->dirX, data->dirY, data->matrix[y][x]);
 }
 
 static void	found_player(t_data *cub_data, int x, int y)

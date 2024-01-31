@@ -32,29 +32,19 @@ double findHit(t_data *data)
 			hit = 1;
 	}
 	if (side == 0)
-		dist = data->ray->sideX - data->ray->deltaX;
+		{
+			dist = data->ray->sideX - data->ray->deltaX;
+		}
 	else
-		dist = data->ray->sideY - data->ray->deltaY;
+		{
+			dist = data->ray->sideY - data->ray->deltaY;
+		}
 	return (dist);
 }
 
-void initRaycast(t_data *data)
-{
-	double dirlen;
-
-	data->ray = malloc(sizeof(t_ray)); // free
-	data->ray->sideX = 0.00;
-	data->ray->sideY = 0.00;
-	data->ray->stepX = 0;
-	data->ray->stepY = 0;
-	dirlen = sqrt(data->player->dirX * data->player->dirX + data->player->dirY * data->player->dirY);
-	data->ray->planeX = data->player->dirY / dirlen * 0.66;
-	data->ray->planeY = -data->player->dirX / dirlen * 0.66;
-}
 
 void findIntersection(t_data *data, double x1, double y1)
 {
-	//initRaycast(data);
 	if (x1 == 0)
 		data->ray->deltaX = INFINITY;
 	else

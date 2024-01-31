@@ -18,31 +18,57 @@ void	draw_wall(t_data *data, mlx_t *mlx, int x, int y)
 		ft_error("ERR");
 }
 
+void findOrientation(t_data *data, int x, double camera)
+{
+	double x1 = data->player->dirX + data->ray->planeX * camera;
+	double y1 = data->player->dirY + data->ray->planeY * camera;
+	if (x1 < 0)
+		data->player->orientation = 0;
+	else
+		data->player->orientation = 1;
+	if (y1 < 0)
+		data->player->orientation += 1;
+	else
+		data->player->orientation += 3;
+}
+
 void draw_direction(t_data *data)
 {
-	double x = data->player->posX - data->scale_map / 2;
+	double x = data->player->posX + data->scale_map / 2;
 	double y = data->player->posY + data->scale_map / 2;
 	
-    int n = 100;//(fm(data->player->dirX) + fm(data->player->dirY)) * 50;
+    int n = 50;//(fm(data->player->dirX) + fm(data->player->dirY)) * 50;
     double error = fm(data->player->dirX) - fm(data->player->dirY);
-    while (n > 0)
-    {
-		if (((int)(data->player->posX * data->scale_map + x)) < 0 || ((int)(data->player->posX * data->scale_map + x)) > data->map_data->map_x * data->scale_map
-			|| ((int)(data->player->posY * data->scale_map + y)) < 0 || ((int)(data->player->posY * data->scale_map + y)) > data->map_data->map_y * data->scale_map)
-			break;
-        mlx_put_pixel(data->img, data->player->posX * data->scale_map + x, data->player->posY * data->scale_map + y, COLOR_RED);
-	    if (error > 0)
-        {
-            x += data->player->dirX;
-            error -= fm(data->player->dirY);
-        }
-        else
-        {
-            y += data->player->dirY;
-            error += fm(data->player->dirX);
-        }
-		n--;
-    }
+	// double x1 = data->player->dirX + data->ray->planeX * camera;
+	// double y1 = data->player->dirY + data->ray->planeY * camera;
+	// while(x < 10)
+	// {
+	// 	double camera = 2 * x / 10 - 1;
+	// 	findOrientation(data, x, camera);
+	// 	if (data->player->orientation == 1)
+	// 	{
+	// 		x = data->player->posX + data->scale_map / 2;
+	// 		y = data->player->posY + data->scale_map / 2;
+	// 	}
+		while (n > 0)
+		{
+			if (((int)(data->player->posX * data->scale_map + x)) < 0 || ((int)(data->player->posX * data->scale_map + x)) > data->map_data->map_x * data->scale_map
+				|| ((int)(data->player->posY * data->scale_map + y)) < 0 || ((int)(data->player->posY * data->scale_map + y)) > data->map_data->map_y * data->scale_map)
+				break;
+			mlx_put_pixel(data->img, data->player->posX * data->scale_map + x, data->player->posY * data->scale_map + y, COLOR_RED);
+			if (error > 0)
+			{
+				x += data->player->dirX;
+				error -= fm(data->player->dirY);
+			}
+			else
+			{
+				y += data->player->dirY;
+				error += fm(data->player->dirX);
+			}
+			n--;
+		}
+    // }
 }
 
 
