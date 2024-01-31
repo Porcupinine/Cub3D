@@ -10,8 +10,8 @@
 #include <stdio.h>
 # include "structs.h"
 # define BUFFER_SIZE 1
-# define WIDTH 420
-# define HEIGHT 420
+# define WIDTH 400
+# define HEIGHT 400
 # define PI 3.1415
 # define RA 1.047
 # define COLOR_AMMO 0xeda705
@@ -19,7 +19,7 @@
 # define COLOR_RED 0xFF0000FF
 
 void	let_s_move(mlx_key_data_t keydata, t_data *data);
-void	testing(t_data *data);
+void	raycasting(t_data *data);
 void	minimap_background(t_data *data);
 double	fm(double a);
 void	draw_env(t_data *data);

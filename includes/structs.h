@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 12:25:14 by laura             #+#    #+#             */
-/*   Updated: 2024/01/30 11:55:03 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:46:36 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_map_data
 
 typedef struct s_player
 {
-	char	orientation;
+	int	orientation;
 	double	posX;
 	double	posY;
 	int		mapX;
@@ -48,8 +48,10 @@ typedef struct s_ray
 	double	sideY;
 	double	deltaX;
 	double	deltaY;
-	double planeX;
-	double planeY;
+	double	planeX;
+	double	planeY;
+	double	x1;
+	double	y1;
 } t_ray;
 
 typedef struct s_data
@@ -62,6 +64,7 @@ typedef struct s_data
 	mlx_image_t	*img2; //minimap background
 	mlx_image_t		*img_player;
 	double		angle;
+	char texture;
 	int scale_map; //temporarily
 } t_data;
 
