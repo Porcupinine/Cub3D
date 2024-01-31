@@ -90,7 +90,7 @@ static int	get_color( char *str)
 	}
 	check_rgba(rgba_char);
 	rgba = get_rgba(ft_atoi(rgba_char[0]), ft_atoi(rgba_char[1]), \
-	ft_atoi(rgba_char[2]), 0);
+	ft_atoi(rgba_char[2]), 255);
 	free(rgba_char);
 	return (rgba);
 }

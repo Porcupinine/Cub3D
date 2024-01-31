@@ -30,7 +30,6 @@ void	load_textures(t_data *cub_data)
 		ft_error("Texture fail\n");
 }
 
-
 //TODO find wich wall we want to place the texture
 
 
