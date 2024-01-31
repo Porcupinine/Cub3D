@@ -10,8 +10,8 @@
 #include <stdio.h>
 # include "structs.h"
 # define BUFFER_SIZE 1
-# define WIDTH 400
-# define HEIGHT 400
+# define WIDTH 1200
+# define HEIGHT 1200
 # define PI 3.1415
 # define RA 1.047
 # define COLOR_AMMO 0xeda705

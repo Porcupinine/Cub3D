@@ -1,5 +1,6 @@
 #include "includes/cub3d.h"
 #include "includes/parsing.h"
+#include "includes/graphics.h"
 #include <stdio.h>
 
 void delete_images(t_data *data)
@@ -31,22 +32,22 @@ int wall_check(t_data *data, double y_end, double x_end)
 void let_s_move(mlx_key_data_t keydata, t_data *data)
 {
 	double angle = 0.2;
-	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
+	if (keydata.key == MLX_KEY_W && keydata.action == MLX_REPEAT)
 	{
 		printf("PRESSED W POS: %f %f DIR: %f %f\n", data->player->posX, data->player->posY, data->player->dirX, data->player->dirY);
 		if (wall_check(data, data->player->posY + data->player->dirY * 0.8, data->player->posX + data->player->dirX * 0.8) == 0)
 		{
-			data->player->posY += data->player->dirY * 0.8;
-			data->player->posX += data->player->dirX * 0.8;
+			data->player->posY += data->player->dirY * 0.2;
+			data->player->posX += data->player->dirX * 0.2;
 			delete_images(data);
 		}
 	}
-	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
+	if (keydata.key == MLX_KEY_S && keydata.action == MLX_REPEAT)
 	{
 		if (wall_check(data, data->player->posY - data->player->dirY * 0.8, data->player->posX - data->player->dirX * 0.8) == 0)
 		{
-			data->player->posY -= data->player->dirY * 0.8;
-			data->player->posX -= data->player->dirX * 0.8;
+			data->player->posY -= data->player->dirY * 0.2;
+			data->player->posX -= data->player->dirX * 0.2;
 			printf("PRESSED S POS: %f %f DIR: %f %f\n", data->player->posX, data->player->posY, data->player->dirX, data->player->dirY);
 			delete_images(data);
 		}
@@ -93,5 +94,9 @@ void let_s_move(mlx_key_data_t keydata, t_data *data)
 		data->ray->planeX = data->ray->planeX * cos(angle) - data->ray->planeY * sin(angle);
 		data->ray->planeY = oldPlaneX * sin(angle) + data->ray->planeY * cos(angle);
 		delete_images(data);
+	}
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+	{
+		exit(EXIT_SUCCESS);
 	}
 }

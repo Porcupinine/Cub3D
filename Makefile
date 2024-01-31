@@ -31,11 +31,12 @@ SRC		:= hooks.c \
 		src/utils/remove_new_line.c \
 		src/utils/rgba.c \
 		src/checkers/check_map.c \
+		src/checkers/check_data.c \
 		src/calculations/positive_double.c \
-		lib42/get_next_line/get_next_line.c \
-		lib42/get_next_line/get_next_line_utils.c \
-		lib42/get_next_line/get_next_line_exit.c \
 		minimap.c \
+		src/graphics/drawing3d.c \
+		src/graphics/draw_map.c \
+		findRayAttr.c \
 
 #-----------------------------------------------------------------------Objects
 OBJS	:= ${SRC:.c=.o}
