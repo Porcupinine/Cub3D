@@ -3,8 +3,8 @@ SO ./textures/water.png
 WE ./textures/wood.png
 EA ./textures/blackbrick.png
 
-F 201,0,118
-C 241,194,50
+F 29,38,28
+C 38,49,66
 
         1111111111111111111111111
         1000000000110000000000001

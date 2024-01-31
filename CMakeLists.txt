@@ -27,7 +27,7 @@ SET(SOURCES
 		minimap.c
 		src/checkers/check_data.c)
 
-add_executable(cub3d main.c ${SOURCES}
+add_executable(main.c ${SOURCES}
         src/graphics/load_walls.c
 		findRayAttr.c
 		drawing3d.c

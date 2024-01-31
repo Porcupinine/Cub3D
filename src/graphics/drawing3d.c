@@ -1,8 +1,8 @@
-#include "includes/utils.h"
-#include "includes/checks.h"
-#include "includes/parsing.h"
-#include "includes/cub3d.h"
-#include "lib42/include/libft.h"
+#include "../../includes/utils.h"
+#include "../../includes/checks.h"
+#include "../../includes/parsing.h"
+#include "../../includes/cub3d.h"
+#include "../../lib42/include/libft.h"
 #include <stdio.h>
 
 void	drawVerticalLine(t_data *cub_data, int x, int y_start, int y_end, int color)
