@@ -25,14 +25,16 @@ SET(SOURCES
 		src/checkers/check_map.c
 		src/calculations/positive_double.c
 		minimap.c
-		src/checkers/check_data.c)
-
-add_executable(main.c ${SOURCES}
-        src/graphics/load_walls.c
+		src/checkers/check_data.c
+		src/graphics/load_walls.c
 		findRayAttr.c
 		drawing3d.c
 		src/utils/init_cub.c
-		src/graphics/draw_map.c)
+		src/graphics/draw_map.c
+		src/graphics/drawing3d.c)
+
+add_executable(cub3d main.c ${SOURCES}
+       )
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
 target_link_libraries(cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42 m)
 
