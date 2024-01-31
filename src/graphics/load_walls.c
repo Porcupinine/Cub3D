@@ -31,3 +31,7 @@ void	load_textures(t_data *cub_data)
 }
 
 
+//TODO find wich wall we want to place the texture
+
+
+

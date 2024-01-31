@@ -29,9 +29,9 @@ void draw_env(t_data *data)
 		while (x < WIDTH)
 		{
 			if (y < HEIGHT / 2)
-				mlx_put_pixel(data->img, x, y, 0xbfbd2c);
+				mlx_put_pixel(data->img, x, y, data->map_data->celling);
 			else
-				mlx_put_pixel(data->img, x, y, 0xeda705);
+				mlx_put_pixel(data->img, x, y, data->map_data->floor);
 			x++;
 		}
 		y++;
@@ -89,6 +89,7 @@ int main(int argc, char **argv)
 	cub_data->map_data = get_data(argv[1]);
 	print_map(cub_data->map_data);
 	check_map(cub_data);
+	check_values(cub_data->map_data);
 	cub_data->mlx = mlx_init(WIDTH, HEIGHT, "CUB", NULL);
 	if (!cub_data->mlx)
 		ft_error("MLX initialization fail\n");

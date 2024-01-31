@@ -30,7 +30,9 @@ SET(SOURCES
 add_executable(cub3d main.c ${SOURCES}
         src/graphics/load_walls.c
 		findRayAttr.c
-		drawing3d.c)
+		drawing3d.c
+		src/utils/init_cub.c
+		src/graphics/draw_map.c)
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
 target_link_libraries(cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42 m)
 
