@@ -5,7 +5,7 @@ NAME := cub3d
 CC := cc
 
 #-------------------------------------------------------------------------Flags
-CFLAGS	+= -Wextra -Wall -Werror -O3
+CFLAGS	+= -Wextra -Wall -Werror -O3 -fsanitize=leak
 ASANFLAGS += -fsanitize=address -fsanitize=leak
 
 #----------------------------------------------------------------Libraries path

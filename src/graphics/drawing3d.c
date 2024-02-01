@@ -27,7 +27,7 @@ void	findWallHeight(t_data *data, double dist, int x)
 		lineHeight = (int)(HEIGHT / dist);
 	else
 		lineHeight = HEIGHT;
-	printf("\ndist %f\n", dist);
+	//printf("\ndist %f\n", dist);
 	drawStart = HEIGHT / 2 - lineHeight / 2;
 	if (drawStart < 0)
 		drawStart = 0;

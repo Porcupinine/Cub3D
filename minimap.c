@@ -18,15 +18,27 @@ void	draw_wall(t_data *data, mlx_t *mlx, int x, int y)
 		ft_error("ERR");
 }
 
-void findOrientation(t_data *data, int x, double camera)
+// void findOrientation(t_data *data, int x, double camera)
+// {
+// 	double x1 = data->player->dirX + data->ray->planeX * camera;
+// 	double y1 = data->player->dirY + data->ray->planeY * camera;
+// 	if (x1 < 0)
+// 		data->player->orientation = 0;
+// 	else
+// 		data->player->orientation = 1;
+// 	if (y1 < 0)
+// 		data->player->orientation += 1;
+// 	else
+// 		data->player->orientation += 3;
+// }
+
+void findOrientation(t_data *data)
 {
-	double x1 = data->player->dirX + data->ray->planeX * camera;
-	double y1 = data->player->dirY + data->ray->planeY * camera;
-	if (x1 < 0)
+	if (data->player->dirX < 0)
 		data->player->orientation = 0;
 	else
 		data->player->orientation = 1;
-	if (y1 < 0)
+	if (data->player->dirY < 0)
 		data->player->orientation += 1;
 	else
 		data->player->orientation += 3;

@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:14:56 by akrepkov          #+#    #+#             */
-/*   Updated: 2024/01/31 14:15:06 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:26:42 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,7 @@ void	find_direction(t_data *cub_data, char dir)
 	if (dir == 'S')
 		cub_data->player->dirY = 1;
 	cub_data->angle = atan2(cub_data->player->dirY, cub_data->player->dirX);
-	if (cub_data->angle < 0)
-		cub_data->angle += (2 * PI);
-	if (cub_data->angle > (2 * PI))
-		cub_data->angle -= (2 * PI);
+	norm_a(&cub_data->angle);
 }
 
 static void	found_player(t_data *cub_data, int x, int y)
