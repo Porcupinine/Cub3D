@@ -24,10 +24,15 @@ typedef struct s_map_data
 	int		floor;
 	int		celling;
 	char	**map;
-	int		map_y; //height
-	int		map_x; //still to find
+	int		map_y;
+	int		map_x;
 }	t_map_data;
 
+/**
+ * posX and posY are
+ * mapX and mapY are current square of the map the ray is in
+ * dirX and dirY are
+ */
 typedef struct s_player
 {
 	int	orientation;
@@ -48,6 +53,15 @@ typedef struct s_cub_textures
 	mlx_texture_t	*w;
 }	t_cub_textures;
 
+/**
+ * stepX and stepY are
+ * sideX and sideY are initially the distance the ray has to travel from its
+ * start position to the first x-side and the first y-side.
+ * deltaX and deltaY are distance the ray has to travel to go from 1 x-side
+ * to the next x-side, or from 1 y-side to the next y-side.
+ * planeX and planeY are
+ * x1 and y1 are
+ */
 typedef struct s_ray
 {
 	int		stepX;
@@ -73,7 +87,7 @@ typedef struct s_data
 	mlx_image_t		*img_player;
 	double		angle;
 	char texture;
-	int scale_map; //temporarily
+	int scale_map; //temporarily minimap
 	t_cub_textures	walls;
 } t_data;
 

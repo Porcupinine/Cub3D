@@ -28,7 +28,6 @@ SET(SOURCES
 		src/checkers/check_data.c
 		src/graphics/load_walls.c
 		findRayAttr.c
-		drawing3d.c
 		src/utils/init_cub.c
 		src/graphics/draw_map.c
 		src/graphics/drawing3d.c)

@@ -30,6 +30,10 @@ void	load_textures(t_data *cub_data)
 		ft_error("Texture fail\n");
 }
 
+void find_orientation(t_data *cub_data)
+{
+	
+}
 //TODO find wich wall we want to place the texture
 
 
