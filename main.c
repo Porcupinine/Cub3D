@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:05:45 by laura             #+#    #+#             */
-/*   Updated: 2024/02/02 10:56:50 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/02 18:34:11 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,27 @@
 
 void	init_map_images(t_data *data)
 {
+	data->scale_map = 20;
 	data->map = malloc(sizeof(t_minimap));
 	if (!data->map)
 		ft_error("Malloc fail\n");
 	data->map->wall_png = mlx_load_png("wood.png");
-	data->map->player_png = mlx_load_png("play.png");
-	if (!data->map->wall_png || !data->map->player_png)
+	data->map->player_png = mlx_load_png("fly.png");
+	data->map->floor_png = mlx_load_png("floor.png");
+	if (!data->map->wall_png || !data->map->player_png || !data->map->floor_png)
 		ft_error("Minimap images fail\n");
+	data->map->img_floor = mlx_texture_to_image(data->mlx, data->map->floor_png);
+	data->map->img_wall = mlx_texture_to_image(data->mlx, data->map->wall_png);
+	data->map->img_player = mlx_texture_to_image(data->mlx, data->map->player_png);
+	if (!data->map->img_floor)
+		ft_error("ERR");
+	if (!data->map->img_wall)
+		ft_error("ERR");
+	if (!data->map->img_player)
+		ft_error("Minimap images fail");
+	mlx_resize_image(data->map->img_floor, data->scale_map, data->scale_map);
+	mlx_resize_image(data->map->img_wall, data->scale_map, data->scale_map);
+	mlx_resize_image(data->map->img_player, data->scale_map, data->scale_map);
 }
 
 void	findRayDirection(t_data *data, int x)
@@ -50,6 +64,8 @@ double	norm_a(double *angle)
 	return (*angle);
 }
 
+// void add_shadow(t_data *data, int dist)
+
 void	raycasting(t_data *data)
 {
 	int		x;
@@ -70,8 +86,9 @@ void	raycasting(t_data *data)
 		dist = findHit(data);
 		double ra = atan2(data->ray->y1, data->ray->x1);
 		dist = fm(dist * cos(norm_a(&ra) - data->angle));
-		// findOrientation(data);
+		//findOrientation(data);
 		findWallHeight(data, dist, x);
+		//add_shadow(data, dist);
 		x++;
 	}
 }
@@ -105,9 +122,10 @@ void	init_image(t_data *data)
 
 void	game_loop(t_data *data)
 {
-	//init_map_images(data);
+	init_map_images(data);
 	draw_env(data);
 	raycasting(data);
+	create_minimap(data);
 	//create_minimap(data);
 	mlx_key_hook(data->mlx, (void *)&let_s_move, data);
 	mlx_loop(data->mlx);
@@ -131,7 +149,7 @@ int main(int argc, char **argv)
 	check_values(cub_data->map_data);
 	init_image(cub_data);
 	game_loop(cub_data);
-	free(cub_data->ray);
+	// free(cub_data->ray);
 	mlx_terminate(cub_data->mlx);
 	return (0);
 }

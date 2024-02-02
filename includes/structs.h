@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 12:25:14 by laura             #+#    #+#             */
-/*   Updated: 2024/02/02 10:39:06 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:33:01 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,10 @@ typedef struct s_minimap
 {
 	mlx_texture_t	*wall_png;
 	mlx_texture_t	*player_png;
+	mlx_texture_t	*floor_png;
 	mlx_image_t		*img_player;
 	mlx_image_t		*img_wall;
+	mlx_image_t		*img_floor;
 	
 } t_minimap;
 
@@ -78,7 +80,7 @@ typedef struct s_data
 	t_player	*player;
 	mlx_t		*mlx;
 	mlx_image_t	*img;
-	mlx_image_t	*img2; //minimap background
+	mlx_image_t	*comb; //not using
 	double		angle;
 	char texture;
 	int scale_map; //temporarily

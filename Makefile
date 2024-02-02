@@ -5,7 +5,7 @@ NAME := cub3d
 CC := cc
 
 #-------------------------------------------------------------------------Flags
-CFLAGS	+= -Wextra -Wall -Werror -O3 -fsanitize=leak
+CFLAGS	+= -Wextra -Wall -Werror -O3 #-fsanitize=address
 ASANFLAGS += -fsanitize=address -fsanitize=leak
 
 #----------------------------------------------------------------Libraries path
@@ -59,7 +59,7 @@ lib42_build:
 	@$(MAKE) -C $(LIB42)
 
 $(NAME): libmlx lib42_build $(OBJECTS_PREFIXED)
-	@$(CC) $(OBJECTS_PREFIXED) $(LIBS) $(HEADERS) -o $(NAME)
+	@$(CC) $(OBJECTS_PREFIXED) $(LIBS) $(CFLAGS) $(HEADERS) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJ_DIR)

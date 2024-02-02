@@ -12,11 +12,26 @@ void	draw_wall(t_data *data, mlx_t *mlx, int x, int y)
 	// texture_wall = mlx_load_png("wood.png");
 	// if (!texture_wall)
 	// 	ft_error("ERR");
-	data->map->img_wall = mlx_texture_to_image(mlx, data->map->wall_png);
-	mlx_resize_image(data->map->img_wall, data->scale_map, data->scale_map);
-	if (!data->map->img_wall)
-		ft_error("ERR");
+	// data->map->img_wall = mlx_texture_to_image(mlx, data->map->wall_png);
+	// mlx_resize_image(data->map->img_wall, data->scale_map, data->scale_map);
+	// if (!data->map->img_wall)
+	// 	ft_error("ERR");
 	if (mlx_image_to_window(mlx, data->map->img_wall, x * data->scale_map, y * data->scale_map) < 0)
+		ft_error("ERR");
+}
+void	draw_floor(t_data *data, mlx_t *mlx, int x, int y)
+{
+	// mlx_texture_t	*texture_wall;
+	// mlx_image_t		*img_wall;
+
+	// texture_wall = mlx_load_png("wood.png");
+	// if (!texture_wall)
+	// 	ft_error("ERR");
+	// data->map->img_floor = mlx_texture_to_image(mlx, data->map->floor_png);
+	// mlx_resize_image(data->map->img_floor, data->scale_map, data->scale_map);
+	// if (!data->map->img_floor)
+	// 	ft_error("ERR");
+	if (mlx_image_to_window(mlx, data->map->img_floor, x * data->scale_map, y * data->scale_map) < 0)
 		ft_error("ERR");
 }
 
@@ -94,10 +109,10 @@ void draw_player(t_data *data)
 	// player_pic = mlx_load_png("play.png");
 	// if (!player_pic)
 	// 	ft_error("ERR");
-	data->map->img_player = mlx_texture_to_image(data->mlx, data->map->player_png);
-	if (!data->map->img_player)
-		ft_error("Minimap images fail");
-	mlx_resize_image(data->map->img_player, data->scale_map, data->scale_map);
+	// data->map->img_player = mlx_texture_to_image(data->mlx, data->map->player_png);
+	// if (!data->map->img_player)
+	// 	ft_error("Minimap images fail");
+	// mlx_resize_image(data->map->img_player, data->scale_map, data->scale_map);
 	if (mlx_image_to_window(data->mlx, data->map->img_player, data->player->posX * data->scale_map, data->player->posY * data->scale_map) < 0)
 		ft_error("Minimap images fail");
 	//draw_direction(data);
@@ -106,6 +121,8 @@ void draw_player(t_data *data)
 
 void draw_map(t_data *data)
 {
+	//mlx_image_t *comb = mlx_new_image(data->mlx, 100, 100);
+	
 	int x = 0;
 	int y = 0;
 
@@ -113,12 +130,13 @@ void draw_map(t_data *data)
 	{
 		while (x < data->map_data->map_x)
 		{
+			
 			if (data->map_data->map[y][x] == '1')
 			{		
 				draw_wall(data, data->mlx, x, y);
 			}
-			// else
-			// 	draw_floor(data, data->mlx, x, y);
+			else
+				draw_floor(data, data->mlx, x, y);
 			x++;
 		}
 		x = 0;
@@ -135,18 +153,19 @@ void create_minimap(t_data *data) //Need to make decisions about scale
 	x = 0;
 	y = 0;
 	data->scale_map = 20; //temp
-	while (y < (data->map_data->map_y * data->scale_map))
-	{
-		while (x < data->map_data->map_x * data->scale_map) //(x < ((data->width -1)* data->scale_map))
-		{
-			mlx_put_pixel(data->img, x, y, 0xFFFF00);
-			x++;
-		}
-		x = 0;
-		y++;
-	}
+	// while (y < (data->map_data->map_y * data->scale_map))
+	// {
+	// 	while (x < data->map_data->map_x * data->scale_map) //(x < ((data->width -1)* data->scale_map))
+	// 	{
+			
+	// 		x++;
+	// 	}
+	// 	x = 0;
+	// 	y++;
+	// }
 	draw_map(data);
 	// draw_direction(data);
 	draw_player(data);
 	//mlx_key_hook(data->mlx, (void *)&let_s_move, data);
 }
+
