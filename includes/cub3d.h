@@ -37,4 +37,6 @@ double	findHit(t_data *data);
 void	findOrientation(t_data *data);
 double	norm_a(double *angle);
 
+void create_minimap(t_data *data);
+
 #endif

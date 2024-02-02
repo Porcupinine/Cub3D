@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:05:45 by laura             #+#    #+#             */
-/*   Updated: 2024/02/01 15:30:27 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/02 10:56:50 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,17 @@
 #include "includes/cub3d.h"
 #include "lib42/include/libft.h"
 #include <stdio.h>
+
+void	init_map_images(t_data *data)
+{
+	data->map = malloc(sizeof(t_minimap));
+	if (!data->map)
+		ft_error("Malloc fail\n");
+	data->map->wall_png = mlx_load_png("wood.png");
+	data->map->player_png = mlx_load_png("play.png");
+	if (!data->map->wall_png || !data->map->player_png)
+		ft_error("Minimap images fail\n");
+}
 
 void	findRayDirection(t_data *data, int x)
 {
@@ -49,7 +60,7 @@ void	raycasting(t_data *data)
 	x = 0;
 	data->player->mapX = (int)data->player->posX;
 	data->player->mapY = (int)data->player->posY;
-	printf("ANGLE: %f\n", data->angle);
+	printf("POSITION: %d %d\n", data->player->mapX, data->player->mapY);
 	while (x < WIDTH)
 	{
 		findRayDirection(data, x);
@@ -94,9 +105,10 @@ void	init_image(t_data *data)
 
 void	game_loop(t_data *data)
 {
+	//init_map_images(data);
 	draw_env(data);
 	raycasting(data);
-	//minimap_background(data);
+	//create_minimap(data);
 	mlx_key_hook(data->mlx, (void *)&let_s_move, data);
 	mlx_loop(data->mlx);
 }

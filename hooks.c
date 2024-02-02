@@ -9,8 +9,9 @@ void delete_images(t_data *data)
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	mlx_image_to_window(data->mlx, data->img, 0, 0);
 	draw_env(data);
-	// mlx_delete_image(data->mlx, data->img_player);
-	// minimap_background(data);
+	// mlx_delete_image(data->mlx, data->map->img_player);
+	// mlx_delete_image(data->mlx, data->map->img_wall);
+	// create_minimap(data);
 	raycasting(data);
 }
 
