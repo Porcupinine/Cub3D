@@ -78,12 +78,12 @@ static void	found_player(t_data *cub_data, int x, int y)
 	find_direction(cub_data, cub_data->map_data->map[x][y]);
 }
 
-static void	search_for_empty_line(char **map)
+static void	search_for_empty_line(char **map, int limit)
 {
 	int	count;
 
 	count = 0;
-	while (map[count] != NULL)
+	while (count < limit)
 	{
 		if (test_isspace(map[count]) == 1)
 		{
@@ -114,7 +114,7 @@ void	check_map(t_data *cub_data)
 		}
 		x++;
 	}
-	search_for_empty_line(cub_data->map_data->map);
+	search_for_empty_line(cub_data->map_data->map, cub_data->map_data->map_y);
 	if (cub_data->player == NULL)
 		ft_error("Invalid map! No player\n");
 }
