@@ -13,7 +13,7 @@
 # define WIDTH 1200
 # define HEIGHT 1200
 # define PI 3.1415
-# define RA 1.047
+//# define RA 1.047
 # define COLOR_AMMO 0xeda705
 # define COLOR_BLUE 0xbfbd2c
 # define COLOR_RED 0xFF0000FF
@@ -33,5 +33,10 @@ void	findIntersection(t_data *data, double x1, double y1);
 void 	initRaycast(t_data *data);
 double	findHit(t_data *data);
 
+
+void	findOrientation(t_data *data);
+double	norm_a(double *angle);
+
+void create_minimap(t_data *data);
 
 #endif

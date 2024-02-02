@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   check_map.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: lpraca-l <lpraca-l@student.codam.nl>         +#+                     */
+/*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/31 15:00:33 by lpraca-l      #+#    #+#                 */
-/*   Updated: 2024/01/31 15:00:33 by lpraca-l      ########   odam.nl         */
+/*   Created: 2024/02/02 11:56:05 by laura         #+#    #+#                 */
+/*   Updated: 2024/02/02 11:56:05 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,7 @@ void	find_direction(t_data *cub_data, char dir)
 	if (dir == 'S')
 		cub_data->player->dirY = 1;
 	cub_data->angle = atan2(cub_data->player->dirY, cub_data->player->dirX);
-	if (cub_data->angle < 0)
-		cub_data->angle += (2 * PI);
-	if (cub_data->angle > (2 * PI))
-		cub_data->angle -= (2 * PI);
+	norm_a(&cub_data->angle);
 }
 
 static void	found_player(t_data *cub_data, int x, int y)
@@ -81,12 +78,12 @@ static void	found_player(t_data *cub_data, int x, int y)
 	find_direction(cub_data, cub_data->map_data->map[x][y]);
 }
 
-static void	search_for_empty_line(char **map)
+static void	search_for_empty_line(char **map, int limit)
 {
 	int	count;
 
 	count = 0;
-	while (map[count] != NULL)
+	while (count < limit)
 	{
 		if (test_isspace(map[count]) == 1)
 		{
@@ -117,7 +114,7 @@ void	check_map(t_data *cub_data)
 		}
 		x++;
 	}
-	search_for_empty_line(cub_data->map_data->map);
+	search_for_empty_line(cub_data->map_data->map, cub_data->map_data->map_y);
 	if (cub_data->player == NULL)
 		ft_error("Invalid map! No player\n");
 }

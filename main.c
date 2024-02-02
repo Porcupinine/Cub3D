@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:05:45 by laura             #+#    #+#             */
-/*   Updated: 2024/01/31 14:35:06 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/02 10:56:50 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,27 @@
 #include "lib42/include/libft.h"
 #include <stdio.h>
 
-void findRayDirection(t_data *data, int x)
+void	init_map_images(t_data *data)
 {
-	double camera = 2 * x / (double)WIDTH - 1;
-	double x1;
-	double y1;
+	data->map = malloc(sizeof(t_minimap));
+	if (!data->map)
+		ft_error("Malloc fail\n");
+	data->map->wall_png = mlx_load_png("wood.png");
+	data->map->player_png = mlx_load_png("play.png");
+	if (!data->map->wall_png || !data->map->player_png)
+		ft_error("Minimap images fail\n");
+}
+
+void	findRayDirection(t_data *data, int x)
+{
+	double	camera;
+	double	x1;
+	double	y1;
+
+	camera = 2 * x / (double)WIDTH - 1;
 	data->ray->x1 = data->player->dirX + data->ray->planeX * camera;
 	data->ray->y1 = data->player->dirY + data->ray->planeY * camera;
 	data->angle = atan2(data->player->dirY, data->player->dirX);
-	printf("x1 %f, y1 %f plane X %f plane Y %F\n", x1, y1, data->ray->planeX, data->ray->planeY);
 }
 
 double	norm_a(double *angle)
@@ -38,47 +50,49 @@ double	norm_a(double *angle)
 	return (*angle);
 }
 
-void raycasting(t_data *data)
+void	raycasting(t_data *data)
 {
-	int x = 0;
-	double dist;
-	double delta_rays = PI / WIDTH;
-	double halfFOV = PI / 2;
+	int		x;
+	double	dist;
+	//double	delta_rays = PI / WIDTH;
+	// double	halfFOV = PI / 2;
+
+	x = 0;
 	data->player->mapX = (int)data->player->posX;
 	data->player->mapY = (int)data->player->posY;
+	printf("POSITION: %d %d\n", data->player->mapX, data->player->mapY);
 	while (x < WIDTH)
 	{
 		findRayDirection(data, x);
-		double cur_angle = data->angle - halfFOV + delta_rays * x;
+		double cur_angle = data->angle - (PI / 2) + (PI / WIDTH) * x;
 		// mlx_put_pixel(data->img, x1 * 10, y1 * 10, 0xFF0000FF);
 		findIntersection(data, data->ray->x1, data->ray->y1);
 		dist = findHit(data);
 		double ra = atan2(data->ray->y1, data->ray->x1);
 		dist = fm(dist * cos(norm_a(&ra) - data->angle));
-		printf("ANGLE %f\n", ra);
+		// findOrientation(data);
 		findWallHeight(data, dist, x);
 		x++;
 	}
-	printf("\n\n");
 }
 
-void initRaycast(t_data *data)
+void	initRaycast(t_data *data)
 {
 	double dirlen;
 
-	data->ray = malloc(sizeof(t_ray)); // free
+	data->ray = malloc(sizeof(t_ray));
 	data->ray->sideX = 0.00;
 	data->ray->sideY = 0.00;
 	data->ray->stepX = 0;
 	data->ray->stepY = 0;
 	dirlen = sqrt(data->player->dirX * data->player->dirX + data->player->dirY * data->player->dirY);
-	data->ray->planeX = data->player->dirY / dirlen * 0.66;
-	data->ray->planeY = -data->player->dirX / dirlen * 0.66;
+	data->ray->planeX = data->player->dirY / dirlen * -0.66;
+	data->ray->planeY = -data->player->dirX / dirlen * -0.66;
 	data->ray->x1 = 0.00;
 	data->ray->y1 = 0.00;
 }
 
-void init_image(t_data *data)
+void	init_image(t_data *data)
 {
 	data->mlx = mlx_init(WIDTH, HEIGHT, "CUB", NULL);
 	if (!data->mlx)
@@ -89,11 +103,12 @@ void init_image(t_data *data)
 	initRaycast(data);
 }
 
-void game_loop(t_data *data)
+void	game_loop(t_data *data)
 {
+	//init_map_images(data);
 	draw_env(data);
 	raycasting(data);
-	//minimap_background(data);
+	//create_minimap(data);
 	mlx_key_hook(data->mlx, (void *)&let_s_move, data);
 	mlx_loop(data->mlx);
 }
@@ -111,12 +126,12 @@ int main(int argc, char **argv)
 	if (cub_data == NULL)
 		ft_error("Malloc fail\n");
 	cub_data->map_data = get_data(argv[1]);
-	print_map(cub_data->map_data);
 	check_map(cub_data);
+	check_values(cub_data->map_data);
 	init_image(cub_data);
 	game_loop(cub_data);
 	free(cub_data->ray);
-	check_values(cub_data->map_data);
 	mlx_terminate(cub_data->mlx);
+	print_map(cub_data->map_data);
 	return (0);
 }

@@ -20,6 +20,7 @@
  * @return 1 if the string is empty and 0 if not
  */
 int	test_isspace(char*str);
+int	test_isspace_limited(char*str, int n);
 /**
  *
  * @param str
