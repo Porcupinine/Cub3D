@@ -126,12 +126,12 @@ int main(int argc, char **argv)
 	if (cub_data == NULL)
 		ft_error("Malloc fail\n");
 	cub_data->map_data = get_data(argv[1]);
-	print_map(cub_data->map_data);
 	check_map(cub_data);
 	check_values(cub_data->map_data);
 	init_image(cub_data);
 	game_loop(cub_data);
 	free(cub_data->ray);
 	mlx_terminate(cub_data->mlx);
+	print_map(cub_data->map_data);
 	return (0);
 }
