@@ -103,6 +103,7 @@ void	init_image(t_data *data)
 	initRaycast(data);
 }
 
+
 void	game_loop(t_data *data)
 {
 	//init_map_images(data);

@@ -61,7 +61,7 @@ typedef struct s_cub_textures
  * deltaX and deltaY are distance the ray has to travel to go from 1 x-side
  * to the next x-side, or from 1 y-side to the next y-side.
  * planeX and planeY are area we can see
- * x1 and y1 are we we are going
+ * x1 and y1 are were we are going
  */
 typedef struct s_ray
 {
