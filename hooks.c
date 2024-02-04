@@ -3,16 +3,23 @@
 #include "includes/graphics.h"
 #include <stdio.h>
 
-void delete_images(t_data *data)
+void update_images(t_data *data)
 {
-	mlx_delete_image(data->mlx, data->img);
-	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	mlx_image_to_window(data->mlx, data->img, 0, 0);
+	//mlx_delete_image(data->mlx, data->img);
+	//data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	//mlx_image_to_window(data->mlx, data->img, 0, 0);
 	draw_env(data);
 	raycasting(data);
-	// mlx_delete_image(data->mlx, data->map->img_player);
-	// mlx_delete_image(data->mlx, data->map->img_wall);
-	// create_minimap(data);
+	//mlx_delete_image(data->mlx, data->map->img_player);
+	//mlx_delete_image(data->mlx, data->map->img_wall);
+	// data->map->img_player->instances[0].x = (int)data->player->posX * data->scale_map;
+	// data->map->img_player->instances[0].y = (int)data->player->posY * data->scale_map;
+	// data->map->img_player->instances[0].x = 6 * data->scale_map;
+	// data->map->img_player->instances[0].y = 3 * data->scale_map;
+	// //player_pos_map(data);
+	create_minimap(data);
+
+
 }
 
 int wall_check(t_data *data, double y_end, double x_end)
@@ -40,7 +47,7 @@ void let_s_move(mlx_key_data_t keydata, t_data *data)
 		{
 			data->player->posY += data->player->dirY * 0.8;
 			data->player->posX += data->player->dirX * 0.8;
-			delete_images(data);
+			update_images(data);
 		}
 	}
 	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
@@ -50,7 +57,7 @@ void let_s_move(mlx_key_data_t keydata, t_data *data)
 			data->player->posY -= data->player->dirY * 0.8;
 			data->player->posX -= data->player->dirX * 0.8;
 			printf("PRESSED S POS: %f %f DIR: %f %f\n", data->player->posX, data->player->posY, data->player->dirX, data->player->dirY);
-			delete_images(data);
+			update_images(data);
 		}
 	}
 	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
@@ -59,7 +66,7 @@ void let_s_move(mlx_key_data_t keydata, t_data *data)
 		{
 			data->player->posY += data->player->dirX * 0.8;
 			data->player->posX -= data->player->dirY * 0.8;
-			delete_images(data);
+			update_images(data);
 		}
 	}
 	if (keydata.key == MLX_KEY_A  && keydata.action == MLX_PRESS)
@@ -70,7 +77,7 @@ void let_s_move(mlx_key_data_t keydata, t_data *data)
 			data->player->posX += data->player->dirY * 0.8;
 			printf("PRESSED D POS: %f %f DIR: %f %f\n", data->player->posX, data->player->posY, data->player->dirX, data->player->dirY);
 
-			delete_images(data);
+			update_images(data);
 		}
 	}
 	if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
@@ -84,7 +91,7 @@ void let_s_move(mlx_key_data_t keydata, t_data *data)
 		oldPlaneX = data->ray->planeX;
 		data->ray->planeX = data->ray->planeX * cos(angle) + data->ray->planeY * sin(angle);
 		data->ray->planeY = -oldPlaneX * sin(angle) + data->ray->planeY * cos(angle);
-		delete_images(data);
+		update_images(data);
 	}
 	if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
 	{
@@ -94,7 +101,7 @@ void let_s_move(mlx_key_data_t keydata, t_data *data)
 		double oldPlaneX = data->ray->planeX;
 		data->ray->planeX = data->ray->planeX * cos(angle) - data->ray->planeY * sin(angle);
 		data->ray->planeY = oldPlaneX * sin(angle) + data->ray->planeY * cos(angle);
-		delete_images(data);
+		update_images(data);
 	}
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{

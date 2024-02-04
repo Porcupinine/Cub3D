@@ -1,10 +1,7 @@
-#include "includes/utils.h"
-#include "includes/checks.h"
-#include "includes/parsing.h"
-#include "includes/cub3d.h"
-#include "lib42/include/libft.h"
+#include "../../includes/cub3d.h"
+#include "../../includes/parsing.h"
+#include "../../lib42/include/libft.h"
 #include <stdio.h>
-
 
 double findHit(t_data *data)
 {

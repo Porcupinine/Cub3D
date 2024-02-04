@@ -32,11 +32,13 @@ SRC		:= hooks.c \
 		src/utils/rgba.c \
 		src/checkers/check_map.c \
 		src/checkers/check_data.c \
-		src/calculations/positive_double.c \
+		src/raycasting/positive_double.c \
+		src/raycasting/raycasting.c \
+		src/raycasting/findRayAttr.c \
+		src/images/images.c \
 		minimap.c \
 		src/graphics/drawing3d.c \
 		src/graphics/draw_map.c \
-		findRayAttr.c \
 
 #-----------------------------------------------------------------------Objects
 OBJS	:= ${SRC:.c=.o}
