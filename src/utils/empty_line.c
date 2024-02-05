@@ -19,7 +19,7 @@ int	test_isspace(char*str)
 	int	count;
 
 	count = 0;
-	while (str[count] != '\0' || str[count] != '\n')
+	while (str[count] != '\0')
 	{
 		if (ft_strchr(ISSPACE, str[count]) == 0)
 			return (0);

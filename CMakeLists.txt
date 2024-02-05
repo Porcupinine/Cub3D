@@ -24,7 +24,6 @@ SET(SOURCES
 		src/utils/rgba.c
 		src/checkers/check_map.c
 		src/calculations/positive_double.c
-		minimap.c
 		src/checkers/check_data.c
 		src/graphics/load_walls.c
 		findRayAttr.c

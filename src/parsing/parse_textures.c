@@ -121,7 +121,6 @@ void	get_textures(char *line, t_map_data *cub_data)
 			ft_error("Invalid map! Multiple textures\n");
 		cub_data->ea_path = get_path(line);
 	}
-	free(line);
 }
 
 void	get_fc(char *line, t_map_data *cub_data)
