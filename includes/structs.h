@@ -89,6 +89,7 @@ typedef struct s_minimap
 typedef struct s_data
 {
 	t_ray		*ray;
+	int			side;
 	t_map_data	*map_data;
 	t_player	*player;
 	mlx_t		*mlx;
@@ -97,7 +98,7 @@ typedef struct s_data
 	double		angle;
 	char texture;
 	int scale_map; //temporarily minimap
-	t_cub_textures	walls;
+	t_cub_textures	*walls;
 	t_minimap	*map;
 } t_data;
 

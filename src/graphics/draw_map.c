@@ -14,6 +14,7 @@
 #include "../../includes/structs.h"
 #include "../../lib42/include/libft.h"
 #include "../../includes/cub3d.h"
+#include "../../includes/utils.h"
 
 void draw_env(t_data *data)
 {
@@ -36,6 +37,44 @@ void draw_env(t_data *data)
 	}
 }
 
+int get_pixel_color(mlx_texture_t *texture, int x, int y)
+{
+	int	r;
+	int	g;
+	int	b;
+	int rgba;
+
+	r = texture->pixels[(y * texture->width + x) * texture->bytes_per_pixel];
+	g = texture->pixels[(y * texture->width + x) * texture->bytes_per_pixel + 1];
+	b = texture->pixels[(y * texture->width + x) * texture->bytes_per_pixel + 2];
+	rgba = get_rgba(r, g, b, 255);
+	return (rgba);
+}
+
+int find_wall(t_data *cub_data, int x, int y)
+{
+	int color;
+
+	color = 0;
+	if (cub_data->side == 0 && cub_data->ray->x1 >= 0 && cub_data->ray->y1 <= 0)
+		color = get_pixel_color(cub_data->walls->w, x, y); //1 west
+	else if(cub_data->side == 0 && cub_data->ray->x1 >= 0 && cub_data->ray->y1 >= 0)
+		color = get_pixel_color(cub_data->walls->w, x, y); //1 west
+	else if (cub_data->side == 0 && cub_data->ray->x1 <= 0 && cub_data->ray->y1 <= 0)
+		color = get_pixel_color(cub_data->walls->e, x, y); //2 east
+	else if(cub_data->side == 0 && cub_data->ray->x1 <= 0 && cub_data->ray->y1 >= 0)
+		color = get_pixel_color(cub_data->walls->e, x, y); //2 east
+	else if (cub_data->side == 1 && cub_data->ray->x1 >= 0 && cub_data->ray->y1 <= 0)
+		color = get_pixel_color(cub_data->walls->s, x, y); //3 south
+	else if(cub_data->side == 1 && cub_data->ray->x1 <= 0 && cub_data->ray->y1 <= 0)
+		color = get_pixel_color(cub_data->walls->s, x, y); //3 south
+	else if (cub_data->side == 1 && cub_data->ray->x1 <= 0 && cub_data->ray->y1 >= 0)
+		color = get_pixel_color(cub_data->walls->n, x, y); //4 north
+	else if(cub_data->side == 1 && cub_data->ray->x1 >= 0 && cub_data->ray->y1 >= 0)
+		color = get_pixel_color(cub_data->walls->n, x, y); //4 north
+	return(color);
+}
+
 void	drawVerticalLine(t_data *cub_data, int x, int y_start, int y_end, int color)
 {
 	int	y;
@@ -43,6 +82,7 @@ void	drawVerticalLine(t_data *cub_data, int x, int y_start, int y_end, int color
 	y = y_start;
 	while (y <= y_end)
 	{
+		color = find_wall(cub_data, x, y);
 		mlx_put_pixel(cub_data->img, x, y, color);
 		y++;
 	}

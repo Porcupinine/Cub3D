@@ -23,7 +23,7 @@
  * @param file
  * @return parsed data of the map.
  */
-t_map_data *get_data(char *file);
+void	get_data(t_data *cub_data, char *file);
 //int parse_data(int fd, char *file, t_map_data *cub_data);
 /**
  * loops the line containing either F or C to extract the RGBA data.

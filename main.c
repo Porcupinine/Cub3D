@@ -40,6 +40,7 @@ void	findRayDirection(t_data *data, int x)
 	data->ray->y1 = data->player->dirY + data->ray->planeY * camera;
 	data->angle = atan2(data->player->dirY, data->player->dirX);
 }
+//TODO what is camera??
 
 double	norm_a(double *angle)
 {
@@ -126,9 +127,9 @@ int main(int argc, char **argv)
 	cub_data = ft_calloc(1, sizeof(t_data));
 	if (cub_data == NULL)
 		ft_error("Malloc fail\n");
-	cub_data->map_data = get_data(argv[1]);
+	get_data(cub_data, argv[1]);
 	check_map(cub_data);
-	check_values(cub_data->map_data);
+	check_values(cub_data);
 	init_image(cub_data);
 	game_loop(cub_data);
 	free(cub_data->ray);

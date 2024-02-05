@@ -69,18 +69,16 @@ static void	parse_data(int fd, char *file, t_map_data *cub_data)
 	free(line);
 }
 
-t_map_data	*get_data(char *file)
+void	get_data(t_data *cub_data, char *file)
 {
 	int		fd;
-	void	*cub_data;
 
-	cub_data = ft_calloc(1, sizeof(t_map_data));
-	if (cub_data == NULL)
+	cub_data->map_data = ft_calloc(1, sizeof(t_map_data));
+	if (cub_data->map_data == NULL)
 		ft_error("Malloc fail\n");
 	check_extension(file);
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		ft_error("Fail to read file\n");
-	parse_data(fd, file, cub_data);
-	return (cub_data);
+	parse_data(fd, file, cub_data->map_data);
 }
