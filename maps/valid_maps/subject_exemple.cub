@@ -1,7 +1,7 @@
 NO ./textures/big.png
 SO ./textures/big.png
-WE ./textures/big.png
-EA ./textures/big.png
+WE ./textures/brick.png
+EA ./textures/brick.png
 
 F 29,38,28
 C 38,49,66
