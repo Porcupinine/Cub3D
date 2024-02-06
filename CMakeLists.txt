@@ -24,7 +24,6 @@ SET(SOURCES
 		src/utils/rgba.c
 		src/checkers/check_map.c
 		src/calculations/positive_double.c
-		minimap.c
 		src/checkers/check_data.c
 		src/graphics/load_walls.c
 		findRayAttr.c
@@ -32,8 +31,7 @@ SET(SOURCES
 		src/graphics/draw_map.c
 		src/graphics/drawing3d.c)
 
-add_executable(cub3d main.c ${SOURCES}
-)
+add_executable(cub3d main.c ${SOURCES})
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
 target_link_libraries(cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42 m)
 

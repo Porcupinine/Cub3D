@@ -34,7 +34,7 @@ void	print_map(t_map_data *cub_data)
 	int	y;
 
 	y = 0;
-	while (cub_data->map[y] != NULL)
+	while (y < cub_data->map_y)
 	{
 		printf("%s", cub_data->map[y]);
 		y++;

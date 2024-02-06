@@ -16,5 +16,6 @@
 #include "structs.h"
 
 void draw_env(t_data *data);
+void	load_textures(t_data *cub_data);
 
 #endif //CUB3D_GRAPHICS_H

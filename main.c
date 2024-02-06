@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:05:45 by laura             #+#    #+#             */
-/*   Updated: 2024/02/06 13:32:06 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/06 14:33:06 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include "includes/cub3d.h"
 #include "lib42/include/libft.h"
 #include <stdio.h>
-
 
 void	game_loop(t_data *data)
 {
@@ -44,9 +43,9 @@ int main(int argc, char **argv)
 	cub_data = ft_calloc(1, sizeof(t_data));
 	if (cub_data == NULL)
 		ft_error("Malloc fail\n");
-	cub_data->map_data = get_data(argv[1]);
+	get_data(cub_data, argv[1]);
 	check_map(cub_data);
-	check_values(cub_data->map_data);
+	check_values(cub_data);
 	init_image(cub_data);
 	game_loop(cub_data);
 	mlx_terminate(cub_data->mlx);

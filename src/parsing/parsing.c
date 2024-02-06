@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:48:52 by laura             #+#    #+#             */
-/*   Updated: 2024/02/06 13:40:15 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/06 14:30:02 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ static int	check_floor_celing(const char *line)
 static void	parse_data(int fd, char *file, t_map_data *cub_data)
 {
 	char	*line;
-	while ((line = get_next_line(fd)))
+	line = get_next_line(fd);
+	while (line != NULL)
 	{
 		if (first_map_line(line) == 1 && test_isspace(line) != 1)
 		{
@@ -63,22 +64,21 @@ static void	parse_data(int fd, char *file, t_map_data *cub_data)
 		}
 		else if (test_isspace(line) != 1)
 			ft_error("Invalid data! Trash line \n");
+		line = get_next_line(fd);
 	}
+	free(line);
 }
 
-t_map_data	*get_data(char *file)
+void	get_data(t_data *cub_data, char *file)
 {
 	int		fd;
-	void	*cub_data;
 
-	fd = 0;
-	cub_data = ft_calloc(1, sizeof(t_map_data));
-	if (cub_data == NULL)
+	cub_data->map_data = ft_calloc(1, sizeof(t_map_data));
+	if (cub_data->map_data == NULL)
 		ft_error("Malloc fail\n");
 	check_extension(file);
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		ft_error("Fail to read file\n");
-	parse_data(fd, file, cub_data);
-	return (cub_data);
+	parse_data(fd, file, cub_data->map_data);
 }
