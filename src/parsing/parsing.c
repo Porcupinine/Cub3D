@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   parsing.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: laura <laura@student.codam.nl>               +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/01/18 13:48:52 by laura         #+#    #+#                 */
-/*   Updated: 2024/01/26 11:46:43 by laura         ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/18 13:48:52 by laura             #+#    #+#             */
+/*   Updated: 2024/02/06 13:40:15 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static int	check_textures(const char *line)
 
 static int	check_floor_celing(const char *line)
 {
+	printf("\nCEILING");
 	return (ft_strnstr(line, "F ", ft_strlen(line)) != 0 || \
 			ft_strnstr(line, "C ", ft_strlen(line)) != 0);
 }
@@ -44,7 +45,6 @@ static int	check_floor_celing(const char *line)
 static void	parse_data(int fd, char *file, t_map_data *cub_data)
 {
 	char	*line;
-
 	while ((line = get_next_line(fd)))
 	{
 		if (first_map_line(line) == 1 && test_isspace(line) != 1)

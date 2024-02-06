@@ -19,8 +19,7 @@ HEADERS	:= -I ./include -I $(LIBMLX)/include -I $(LIB42)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -fPIE -lm $(LIB42)/libft.a
 
 #------------------------------------------------------------------------Source
-SRC		:= hooks.c \
-		main.c \
+SRC		:= main.c \
 		src/parsing/parsing.c \
 		src/parsing/parse_textures.c \
 		src/parsing/parse_map.c \
@@ -36,6 +35,8 @@ SRC		:= hooks.c \
 		src/raycasting/raycasting.c \
 		src/raycasting/findRayAttr.c \
 		src/images/images.c \
+		src/hooks/rotate.c \
+		src/hooks/hooks.c \
 		minimap.c \
 		src/graphics/drawing3d.c \
 		src/graphics/draw_map.c \

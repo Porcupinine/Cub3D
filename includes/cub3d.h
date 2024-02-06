@@ -22,13 +22,14 @@ void	let_s_move(mlx_key_data_t keydata, t_data *data);
 void	draw_env(t_data *data);
 
 /*Graphics*/
-void	findWallHeight(t_data *data, double dist, int x);
-void	drawVerticalLine(t_data *cub_data, int x, int y_start, int y_end, int color);
-void	drawDarkLine(t_data *cub_data, int x, int y_start, int y_end, double dark);
+void	find_wall_height(t_data *data, double dist, int x);
+void	draw_vertical_line(t_data *cub_data, int x, int y_start, int y_end, int color);
+void	draw_dark_line(t_data *cub_data, int x, int y_start, int y_end, double dark);
 
 /*Minimap*/
-void	create_minimap(t_data *data);
-void	player_pos_map(t_data *data);
+void	draw_map(t_data *data);
+void	draw_square(t_data *data, int draw_x, int draw_y, int color);
+void	draw_player(t_data *data);
 
 /*Images*/
 
@@ -38,12 +39,16 @@ void	init_image(t_data *data);
 /*Raycasting*/
 double	fm(double a);
 void	draw_vertical(t_data *data, int x, int y_start, int y_end, int color);
-void	findOrientation(t_data *data, int x, double camera);
-void	findRayDirection(t_data *data, int x);
+void	find_orientation(t_data *data, int x, double camera);
+void	find_ray_direction(t_data *data, int x);
 double	norm_a(double *angle);
 void	raycasting(t_data *data);
-void	initRaycast(t_data *data);
-double	findHit(t_data *data);
-void	findIntersection(t_data *data, double x1, double y1);
+void	init_raycast(t_data *data);
+double	find_hit(t_data *data);
+void	find_intersection(t_data *data, double x1, double y1);
+
+/*Hooks*/
+void	rotate_left(t_data *data, double angle);
+void	rotate_right(t_data *data, double angle);
 
 #endif

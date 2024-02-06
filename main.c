@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:05:45 by laura             #+#    #+#             */
-/*   Updated: 2024/02/04 16:34:52 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/06 13:32:06 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@
 
 void	game_loop(t_data *data)
 {
-	init_map_images(data);
 	draw_env(data);
 	raycasting(data);
-	create_minimap(data);
+	if (data->scale_map > 2 && data->scale_map < 100)
+	{
+		init_map_images(data);
+		draw_map(data);
+	}
 	mlx_key_hook(data->mlx, (void *)&let_s_move, data);
 	mlx_loop(data->mlx);
 }
