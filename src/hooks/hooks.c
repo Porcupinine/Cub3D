@@ -31,19 +31,19 @@ void mousing(mouse_key_t button, action_t action, modifier_key_t mods, t_data *d
 
 void cursoring(double xpos, double ypos, t_data *data)
 {
-	double angle = (xpos - (double)WIDTH/ 2) /(double)WIDTH; 
-	while (angle < 0)
-		angle += (2 * PI);
-	while (angle > (2 * PI))
-		angle -= (2 * PI);
-	printf("angle %f", angle);
+	data->angle += (xpos - (double)WIDTH/ 2) /(double)WIDTH; 
+	while (data->angle < 0)
+		data->angle += (2 * PI);
+	while (data->angle > (2 * PI))
+		data->angle -= (2 * PI);
+	printf("angle %f", data->angle);
 	// double dirX = data->player->dirX * cos(angle);
 	// printf(" real %fdirx %f", data->player->dirX, dirX);
 	// data->player->dirX = dirX;
 	if ((xpos - (double)WIDTH/ 2) < 0)
-		rotate_left(data, angle/10);
+		rotate_left(data, data->angle/360);
 	else
-		rotate_right(data, angle/10);
+		rotate_right(data, data->angle/360);
 }
 
 
