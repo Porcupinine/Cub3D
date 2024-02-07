@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   load_walls.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lpraca-l <lpraca-l@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/01/29 16:48:48 by lpraca-l      #+#    #+#                 */
-/*   Updated: 2024/01/29 16:48:48 by lpraca-l      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   load_walls.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/29 16:48:48 by lpraca-l          #+#    #+#             */
+/*   Updated: 2024/02/06 15:01:21 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../MLX42/include/MLX42/MLX42.h"
 #include "../../includes/structs.h"
 #include "../../lib42/include/libft.h"
+#include "../../includes/parsing.h"
 
 void	load_textures(t_data *cub_data)
 {

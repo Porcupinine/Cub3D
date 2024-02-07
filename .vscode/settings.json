@@ -9,6 +9,7 @@
 		"parsing.h": "c",
 		"libft.h": "c",
 		"cmath": "c",
-		"cub3d.h": "c"
+		"cub3d.h": "c",
+		"ctype.h": "c"
 	}
 }

@@ -37,9 +37,11 @@ SRC		:= main.c \
 		src/images/images.c \
 		src/hooks/rotate.c \
 		src/hooks/hooks.c \
+		src/hooks/move.c \
 		minimap.c \
 		src/graphics/drawing3d.c \
 		src/graphics/draw_map.c \
+		src/graphics/load_walls.c \
 
 #-----------------------------------------------------------------------Objects
 OBJS	:= ${SRC:.c=.o}
@@ -49,6 +51,8 @@ OBJ_DIR := objs/
 OBJECTS_PREFIXED := $(addprefix $(OBJ_DIR), $(OBJS))
 
 #-------------------------------------------------------------------------Rulall: $(NAME)
+
+all: $(NAME)
 
 $(OBJ_DIR)%.o : %.c
 	@mkdir -p $(dir $@)

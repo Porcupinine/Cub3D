@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:48:52 by laura             #+#    #+#             */
-/*   Updated: 2024/02/06 14:30:02 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:05:36 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static int	check_textures(const char *line)
 
 static int	check_floor_celing(const char *line)
 {
-	printf("\nCEILING");
 	return (ft_strnstr(line, "F ", ft_strlen(line)) != 0 || \
 			ft_strnstr(line, "C ", ft_strlen(line)) != 0);
 }

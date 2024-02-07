@@ -33,12 +33,14 @@ void	raycasting(t_data *data)
 	data->player->mapY = (int)data->player->posY;
 	while (x < WIDTH)
 	{
+
 		find_ray_direction(data, x);
 		find_intersection(data, data->ray->x1, data->ray->y1);
 		dist = find_hit(data);
 		ra = atan2(data->ray->y1, data->ray->x1);
 		dist = fm(dist * cos(norm_a(&ra) - data->angle));
 		find_wall_height(data, dist, x);
+		//printf("dirX %f dirY %f ray %d\n", data->player->dirX, data->player->dirY, x);
 		x++;
 	}
 }

@@ -13,7 +13,7 @@
 #define WIDTH 1200
 #define HEIGHT 1200
 #define PI 3.1415
-#define COLOR_AMMO 0xeda705
+#define COLOR_AMMO 0xeda705 //git rid of them
 #define COLOR_BLUE 0xbfbd2c
 #define COLOR_RED 0xFF0000FF
 
@@ -50,5 +50,17 @@ void	find_intersection(t_data *data, double x1, double y1);
 /*Hooks*/
 void	rotate_left(t_data *data, double angle);
 void	rotate_right(t_data *data, double angle);
+void	update_images(t_data *data);
+void	move_forward(t_data *data);
+void	move_back(t_data *data);
+void	move_right(t_data *data);
+void	move_left(t_data *data);
+int		wall_check(t_data *data, double y_end, double x_end);
+void	update_images(t_data *data);
+
+
+void mousing(mouse_key_t button, action_t action, modifier_key_t mods, t_data *data);
+void cursoring(double xpos, double ypos, t_data *data);
+
 
 #endif
