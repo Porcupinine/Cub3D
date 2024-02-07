@@ -13,6 +13,8 @@
 # define WIDTH 1200
 # define HEIGHT 1200
 # define PI 3.1415
+# define TXT_HEIGHT 1200
+# define TXT_WIGHT 1200
 //# define RA 1.047
 # define COLOR_AMMO 0xeda705
 # define COLOR_BLUE 0xbfbd2c
@@ -26,7 +28,7 @@ void	draw_env(t_data *data);
 
 /*drawing3d*/
 void	findWallHeight(t_data *data, double dist, int x);
-void	drawVerticalLine(t_data *cub_data, int x, int y_start, int y_end, int color);
+//void	drawVerticalLine(t_data *cub_data, int x, int y_start, int y_end, int color);
 
 /*findRayAttr*/
 void	findIntersection(t_data *data, double x1, double y1);

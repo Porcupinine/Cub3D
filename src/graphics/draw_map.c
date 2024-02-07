@@ -75,35 +75,51 @@ int find_wall(t_data *cub_data, int x, int y)
 	return(color);
 }
 
-void	drawVerticalLine(t_data *cub_data, int x, int y_start, int y_end, int color)
+void	drawVerticalLine(t_data *cub_data, int texX)
 {
 	int	y;
+	int color;
 
-	y = y_start;
-	while (y <= y_end)
+	y = cub_data->walls->draw_start;
+
+	// How much to increase the texture coordinate per screen pixel
+	double step = 1.0 * 65 / cub_data->walls->line_height;
+	// Starting texture coordinate
+	double texPos = (cub_data->walls->draw_start - HEIGHT / 2 + cub_data->walls->line_height / 2) * step;
+	while (y <= cub_data->walls->draw_end)
 	{
-		color = find_wall(cub_data, x, y);
-		mlx_put_pixel(cub_data->img, x, y, color);
+		int texY = (int)texPos & (TXT_HEIGHT - 1);
+		texPos += step;
+		color = find_wall(cub_data, texX, texY);
+		mlx_put_pixel(cub_data->img, texX, texY, color);
 		y++;
 	}
 }
 
 void	findWallHeight(t_data *data, double dist, int x)
 {
-	int	lineHeight;
-	int	drawStart;
-	int	drawEnd;
-
 	if ((int)dist != 0)
-		lineHeight = (int)(HEIGHT / dist);
+		data->walls->line_height = (int)(HEIGHT / dist);
 	else
-		lineHeight = HEIGHT;
+		data->walls->line_height = HEIGHT;
 	printf("\ndist %f\n", dist);
-	drawStart = HEIGHT / 2 - lineHeight / 2;
-	if (drawStart < 0)
-		drawStart = 0;
-	drawEnd = HEIGHT / 2 + lineHeight / 2;
-	if (drawEnd >= HEIGHT)
-		drawEnd = HEIGHT - 1;
-	drawVerticalLine(data, x, drawStart, drawEnd, 0xFF0000FF);
+	data->walls->draw_start = HEIGHT / 2 - data->walls->line_height / 2;
+	if (data->walls->draw_start < 0)
+		data->walls->draw_start = 0;
+	data->walls->draw_end = HEIGHT / 2 + data->walls->line_height / 2;
+	if (data->walls->draw_end >= HEIGHT)
+		data->walls->draw_end = HEIGHT - 1;
+
+	double wallX; //where exactly the wall was hit
+	if (data->side == 0)
+		wallX = data->player->posY + dist * data->player->dirY;
+	else
+		wallX = data->player->posX + dist * data->player->dirX;
+	int texX = (int)(wallX * TXT_WIGHT);
+	if(data->side == 0 && data->player->dirX > 0)
+		texX = TXT_WIGHT - texX - 1;
+	if(data->side == 1 && data->player->dirY < 0)
+		texX = TXT_WIGHT - texX - 1;
+
+	drawVerticalLine(data, texX);
 }
