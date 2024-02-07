@@ -75,7 +75,7 @@ int find_wall(t_data *cub_data, int x, int y)
 	return(color);
 }
 
-void	drawVerticalLine(t_data *cub_data, int texX)
+void	drawVerticalLine(t_data *cub_data, int texX, int x)
 {
 	int	y;
 	int color;
@@ -83,7 +83,7 @@ void	drawVerticalLine(t_data *cub_data, int texX)
 	y = cub_data->walls->draw_start;
 
 	// How much to increase the texture coordinate per screen pixel
-	double step = 1.0 * 65 / cub_data->walls->line_height;
+	double step = 1.0 * TXT_HEIGHT / cub_data->walls->line_height;
 	// Starting texture coordinate
 	double texPos = (cub_data->walls->draw_start - HEIGHT / 2 + cub_data->walls->line_height / 2) * step;
 	while (y <= cub_data->walls->draw_end)
@@ -91,7 +91,7 @@ void	drawVerticalLine(t_data *cub_data, int texX)
 		int texY = (int)texPos & (TXT_HEIGHT - 1);
 		texPos += step;
 		color = find_wall(cub_data, texX, texY);
-		mlx_put_pixel(cub_data->img, texX, texY, color);
+		mlx_put_pixel(cub_data->img, x, y, color);
 		y++;
 	}
 }
@@ -121,5 +121,5 @@ void	findWallHeight(t_data *data, double dist, int x)
 	if(data->side == 1 && data->player->dirY < 0)
 		texX = TXT_WIGHT - texX - 1;
 
-	drawVerticalLine(data, texX);
+	drawVerticalLine(data, texX, x);
 }
