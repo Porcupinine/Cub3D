@@ -31,7 +31,8 @@ SET(SOURCES
 		src/graphics/draw_map.c
 		src/graphics/drawing3d.c)
 
-add_executable(cub3d main.c ${SOURCES})
+add_executable(cub3d main.c ${SOURCES}
+        src/graphics/find_coordinates.c)
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
 target_link_libraries(cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42 m)
 

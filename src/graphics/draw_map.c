@@ -14,6 +14,7 @@
 #include "../../includes/structs.h"
 #include "../../lib42/include/libft.h"
 #include "../../includes/cub3d.h"
+#include "../../includes/graphics.h"
 #include "../../includes/utils.h"
 
 void draw_env(t_data *data)
@@ -51,7 +52,7 @@ int get_pixel_color(mlx_texture_t *texture, int x, int y)
 	return (rgba);
 }
 
-int find_wall(t_data *cub_data, int x, int y)
+int	find_wall(t_data *cub_data, int x, int y)
 {
 	int color;
 
@@ -75,22 +76,22 @@ int find_wall(t_data *cub_data, int x, int y)
 	return(color);
 }
 
-void	drawVerticalLine(t_data *cub_data, int texX, int x)
+void	drawVerticalLine(t_data *cub_data, int tex_x, int x)
 {
-	int	y;
-	int color;
+	int		y;
+	int		color;
+	int		tex_y;
+	double	step;
+	double	tex_pos;
 
 	y = cub_data->walls->draw_start;
-
-	// How much to increase the texture coordinate per screen pixel
-	double step = 1.0 * TXT_HEIGHT / cub_data->walls->line_height;
-	// Starting texture coordinate
-	double texPos = (cub_data->walls->draw_start - HEIGHT / 2 + cub_data->walls->line_height / 2) * step;
+	step = 1.0 * TXT_HEIGHT / cub_data->walls->line_height;
+	tex_pos = (cub_data->walls->draw_start - HEIGHT / 2 + cub_data->walls->line_height / 2) * step;
 	while (y <= cub_data->walls->draw_end)
 	{
-		int texY = (int)texPos & (TXT_HEIGHT - 1);
-		texPos += step;
-		color = find_wall(cub_data, texX, texY);
+		tex_y = (int)tex_pos & (TXT_HEIGHT - 1);
+		tex_pos += step;
+		color = find_wall(cub_data, tex_x, tex_y);
 		mlx_put_pixel(cub_data->img, x, y, color);
 		y++;
 	}
@@ -98,28 +99,20 @@ void	drawVerticalLine(t_data *cub_data, int texX, int x)
 
 void	findWallHeight(t_data *data, double dist, int x)
 {
+	int tex_x;
+
 	if ((int)dist != 0)
 		data->walls->line_height = (int)(HEIGHT / dist);
 	else
 		data->walls->line_height = HEIGHT;
 	printf("\ndist %f\n", dist);
-	data->walls->draw_start = HEIGHT / 2 - data->walls->line_height / 2;
+//	data->walls->draw_start = HEIGHT / 2 - data->walls->line_height / 2;
+	data->walls->draw_start = -(data->walls->line_height / 2) + (HEIGHT / 2);
 	if (data->walls->draw_start < 0)
 		data->walls->draw_start = 0;
 	data->walls->draw_end = HEIGHT / 2 + data->walls->line_height / 2;
 	if (data->walls->draw_end >= HEIGHT)
 		data->walls->draw_end = HEIGHT - 1;
-
-	double wallX; //where exactly the wall was hit
-	if (data->side == 0)
-		wallX = data->player->posY + dist * data->player->dirY;
-	else
-		wallX = data->player->posX + dist * data->player->dirX;
-	int texX = (int)(wallX * TXT_WIGHT);
-	if(data->side == 0 && data->player->dirX > 0)
-		texX = TXT_WIGHT - texX - 1;
-	if(data->side == 1 && data->player->dirY < 0)
-		texX = TXT_WIGHT - texX - 1;
-
-	drawVerticalLine(data, texX, x);
+	tex_x = find_texture_x(data, dist);
+	drawVerticalLine(data, tex_x, x);
 }
