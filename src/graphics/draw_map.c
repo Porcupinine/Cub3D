@@ -103,11 +103,11 @@ void	findWallHeight(t_data *data, double dist, int x)
 
 	if ((int)dist != 0)
 		data->walls->line_height = (int)(HEIGHT / dist);
-	else
-		data->walls->line_height = HEIGHT;
-	printf("\ndist %f\n", dist);
+//	else
+//		data->walls->line_height = HEIGHT;
+//	printf("\ndist %f\n", dist);
 //	data->walls->draw_start = HEIGHT / 2 - data->walls->line_height / 2;
-	data->walls->draw_start = -(data->walls->line_height / 2) + (HEIGHT / 2);
+	data->walls->draw_start = HEIGHT / 2 -data->walls->line_height / 2;
 	if (data->walls->draw_start < 0)
 		data->walls->draw_start = 0;
 	data->walls->draw_end = HEIGHT / 2 + data->walls->line_height / 2;

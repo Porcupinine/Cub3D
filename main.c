@@ -40,7 +40,6 @@ void	findRayDirection(t_data *data, int x)
 	data->ray->y1 = data->player->dirY + data->ray->planeY * camera;
 	data->angle = atan2(data->player->dirY, data->player->dirX);
 }
-//TODO what is camera??
 
 double	norm_a(double *angle)
 {
@@ -61,7 +60,7 @@ void	raycasting(t_data *data)
 	x = 0;
 	data->player->mapX = (int)data->player->posX;
 	data->player->mapY = (int)data->player->posY;
-	printf("POSITION: %d %d\n", data->player->mapX, data->player->mapY);
+//	printf("POSITION: %d %d\n", data->player->mapX, data->player->mapY);
 	while (x < WIDTH)
 	{
 		findRayDirection(data, x);
