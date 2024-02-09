@@ -10,8 +10,8 @@
 #include <stdio.h>
 # include "structs.h"
 # define BUFFER_SIZE 1
-# define WIDTH 2000
-# define HEIGHT 2000
+# define WIDTH 1200
+# define HEIGHT 1200
 # define PI 3.1415
 # define TXT_HEIGHT 512
 # define TXT_WIGHT 512
