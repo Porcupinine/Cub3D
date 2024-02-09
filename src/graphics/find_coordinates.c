@@ -22,42 +22,14 @@ int	find_texture_x(t_data *cub_data, double dist)
 	int		tex_x;
 
 	if (cub_data->side == 0)
-	{
 		wall_x = cub_data->player->posY + dist * cub_data->player->dirY;
-		printf("posY: %f\ndist: %f\ndiry: %f\n", cub_data->player->posY, dist, cub_data->player->dirY);
-		printf("wall_x = %f + %f * %f\n", cub_data->player->posY, dist, cub_data->player->dirY);
-	}
 	else
-	{
 		wall_x = cub_data->player->posX + dist * cub_data->player->dirX;
-		printf("posx: %f\ndist: %f\ndirx: %f\n", cub_data->player->posX, dist, cub_data->player->dirX);
-		printf("wall_x = %f + %f * %f\n", cub_data->player->posY, dist, cub_data->player->dirY);
-	}
 	wall_x -= floor(wall_x);
-	tex_x = (int)(wall_x * (double)512);
+	tex_x = (int)(wall_x * (double)cub_data->walls->current_width);
 	if (cub_data->side == 0 && cub_data->player->dirX > 0)
-	{
-		tex_x = 512 - tex_x - 1;
-		printf("tex_x = %d - %d - 1\n", 512, tex_x);
-	}
+		tex_x = (int)cub_data->walls->current_width - tex_x - 1;
 	if (cub_data->side == 1 && cub_data->player->dirY < 0)
-	{
-		tex_x = 512 - tex_x - 1;
-		printf("tex_x = %d - %d - 1\n", 512, tex_x);
-	}
-	printf("wall_x: %f\ntex_x: %d\n\n", wall_x, tex_x);
+		tex_x = (int)cub_data->walls->current_width - tex_x - 1;
 	return (tex_x);
 }
-
-//int find_texture_y(t_data *cub_data)
-//{
-//	int		tex_y;
-//	double	step;
-//	double	tex_pos;
-//
-//	step = 1.0 * TXT_HEIGHT / cub_data->walls->line_height;
-//	tex_pos = (cub_data->walls->draw_start - HEIGHT / 2 + cub_data->walls->line_height / 2) * step;
-//	tex_y = (int)tex_pos & (TXT_HEIGHT - 1);
-//	tex_pos += step;
-//	return (tex_y);
-//}

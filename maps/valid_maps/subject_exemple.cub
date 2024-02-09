@@ -1,7 +1,7 @@
-NO ./textures/Brick10.png
-SO ./textures/Metal19.png
+NO ./textures/Brick10.pngd
+SO wsd./textures/Brick16.png
 WE ./textures/Stone18.png
-EA ./textures/Tile11.png
+EA ./textures/Brick08.png
 
 F 29,38,28
 C 38,49,66
