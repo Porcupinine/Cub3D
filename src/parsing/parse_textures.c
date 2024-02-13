@@ -32,7 +32,7 @@ static char	*get_path(char *str)
 		{
 			start = count + 2;
 			count++;
-			while (ft_isalpha(str[count]) != 0 || \
+			while (ft_isalnum(str[count]) != 0 || \
 			ft_strrchr(VAL, str[count]) != 0)
 				count++;
 			sub = ft_substr(str, start, (count + 4) - start);

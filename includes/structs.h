@@ -52,6 +52,12 @@ typedef struct s_cub_textures
 	mlx_texture_t	*s;
 	mlx_texture_t	*e;
 	mlx_texture_t	*w;
+	mlx_texture_t	*texture;
+	uint32_t		current_width;
+	uint32_t		current_height;
+	int				line_height;
+	int				draw_start;
+	int 			draw_end;
 }	t_cub_textures;
 
 /**
