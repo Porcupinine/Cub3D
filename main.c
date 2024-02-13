@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:05:45 by laura             #+#    #+#             */
-/*   Updated: 2024/02/07 16:58:29 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/08 13:54:08 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	game_loop(t_data *data)
 	}
 	mlx_key_hook(data->mlx, (void *)&let_s_move, data);
 	mlx_mouse_hook(data->mlx, (void *)&mousing, data);
-	mlx_cursor_hook(data->mlx, (void *)&cursoring, data);
 	mlx_loop(data->mlx);
 }
 

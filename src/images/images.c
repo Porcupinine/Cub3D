@@ -18,6 +18,11 @@ void	init_map_images(t_data *data)
 	if (mlx_image_to_window(data->mlx, data->map->img_player, \
 		6 * data->scale_map, 3 * data->scale_map) < 0)
 		ft_error("Minimap images to window fail");
+	data->strimage = mlx_put_string(data->mlx, "Stop rotating! You make me dizzy", \
+		WIDTH / 2, HEIGHT / 2);
+	if (!data->strimage)
+		ft_error("Message fail");
+	data->strimage->enabled = false;
 }
 
 void	init_image(t_data *data)

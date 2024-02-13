@@ -39,6 +39,7 @@ void	raycasting(t_data *data)
 		dist = find_hit(data);
 		ra = atan2(data->ray->y1, data->ray->x1);
 		dist = fm(dist * cos(norm_a(&ra) - data->angle));
+		data->wallX = data->player->posY + dist * data->ray->y1;
 		find_wall_height(data, dist, x);
 		//printf("dirX %f dirY %f ray %d\n", data->player->dirX, data->player->dirY, x);
 		x++;

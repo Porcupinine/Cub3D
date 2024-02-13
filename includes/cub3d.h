@@ -57,10 +57,11 @@ void	move_right(t_data *data);
 void	move_left(t_data *data);
 int		wall_check(t_data *data, double y_end, double x_end);
 void	update_images(t_data *data);
+void	mousing(mouse_key_t button, action_t action, modifier_key_t mods, t_data *data);
+void	cursoring(double xpos, double ypos, t_data *data);
 
 
-void mousing(mouse_key_t button, action_t action, modifier_key_t mods, t_data *data);
-void cursoring(double xpos, double ypos, t_data *data);
-
+/*Test*/
+void	add_textures(t_data *data, int x, int line_height, int start, int end);
 
 #endif
