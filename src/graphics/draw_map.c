@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:00:10 by laura             #+#    #+#             */
-/*   Updated: 2024/01/31 14:37:02 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/06 14:00:32 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 #include "../../includes/graphics.h"
 #include "../../includes/utils.h"
 
-void draw_env(t_data *data)
+void	draw_env(t_data *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < HEIGHT)
