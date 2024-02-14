@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   checks.h                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: laura <laura@student.codam.nl>               +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/01/22 13:32:16 by laura         #+#    #+#                 */
-/*   Updated: 2024/01/22 13:32:16 by laura         ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   checks.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/22 13:32:16 by laura             #+#    #+#             */
+/*   Updated: 2024/02/06 15:03:40 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ void check_map(t_data *cub_data);
  * check if there is data for all coordinates
  * @param map_data
  */
-void check_values(t_map_data *map_data);
+void	check_values(t_data *map_data);
+void	load_textures(t_data *cub_data);
 #endif //CUB3D_CHECKS_H

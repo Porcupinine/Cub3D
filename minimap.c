@@ -2,151 +2,54 @@
 #include "includes/parsing.h"
 #include "lib42/include/libft.h"
 
-
-
-void	draw_wall(t_data *data, mlx_t *mlx, int x, int y)
-{
-	// mlx_texture_t	*texture_wall;
-	// mlx_image_t		*img_wall;
-
-	// texture_wall = mlx_load_png("wood.png");
-	// if (!texture_wall)
-	// 	ft_error("ERR");
-	data->map->img_wall = mlx_texture_to_image(mlx, data->map->wall_png);
-	mlx_resize_image(data->map->img_wall, data->scale_map, data->scale_map);
-	if (!data->map->img_wall)
-		ft_error("ERR");
-	if (mlx_image_to_window(mlx, data->map->img_wall, x * data->scale_map, y * data->scale_map) < 0)
-		ft_error("ERR");
-}
-
-// void findOrientation(t_data *data, int x, double camera)
-// {
-// 	double x1 = data->player->dirX + data->ray->planeX * camera;
-// 	double y1 = data->player->dirY + data->ray->planeY * camera;
-// 	if (x1 < 0)
-// 		data->player->orientation = 0;
-// 	else
-// 		data->player->orientation = 1;
-// 	if (y1 < 0)
-// 		data->player->orientation += 1;
-// 	else
-// 		data->player->orientation += 3;
-// }
-
-void findOrientation(t_data *data)
-{
-	if (data->player->dirX < 0)
-		data->player->orientation = 0;
-	else
-		data->player->orientation = 1;
-	if (data->player->dirY < 0)
-		data->player->orientation += 1;
-	else
-		data->player->orientation += 3;
-}
-
-void draw_direction(t_data *data)
-{
-	double x = data->player->posX + data->scale_map / 2;
-	double y = data->player->posY + data->scale_map / 2;
-	
-    int n = 50;//(fm(data->player->dirX) + fm(data->player->dirY)) * 50;
-    double error = fm(data->player->dirX) - fm(data->player->dirY);
-	// double x1 = data->player->dirX + data->ray->planeX * camera;
-	// double y1 = data->player->dirY + data->ray->planeY * camera;
-	// while(x < 10)
-	// {
-	// 	double camera = 2 * x / 10 - 1;
-	// 	findOrientation(data, x, camera);
-	// 	if (data->player->orientation == 1)
-	// 	{
-	// 		x = data->player->posX + data->scale_map / 2;
-	// 		y = data->player->posY + data->scale_map / 2;
-	// 	}
-		while (n > 0)
-		{
-			if (((int)(data->player->posX * data->scale_map + x)) < 0 || ((int)(data->player->posX * data->scale_map + x)) > data->map_data->map_x * data->scale_map
-				|| ((int)(data->player->posY * data->scale_map + y)) < 0 || ((int)(data->player->posY * data->scale_map + y)) > data->map_data->map_y * data->scale_map)
-				break;
-			mlx_put_pixel(data->img, data->player->posX * data->scale_map + x, data->player->posY * data->scale_map + y, COLOR_RED);
-			if (error > 0)
-			{
-				x += data->player->dirX;
-				error -= fm(data->player->dirY);
-			}
-			else
-			{
-				y += data->player->dirY;
-				error += fm(data->player->dirX);
-			}
-			n--;
-		}
-    // }
-}
-
-
 void draw_player(t_data *data)
 {
-	// mlx_texture_t	*player_pic;
-	// mlx_image_t		*img_wall;
-
-	// player_pic = mlx_load_png("play.png");
-	// if (!player_pic)
-	// 	ft_error("ERR");
-	data->map->img_player = mlx_texture_to_image(data->mlx, data->map->player_png);
-	if (!data->map->img_player)
+	if (mlx_image_to_window(data->mlx, data->map->img_player, 6 * data->scale_map, 3 * data->scale_map) < 0)
 		ft_error("Minimap images fail");
-	mlx_resize_image(data->map->img_player, data->scale_map, data->scale_map);
-	if (mlx_image_to_window(data->mlx, data->map->img_player, data->player->posX * data->scale_map, data->player->posY * data->scale_map) < 0)
-		ft_error("Minimap images fail");
-	//draw_direction(data);
-
 }
 
-void draw_map(t_data *data)
-{
-	int x = 0;
-	int y = 0;
-
-	while (y < data->map_data->map_y)
-	{
-		while (x < data->map_data->map_x)
-		{
-			if (data->map_data->map[y][x] == '1')
-			{		
-				draw_wall(data, data->mlx, x, y);
-			}
-			// else
-			// 	draw_floor(data, data->mlx, x, y);
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-}
-
-
-void create_minimap(t_data *data) //Need to make decisions about scale
+void draw_square(t_data *data, int draw_x, int draw_y, int color)
 {
 	int x;
 	int y;
 
 	x = 0;
 	y = 0;
-	data->scale_map = 20; //temp
-	while (y < (data->map_data->map_y * data->scale_map))
+	while (y < data->scale_map)
 	{
-		while (x < data->map_data->map_x * data->scale_map) //(x < ((data->width -1)* data->scale_map))
+		while (x < data->scale_map)
 		{
-			mlx_put_pixel(data->img, x, y, 0xFFFF00);
+			mlx_put_pixel(data->img, draw_x * data->scale_map + x, draw_y * data->scale_map + y, color);
 			x++;
 		}
 		x = 0;
 		y++;
 	}
-	draw_map(data);
-	// draw_direction(data);
+}
+
+void draw_map(t_data *data)
+{
+	int y = 7;
+	int x = 13;
+	int draw_x = 0;
+	int draw_y = 0;
+	while (y > 0)
+	{
+		draw_y = (int)(data->player->posY) + y - 3;
+		x = 13;
+		while (x > 0)
+		{
+
+			draw_x = (int)(data->player->posX) + x - 6;
+			if (draw_x < 0 || draw_x >= data->map_data->map_x || draw_y < 0 || draw_y >= data->map_data->map_y)
+				draw_square(data, x, y, 0x5A5AFFFF);
+			else if (data->map_data->map[draw_y][draw_x] == '1')
+				draw_square(data, x, y, 0xA1A1FFFF);
+			else
+				draw_square(data, x, y, 0xFFFFFFFF);
+			x--;
+		}
+		y--;
+	}
 	draw_player(data);
-	//mlx_key_hook(data->mlx, (void *)&let_s_move, data);
 }

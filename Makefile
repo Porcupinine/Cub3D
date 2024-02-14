@@ -5,7 +5,7 @@ NAME := cub3d
 CC := cc
 
 #-------------------------------------------------------------------------Flags
-CFLAGS	+= -Wextra -Wall -Werror -O3 -fsanitize=leak
+CFLAGS	+= -Wextra -Wall -Werror -O3 #-fsanitize=address
 ASANFLAGS += -fsanitize=address -fsanitize=leak
 
 #----------------------------------------------------------------Libraries path
@@ -19,8 +19,7 @@ HEADERS	:= -I ./include -I $(LIBMLX)/include -I $(LIB42)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -fPIE -lm $(LIB42)/libft.a
 
 #------------------------------------------------------------------------Source
-SRC		:= hooks.c \
-		main.c \
+SRC		:= main.c \
 		src/parsing/parsing.c \
 		src/parsing/parse_textures.c \
 		src/parsing/parse_map.c \
@@ -32,11 +31,19 @@ SRC		:= hooks.c \
 		src/utils/rgba.c \
 		src/checkers/check_map.c \
 		src/checkers/check_data.c \
-		src/calculations/positive_double.c \
+		src/raycasting/positive_double.c \
+		src/raycasting/raycasting.c \
+		src/raycasting/findRayAttr.c \
+		src/images/images.c \
+		src/hooks/rotate.c \
+		src/hooks/hooks.c \
+		src/hooks/move.c \
 		minimap.c \
 		src/graphics/drawing3d.c \
 		src/graphics/draw_map.c \
-		findRayAttr.c \
+		src/graphics/load_walls.c \
+		src/graphics/adding_textures.c \
+		src/graphics/find_coordinates.c
 
 #-----------------------------------------------------------------------Objects
 OBJS	:= ${SRC:.c=.o}
@@ -46,6 +53,8 @@ OBJ_DIR := objs/
 OBJECTS_PREFIXED := $(addprefix $(OBJ_DIR), $(OBJS))
 
 #-------------------------------------------------------------------------Rulall: $(NAME)
+
+all: $(NAME)
 
 $(OBJ_DIR)%.o : %.c
 	@mkdir -p $(dir $@)
@@ -58,7 +67,7 @@ lib42_build:
 	@$(MAKE) -C $(LIB42)
 
 $(NAME): libmlx lib42_build $(OBJECTS_PREFIXED)
-	@$(CC) $(OBJECTS_PREFIXED) $(LIBS) $(HEADERS) -o $(NAME)
+	@$(CC) $(OBJECTS_PREFIXED) $(LIBS) $(CFLAGS) $(HEADERS) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJ_DIR)

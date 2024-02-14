@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   parsing.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: laura <laura@student.codam.nl>               +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/01/18 13:48:52 by laura         #+#    #+#                 */
-/*   Updated: 2024/02/05 10:02:07 by laura         ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/18 13:48:52 by laura             #+#    #+#             */
+/*   Updated: 2024/02/06 15:05:36 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static int	check_floor_celing(const char *line)
 static void	parse_data(int fd, char *file, t_map_data *cub_data)
 {
 	char	*line;
-
 	line = get_next_line(fd);
 	while (line != NULL)
 	{

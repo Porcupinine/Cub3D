@@ -11,8 +11,6 @@ include_directories(${CMAKE_SOURCE_DIR}/lib42/include)
 
 
 SET(SOURCES
-		minimap.c
-		hooks.c
 		src/parsing/parsing.c
 		src/parsing/parse_textures.c
 		src/parsing/parse_map.c
@@ -23,13 +21,20 @@ SET(SOURCES
 		src/utils/remove_new_line.c
 		src/utils/rgba.c
 		src/checkers/check_map.c
-		src/calculations/positive_double.c
 		src/checkers/check_data.c
-		src/graphics/load_walls.c
-		findRayAttr.c
-		src/utils/init_cub.c
+		src/raycasting/positive_double.c
+		src/raycasting/raycasting.c
+		src/raycasting/findRayAttr.c
+		src/images/images.c
+		src/hooks/rotate.c
+		src/hooks/hooks.c
+		src/hooks/move.c
+		minimap.c
+		src/graphics/drawing3d.c
 		src/graphics/draw_map.c
-		src/graphics/drawing3d.c)
+		src/graphics/load_walls.c
+		src/graphics/adding_textures.c
+		src/graphics/find_coordinates.c)
 
 add_executable(cub3d main.c ${SOURCES}
         src/graphics/find_coordinates.c)
