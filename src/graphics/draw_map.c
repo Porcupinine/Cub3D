@@ -92,7 +92,7 @@ void	drawVerticalLine(t_data *cub_data, int tex_x, int x)
 	tex_pos = (cub_data->walls->draw_start - ((double)HEIGHT / 2.0) + ((double)cub_data->walls->line_height / 2.0)) * step;
 	while (y <= cub_data->walls->draw_end)
 	{
-		tex_y = (int)tex_pos & (int)(cub_data->walls->current_height - 1);
+		tex_y = (int)tex_pos;
 		tex_pos += step;
 		color = get_pixel_color(cub_data->walls->texture, tex_x, tex_y);
 		mlx_put_pixel(cub_data->img, x, y, color);
@@ -105,11 +105,10 @@ void	findWallHeight(t_data *data, double dist, int x)
 {
 	int tex_x;
 
-	if ((int)dist != 0)
-		data->walls->line_height = (int)(HEIGHT / dist);
-	else
-		data->walls->line_height = HEIGHT;
-	data->walls->draw_start = HEIGHT / 2 -data->walls->line_height / 2;
+
+	data->walls->line_height = (int)(HEIGHT / dist);
+
+	data->walls->draw_start = (HEIGHT / 2 - data->walls->line_height / 2);
 	if (data->walls->draw_start < 0)
 		data->walls->draw_start = 0;
 	data->walls->draw_end = HEIGHT / 2 + data->walls->line_height / 2;
@@ -120,5 +119,3 @@ void	findWallHeight(t_data *data, double dist, int x)
 	printf("x: %d side: %d dist 3: %f  tex_x: %d\n", x, data->side, dist, tex_x);
 	drawVerticalLine(data, tex_x, x);
 }
-//TODO print dir and diry and dirx for all rays
-
