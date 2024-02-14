@@ -106,6 +106,7 @@ typedef struct s_data
 	int scale_map; //temporarily minimap
 	t_cub_textures	*walls;
 	t_minimap	*map;
+	double		test_dist;
 } t_data;
 
 

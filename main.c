@@ -38,15 +38,16 @@ void	findRayDirection(t_data *data, int x)
 	camera = 2 * x / (double)WIDTH - 1;
 	data->ray->x1 = data->player->dirX + data->ray->planeX * camera;
 	data->ray->y1 = data->player->dirY + data->ray->planeY * camera;
+//	printf("c dy dx: %f %f %f\n", camera, data->player->dirY, data->player->dirX);
 	data->angle = atan2(data->player->dirY, data->player->dirX);
 }
 
 double	norm_a(double *angle)
 {
 	if (*angle < 0)
-		*angle += (2 * PI);
-	if (*angle > (2 * PI))
-		*angle -= (2 * PI);
+		*angle += (2.0 * PI);
+	if (*angle > (2.0 * PI))
+		*angle -= (2.0 * PI);
 	return (*angle);
 }
 
@@ -68,10 +69,16 @@ void	raycasting(t_data *data)
 		// mlx_put_pixel(data->img, x1 * 10, y1 * 10, 0xFF0000FF);
 		findIntersection(data, data->ray->x1, data->ray->y1);
 		dist = findHit(data);
+		data->test_dist = dist;
+//		printf("dist 1: %f\n", dist);
 		double ra = atan2(data->ray->y1, data->ray->x1);
-		dist = fm(dist * cos(norm_a(&ra) - data->angle));
+		double angle = data->angle;
+		double cos_1= cos(norm_a(&ra) - angle);
+		dist = fm(dist * cos_1);
+//		printf("dist 2: %f\n", dist);
 		// findOrientation(data);
 		findWallHeight(data, dist, x);
+		printf("x: %d\n", x);
 		x++;
 	}
 }
