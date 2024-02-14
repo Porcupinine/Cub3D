@@ -55,22 +55,22 @@ int get_pixel_color(mlx_texture_t *texture, int x, int y)
 void find_wall(t_data *cub_data)
 {
 //	printf("my sde is: %d\n", cub_data->side);
-	if (cub_data->side == 0 && cub_data->ray->x1 >= 0)
+	if (cub_data->side == 0 && cub_data->ray->x1 > 0)
 	{
 		printf("ray: %f  west\n", cub_data->ray->x1);
 		cub_data->walls->texture = cub_data->walls->w;
 	}
-	else if (cub_data->side == 0 && cub_data->ray->x1 <= 0)
+	else if (cub_data->side == 0 && cub_data->ray->x1 < 0)
 	{
 		printf("ray: %f  east\n", cub_data->ray->x1);
 		cub_data->walls->texture = cub_data->walls->e;
 	}
-	else if (cub_data->side == 1 && cub_data->ray->y1 <= 0)
+	else if (cub_data->side == 1 && cub_data->ray->y1 < 0)
 	{
 		printf("ray: %f  south\n", cub_data->ray->y1);
 		cub_data->walls->texture = cub_data->walls->s;
 	}
-	else if (cub_data->side == 1 && cub_data->ray->y1 >= 0)
+	else if (cub_data->side == 1 && cub_data->ray->y1 > 0)
 	{
 		printf("ray: %f  north\n", cub_data->ray->y1);
 		cub_data->walls->texture = cub_data->walls->n;

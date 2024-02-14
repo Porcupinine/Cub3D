@@ -17,18 +17,18 @@ double	find_hit(t_data *data)
 		{
 			data->ray->sideX += data->ray->deltaX;
 			mapX += data->ray->stepX;
-			side = 0;
+			data->side = 0;
 		}
 		else
 		{
 			data->ray->sideY += data->ray->deltaY;
 			mapY += data->ray->stepY;
-			side = 1;
+			data->side = 1;
 		}
 		if (data->map_data->map[mapY][mapX] == '1')
 			hit = 1;
 	}
-	if (side == 0)
+	if (data->side == 0)
 		dist = data->ray->sideX - data->ray->deltaX;
 	else
 		dist = data->ray->sideY - data->ray->deltaY;
