@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 12:49:11 by laura             #+#    #+#             */
-/*   Updated: 2024/01/25 16:36:12 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:01:21 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int get_g(int rgba);
 int get_b(int rgba);
 int get_a(int rgba);
 int get_rgba(int r, int g, int b, int a);
+int get_pixel_color(mlx_texture_t *texture, int x, int y);
 
 
 
