@@ -57,5 +57,6 @@ void	find_wall_height(t_data *data, double dist, int x)
 		draw_end = HEIGHT - 1;
 	//draw_vertical_line(data, x, drawStart, drawEnd, 0xFF0000FF);
 	//draw_dark_line(data, x, draw_start, draw_end, dist);
-	add_textures(data, x, line_height, draw_start, draw_end);
+	add_textures(data, x, line_height, draw_start, draw_end, dist);
 }
+ 

@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 12:25:14 by laura             #+#    #+#             */
-/*   Updated: 2024/02/13 13:05:16 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:04:07 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,7 @@ typedef struct s_data
 	int 			scale_map;
 	t_cub_textures	*walls;
 	t_minimap		*map;
-	// int				message_flag; //for the message
-	// double			r_d; //temp
-	// double			r_d2;
-	double			wallX;
-	double			wallY;
+	double wallX;
 
 } t_data;
 

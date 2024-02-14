@@ -62,6 +62,6 @@ void	cursoring(double xpos, double ypos, t_data *data);
 
 
 /*Test*/
-void	add_textures(t_data *data, int x, int line_height, int start, int end);
+void	add_textures(t_data *data, int x, int line_height, int start, int end, double dark);
 
 #endif
