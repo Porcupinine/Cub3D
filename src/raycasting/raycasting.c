@@ -40,7 +40,7 @@ void	raycasting(t_data *data)
 		ra = atan2(data->ray->y1, data->ray->x1);
 		dist = fm(dist * cos(norm_a(&ra) - data->angle));
 		data->wallX = data->player->posX + dist * data->ray->y1;
-		find_wall_height(data, dist, x);
+		findWallHeight(data, dist, x);
 		//printf("data->wallX %f \n", data->wallX);
 		x++;
 	}

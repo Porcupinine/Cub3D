@@ -43,6 +43,7 @@ SRC		:= main.c \
 		src/graphics/draw_map.c \
 		src/graphics/load_walls.c \
 		src/graphics/adding_textures.c \
+		src/graphics/find_coordinates.c
 
 #-----------------------------------------------------------------------Objects
 OBJS	:= ${SRC:.c=.o}
