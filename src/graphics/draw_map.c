@@ -53,15 +53,28 @@ int get_pixel_color(mlx_texture_t *texture, int x, int y)
 }
 
 void find_wall(t_data *cub_data)
-{g
+{
+//	printf("my sde is: %d\n", cub_data->side);
 	if (cub_data->side == 0 && cub_data->ray->x1 >= 0)
+	{
+		printf("ray: %f  west\n", cub_data->ray->x1);
 		cub_data->walls->texture = cub_data->walls->w;
+	}
 	else if (cub_data->side == 0 && cub_data->ray->x1 <= 0)
+	{
+		printf("ray: %f  east\n", cub_data->ray->x1);
 		cub_data->walls->texture = cub_data->walls->e;
+	}
 	else if (cub_data->side == 1 && cub_data->ray->y1 <= 0)
+	{
+		printf("south\n");
 		cub_data->walls->texture = cub_data->walls->s;
+	}
 	else if (cub_data->side == 1 && cub_data->ray->y1 >= 0)
+	{
+		printf("north\n");
 		cub_data->walls->texture = cub_data->walls->n;
+	}
 	cub_data->walls->current_height = cub_data->walls->texture->height;
 	cub_data->walls->current_width = cub_data->walls->texture->width;
 }
@@ -104,7 +117,7 @@ void	findWallHeight(t_data *data, double dist, int x)
 		data->walls->draw_end = HEIGHT - 1;
 	find_wall(data);
 	tex_x = find_texture_x(data, dist);
-	printf("dist 3: %f  tex_x: %d\n", dist, tex_x);
+	printf("x: %d side: %d dist 3: %f  tex_x: %d\n", x, data->side, dist, tex_x);
 	drawVerticalLine(data, tex_x, x);
 }
 //TODO print dir and diry and dirx for all rays
