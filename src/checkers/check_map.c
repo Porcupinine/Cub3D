@@ -61,7 +61,7 @@ void	find_direction(t_data *cub_data, char dir)
 	if (dir == 'S')
 		cub_data->player->dirY = 1;
 	cub_data->angle = atan2(cub_data->player->dirY, cub_data->player->dirX);
-	norm_a(&cub_data->angle);
+//	norm_a(&cub_data->angle);
 }
 
 static void	found_player(t_data *cub_data, int x, int y)

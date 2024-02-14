@@ -17,18 +17,19 @@ double	find_hit(t_data *data)
 		{
 			data->ray->sideX += data->ray->deltaX;
 			mapX += data->ray->stepX;
-			side = 0;
+
+			data->side = 0;
 		}
 		else
 		{
 			data->ray->sideY += data->ray->deltaY;
 			mapY += data->ray->stepY;
-			side = 1;
+			data->side = 1;
 		}
 		if (data->map_data->map[mapY][mapX] == '1')
 			hit = 1;
 	}
-	if (side == 0)
+	if (data->side == 0)
 		dist = data->ray->sideX - data->ray->deltaX;
 	else
 		dist = data->ray->sideY - data->ray->deltaY;
@@ -65,10 +66,10 @@ void	find_intersection(t_data *data, double x1, double y1)
 	if (x1 == 0)
 		data->ray->deltaX = INFINITY;
 	else
-		data->ray->deltaX = sqrt(1 + (y1 * y1) / (x1 * x1));
+		data->ray->deltaX = fm(1 / x1);
 	if (y1 == 0)
 		data->ray->deltaY = INFINITY;
 	else
-		data->ray->deltaY = sqrt(1 + (x1 * x1) / (y1 * y1));
+		data->ray->deltaY = fm(1 / y1);
 	find_first_step(data, x1, y1);
 }
