@@ -38,7 +38,7 @@ void	raycasting(t_data *data)
 		find_intersection(data, data->ray->x1, data->ray->y1);
 		dist = find_hit(data);
 		ra = atan2(data->ray->y1, data->ray->x1);
-		dist = fm(dist * cos(norm_a(&ra) - data->angle));
+//		dist = fm(dist * cos(norm_a(&ra) - data->angle));
 		data->wallX = data->player->posX + dist * data->ray->y1;
 		findWallHeight(data, dist, x);
 		//printf("data->wallX %f \n", data->wallX);

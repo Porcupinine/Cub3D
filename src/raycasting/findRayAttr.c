@@ -65,10 +65,10 @@ void	find_intersection(t_data *data, double x1, double y1)
 	if (x1 == 0)
 		data->ray->deltaX = INFINITY;
 	else
-		data->ray->deltaX = sqrt(1 + (y1 * y1) / (x1 * x1));
+		data->ray->deltaX = fm(1 / x1);
 	if (y1 == 0)
 		data->ray->deltaY = INFINITY;
 	else
-		data->ray->deltaY = sqrt(1 + (x1 * x1) / (y1 * y1));
+		data->ray->deltaY = fm(1 / y1);
 	find_first_step(data, x1, y1);
 }
