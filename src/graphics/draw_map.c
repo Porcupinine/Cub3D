@@ -67,12 +67,12 @@ void find_wall(t_data *cub_data)
 	}
 	else if (cub_data->side == 1 && cub_data->ray->y1 <= 0)
 	{
-		printf("south\n");
+		printf("ray: %f  south\n", cub_data->ray->y1);
 		cub_data->walls->texture = cub_data->walls->s;
 	}
 	else if (cub_data->side == 1 && cub_data->ray->y1 >= 0)
 	{
-		printf("north\n");
+		printf("ray: %f  north\n", cub_data->ray->y1);
 		cub_data->walls->texture = cub_data->walls->n;
 	}
 	cub_data->walls->current_height = cub_data->walls->texture->height;
