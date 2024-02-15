@@ -54,25 +54,20 @@ int get_pixel_color(mlx_texture_t *texture, int x, int y)
 
 void find_wall(t_data *cub_data)
 {
-//	printf("my sde is: %d\n", cub_data->side);
 	if (cub_data->side == 0 && cub_data->ray->x1 > 0)
 	{
-		printf("ray: %f  west\n", cub_data->ray->x1);
 		cub_data->walls->texture = cub_data->walls->w;
 	}
 	else if (cub_data->side == 0 && cub_data->ray->x1 < 0)
 	{
-		printf("ray: %f  east\n", cub_data->ray->x1);
 		cub_data->walls->texture = cub_data->walls->e;
 	}
 	else if (cub_data->side == 1 && cub_data->ray->y1 < 0)
 	{
-		printf("ray: %f  south\n", cub_data->ray->y1);
 		cub_data->walls->texture = cub_data->walls->s;
 	}
 	else if (cub_data->side == 1 && cub_data->ray->y1 > 0)
 	{
-		printf("ray: %f  north\n", cub_data->ray->y1);
 		cub_data->walls->texture = cub_data->walls->n;
 	}
 	cub_data->walls->current_height = cub_data->walls->texture->height;
@@ -90,7 +85,7 @@ void	drawVerticalLine(t_data *cub_data, int tex_x, int x)
 	y = cub_data->walls->draw_start;
 	step = 1.0 * cub_data->walls->current_height / cub_data->walls->line_height;
 	tex_pos = (cub_data->walls->draw_start - ((double)HEIGHT / 2.0) + ((double)cub_data->walls->line_height / 2.0)) * step;
-	while (y <= cub_data->walls->draw_end)
+	while (y < cub_data->walls->draw_end)
 	{
 		tex_y = (int)tex_pos;
 		tex_pos += step;
@@ -116,6 +111,5 @@ void	findWallHeight(t_data *data, double dist, int x)
 		data->walls->draw_end = HEIGHT - 1;
 	find_wall(data);
 	tex_x = find_texture_x(data, dist);
-	printf("x: %d side: %d dist 3: %f  tex_x: %d\n", x, data->side, dist, tex_x);
 	drawVerticalLine(data, tex_x, x);
 }

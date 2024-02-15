@@ -56,5 +56,8 @@ void let_s_move(mlx_key_data_t keydata, t_data *data)
 	if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
 		rotate_right(data, angle);
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+	{
+		mlx_terminate(data->mlx);
 		exit(EXIT_SUCCESS);
+	}
 }

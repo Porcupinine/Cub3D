@@ -4,8 +4,8 @@ project(Cub3D)
 set(CMAKE_C_STANDARD 90)
 
 #add_compile_options(-Wall -Wextra -Werror)
-#add_compile_options(-fsanitize=address -fsanitize=leak)
-#add_link_options(-fsanitize=address -fsanitize=leak)
+add_compile_options(-fsanitize=address -fsanitize=leak)
+add_link_options(-fsanitize=address -fsanitize=leak)
 add_subdirectory(${CMAKE_SOURCE_DIR}/MLX42)
 include_directories(${CMAKE_SOURCE_DIR}/lib42/include)
 

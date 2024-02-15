@@ -4,8 +4,6 @@
 void	find_ray_direction(t_data *data, int x)
 {
 	double	camera;
-	double	x1;
-	double	y1;
 
 	camera = 2 * x / (double)WIDTH - 1;
 	data->ray->x1 = data->player->dirX + data->ray->planeX * camera;
@@ -26,7 +24,6 @@ void	raycasting(t_data *data)
 {
 	int		x;
 	double	dist;
-	double	ra;
 
 	x = 0;
 	data->player->mapX = (int)data->player->posX;
@@ -37,11 +34,8 @@ void	raycasting(t_data *data)
 		find_ray_direction(data, x);
 		find_intersection(data, data->ray->x1, data->ray->y1);
 		dist = find_hit(data);
-		ra = atan2(data->ray->y1, data->ray->x1);
-//		dist = fm(dist * cos(norm_a(&ra) - data->angle));
 		data->wallX = data->player->posX + dist * data->ray->y1;
 		findWallHeight(data, dist, x);
-		//printf("data->wallX %f \n", data->wallX);
 		x++;
 	}
 }

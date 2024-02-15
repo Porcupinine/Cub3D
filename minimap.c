@@ -39,14 +39,16 @@ void draw_map(t_data *data)
 		x = 13;
 		while (x > 0)
 		{
-
 			draw_x = (int)(data->player->posX) + x - 6;
-			if (draw_x < 0 || draw_x >= data->map_data->map_x || draw_y < 0 || draw_y >= data->map_data->map_y)
+			if (draw_y < 0 || draw_y >= data->map_data->map_y || \
+			draw_x < 0 || draw_x >= ft_strlen(data->map_data->map[draw_y]))
 				draw_square(data, x, y, 0x5A5AFFFF);
-			else if (data->map_data->map[draw_y][draw_x] == '1')
-				draw_square(data, x, y, 0xA1A1FFFF);
-			else
-				draw_square(data, x, y, 0xFFFFFFFF);
+			else {
+				if (data->map_data->map[draw_y][draw_x] == '1') {
+					draw_square(data, x, y, 0xA1A1FFFF);
+				} else
+					draw_square(data, x, y, 0xFFFFFFFF);
+			}
 			x--;
 		}
 		y--;

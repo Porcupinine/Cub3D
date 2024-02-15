@@ -7,7 +7,7 @@ void	init_map_images(t_data *data)
 	data->map = malloc(sizeof(t_minimap));
 	if (!data->map)
 		ft_error("Malloc fail\n");
-	data->map->player_png = mlx_load_png("textures/delete/fly.png");
+	data->map->player_png = mlx_load_png("textures/dot.png");
 	if (!data->map->player_png)
 		ft_error("Downloading png fail\n");
 	data->map->img_player = mlx_texture_to_image(data->mlx, \
@@ -31,9 +31,9 @@ void	init_image(t_data *data)
 		data->scale_map = WIDTH / 50;
 	else
 		data->scale_map = HEIGHT / 50;
-	data->mlx = mlx_init(WIDTH, HEIGHT, "CUB", true);
-	if (!data->mlx)
-		ft_error("MLX initialization fail\n");
+//	data->mlx = mlx_init(WIDTH, HEIGHT, "CUB", true);
+//	if (!data->mlx)
+//		ft_error("MLX initialization fail\n");
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	if (mlx_image_to_window(data->mlx, data->img, 0, 0) < 0)

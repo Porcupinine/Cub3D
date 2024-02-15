@@ -44,12 +44,14 @@ int main(int argc, char **argv)
 	cub_data = ft_calloc(1, sizeof(t_data));
 	if (cub_data == NULL)
 		ft_error("Malloc fail\n");
+	cub_data->mlx = mlx_init(WIDTH, HEIGHT, "CUB", true);
+	if (!cub_data->mlx)
+		ft_error("MLX initialization fail\n");
 	get_data(cub_data, argv[1]);
 	check_map(cub_data);
 	check_values(cub_data);
 	init_image(cub_data);
 	game_loop(cub_data);
 	mlx_terminate(cub_data->mlx);
-	print_map(cub_data->map_data);
 	return (0);
 }
