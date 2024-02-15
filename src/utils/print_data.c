@@ -41,3 +41,15 @@ void	print_map(t_map_data *cub_data)
 	}
 	printf("\n\n");
 }
+
+void	print_data(t_map_data *cub_data)
+{
+	int	count;
+
+	count = 0;
+	while(count <= cub_data->data_size)
+	{
+		printf("%s", cub_data->game_data[count]);
+		count++;
+	}
+}

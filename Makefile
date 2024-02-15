@@ -29,6 +29,7 @@ SRC		:= main.c \
 		src/utils/all_digits.c \
 		src/utils/remove_new_line.c \
 		src/utils/rgba.c \
+		src/utils/free.c \
 		src/checkers/check_map.c \
 		src/checkers/check_data.c \
 		src/raycasting/positive_double.c \
@@ -39,10 +40,8 @@ SRC		:= main.c \
 		src/hooks/hooks.c \
 		src/hooks/move.c \
 		minimap.c \
-		src/graphics/drawing3d.c \
 		src/graphics/draw_map.c \
 		src/graphics/load_walls.c \
-		src/graphics/adding_textures.c \
 		src/graphics/find_coordinates.c
 
 #-----------------------------------------------------------------------Objects

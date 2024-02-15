@@ -26,6 +26,8 @@ typedef struct s_map_data
 	char	**map;
 	int		map_y;
 	int		map_x;
+	char	**game_data;
+	int		data_size;
 }	t_map_data;
 
 /**

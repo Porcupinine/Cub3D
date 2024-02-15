@@ -49,8 +49,10 @@ void	get_textures(char* line, t_map_data *cub_data);
  * of strings. At the end finds the longest string in the array and
  * saves it as the width of the map.
  * @param file
- * @param cub_data
+ * @param map_data
  */
-void	get_map(char *file, t_map_data *cub_data);
+void	get_map(char *file, t_map_data *map_data);
+void	get_map2(t_map_data *map_data);
+void	get_data2(t_data *cub_data, char *file);
 
 #endif //CUB3D_PARSING_H

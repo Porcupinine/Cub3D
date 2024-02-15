@@ -36,7 +36,12 @@ SET(SOURCES
 
 add_executable(cub3d main.c ${SOURCES}
         src/graphics/find_coordinates.c
-		src/utils/free.c)
+		src/utils/free.c
+		src/utils/copy_file.c
+		src/parsing/parsing2.c
+		src/parsing/parse_textures2.c
+		src/parsing/parse_map2.c
+)
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
 target_link_libraries(cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42 m)
 
