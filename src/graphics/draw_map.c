@@ -12,7 +12,6 @@
 
 #include "../../MLX42/include/MLX42/MLX42.h"
 #include "../../includes/structs.h"
-#include "../../lib42/include/libft.h"
 #include "../../includes/cub3d.h"
 #include "../../includes/graphics.h"
 #include "../../includes/utils.h"
@@ -38,7 +37,7 @@ void	draw_env(t_data *data)
 	}
 }
 
-int get_pixel_color(mlx_texture_t *texture, int x, int y)
+static int get_pixel_color(mlx_texture_t *texture, int x, int y)
 {
 	int	r;
 	int	g;
@@ -52,7 +51,7 @@ int get_pixel_color(mlx_texture_t *texture, int x, int y)
 	return (rgba);
 }
 
-void find_wall(t_data *cub_data)
+static void find_wall(t_data *cub_data)
 {
 	if (cub_data->side == 0 && cub_data->ray->x1 > 0)
 	{
@@ -74,7 +73,7 @@ void find_wall(t_data *cub_data)
 	cub_data->walls->current_width = cub_data->walls->texture->width;
 }
 
-void	drawVerticalLine(t_data *cub_data, int tex_x, int x)
+static void	drawVerticalLine(t_data *cub_data, int tex_x, int x)
 {
 	int		y;
 	int		color;
@@ -84,14 +83,14 @@ void	drawVerticalLine(t_data *cub_data, int tex_x, int x)
 
 	y = cub_data->walls->draw_start;
 	step = 1.0 * cub_data->walls->current_height / cub_data->walls->line_height;
-	tex_pos = (cub_data->walls->draw_start - ((double)HEIGHT / 2.0) + ((double)cub_data->walls->line_height / 2.0)) * step;
+	tex_pos = (cub_data->walls->draw_start - ((double)HEIGHT / 2.0) + \
+	((double)cub_data->walls->line_height / 2.0)) * step;
 	while (y < cub_data->walls->draw_end)
 	{
 		tex_y = (int)tex_pos;
 		tex_pos += step;
 		color = get_pixel_color(cub_data->walls->texture, tex_x, tex_y);
 		mlx_put_pixel(cub_data->img, x, y, color);
-		//printf("tex_x: %d   tex_y: %d   color: %d\n", tex_x, tex_y, color);
 		y++;
 	}
 }

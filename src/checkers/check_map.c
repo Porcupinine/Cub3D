@@ -13,9 +13,8 @@
 #include "../../includes/parsing.h"
 #include "../../includes/utils.h"
 #include "../../includes/cub3d.h"
+#include "../../includes/checks.h"
 #include "../../lib42/include/libft.h"
-#include <stdio.h>
-#include <math.h>
 
 static void	check_around(char **map, int x, int y, char *str)
 {
@@ -46,24 +45,6 @@ static void	check_topbot(char **map, int x)
 	}
 }
 
-void	find_direction(t_data *cub_data, char dir)
-{
-	if (dir == 'N' || dir == 'S')
-		cub_data->player->dirX = 0;
-	if (dir == 'E' || dir == 'W')
-		cub_data->player->dirY = 0;
-	if (dir == 'E')
-		cub_data->player->dirX = 1;
-	if (dir == 'W')
-		cub_data->player->dirX = -1;
-	if (dir == 'N')
-		cub_data->player->dirY = -1;
-	if (dir == 'S')
-		cub_data->player->dirY = 1;
-	cub_data->angle = atan2(cub_data->player->dirY, cub_data->player->dirX);
-//	norm_a(&cub_data->angle);
-}
-
 static void	found_player(t_data *cub_data, int x, int y)
 {
 	check_around(cub_data->map_data->map, x, y, "01");
@@ -74,7 +55,6 @@ static void	found_player(t_data *cub_data, int x, int y)
 		ft_error("Malloc fail\n");
 	cub_data->player->posY = (double)x;
 	cub_data->player->posX = (double)y;
-	//cub_data->player->orientation = cub_data->map_data->map[x][y];
 	find_direction(cub_data, cub_data->map_data->map[x][y]);
 }
 

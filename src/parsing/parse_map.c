@@ -59,14 +59,6 @@ static int	map_y_size(char *file)
 	return (count);
 }
 
-//static void	check_line_size(t_map_data *cub_data, char **line)
-//{
-//	if(ft_strlen(*line) < cub_data->map_x)
-//	{
-//		*line =
-//	}
-//}
-
 static void	copy_map(char *file, t_map_data *cub_data)
 {
 	int		count;

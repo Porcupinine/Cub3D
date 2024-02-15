@@ -15,11 +15,8 @@
 
 #include "structs.h"
 
-void draw_env(t_data *data);
+void	draw_env(t_data *data);
 void	load_textures(t_data *cub_data);
-int	find_texture_x(t_data *cub_data, double dist);
-//int find_texture_y(t_data *cub_data);
-
-
+int		find_texture_x(t_data *cub_data, double dist);
 
 #endif //CUB3D_GRAPHICS_H

@@ -30,14 +30,13 @@ SET(SOURCES
 		src/hooks/hooks.c
 		src/hooks/move.c
 		minimap.c
-		src/graphics/drawing3d.c
 		src/graphics/draw_map.c
 		src/graphics/load_walls.c
-		src/graphics/adding_textures.c
 		src/graphics/find_coordinates.c)
 
 add_executable(cub3d main.c ${SOURCES}
-        src/graphics/find_coordinates.c)
+        src/graphics/find_coordinates.c
+		src/utils/free.c)
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
 target_link_libraries(cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42 m)
 

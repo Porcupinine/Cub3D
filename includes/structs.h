@@ -107,11 +107,10 @@ typedef struct s_data
 	char			texture;
 	int 			scale_map;
 	t_cub_textures	*walls;
-	double		test_dist;
 	t_minimap		*map;
-	double r_d2;
-	double r_d;
-	double wallX;
+	double			r_d2;
+	double			r_d;
+	double			wallX;
 } t_data;
 
 

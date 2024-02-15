@@ -41,8 +41,6 @@ int get_g(int rgba);
 int get_b(int rgba);
 int get_a(int rgba);
 int get_rgba(int r, int g, int b, int a);
-int get_pixel_color(mlx_texture_t *texture, int x, int y);
-
-
+void	free_cub(t_data *cub_data);
 
 #endif //CUB3D_UTILS_H
