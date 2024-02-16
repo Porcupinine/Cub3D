@@ -51,8 +51,6 @@ void	get_textures(char* line, t_map_data *cub_data);
  * @param file
  * @param map_data
  */
-void	get_map(char *file, t_map_data *map_data);
-void	get_map2(t_map_data *map_data);
-void	get_data2(t_data *cub_data, char *file);
+void	get_map(t_map_data *map_data);
 
 #endif //CUB3D_PARSING_H

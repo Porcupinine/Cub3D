@@ -1,11 +1,10 @@
+NO ./textures/Brick10.png
+SO ./textures/Brick08.png
+WE ./textures/Brick14.png
+EA ./textures/Brick16.png
 
 F 0,0,0
-C 77,1,1
-NO ./textures/Elements01.png
-SO ./textures/Elements02.png
-WE ./textures/Elements03.png
-EA ./textures/Elements04.png
-
+C 0,0,0
 
         1111111111111111111111111
         1000000000110000000000001

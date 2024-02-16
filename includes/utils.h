@@ -27,10 +27,10 @@ int	test_isspace_limited(char*str, int n);
  * @return 1 if the string only contains spaces, new line, 0 and 1. 0 if not
  */
 int		first_map_line(char*str);
-void	print_map(t_map_data *cub_data);
-void	print_colors(t_map_data *cub_data);
-void	print_paths(t_map_data *cub_data);
-void	print_data(t_map_data *cub_data);
+void	print_map(t_map_data *map_data);
+void	print_colors(t_map_data *map_data);
+void	print_paths(t_map_data *map_data);
+void	print_data(t_map_data *map_data);
 
 /**
  *

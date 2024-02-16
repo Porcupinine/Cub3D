@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 	cub_data->mlx = mlx_init(WIDTH, HEIGHT, "CUB", true);
 	if (!cub_data->mlx)
 		ft_error("MLX initialization fail\n");
-	get_data2(cub_data, argv[1]);
+	get_data(cub_data, argv[1]);
 	check_map(cub_data);
 	check_values(cub_data);
 	init_image(cub_data);
