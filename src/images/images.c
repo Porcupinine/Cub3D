@@ -38,5 +38,8 @@ void	init_image(t_data *data)
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	if (mlx_image_to_window(data->mlx, data->img, 0, 0) < 0)
 		ft_error("Drawing image fail\n");
+	data->mini_img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	if (mlx_image_to_window(data->mlx, data->mini_img, 0, 0) < 0)
+		ft_error("Drawing image fail\n");
 	init_raycast(data);
 }

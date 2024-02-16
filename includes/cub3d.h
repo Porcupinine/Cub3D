@@ -40,8 +40,8 @@ void	init_image(t_data *data);
 
 /*Raycasting*/
 double	fm(double a);
-void	draw_vertical(t_data *data, int x, int y_start, int y_end, int color);
-void	find_orientation(t_data *data, int x, double camera);
+//void	draw_vertical(t_data *data, int x, int y_start, int y_end, int color);
+//void	find_orientation(t_data *data, int x, double camera);
 void	find_ray_direction(t_data *data, int x);
 double	norm_a(double *angle);
 void	raycasting(t_data *data);

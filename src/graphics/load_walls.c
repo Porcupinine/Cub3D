@@ -19,20 +19,14 @@ void	load_textures(t_data *cub_data)
 {
 	cub_data->walls = ft_calloc(1, sizeof (t_cub_textures));
 	if (cub_data->walls == NULL)
-	{
-
 		ft_error("Malloc fail\n");
-	}
 	cub_data->walls->n = mlx_load_png(cub_data->map_data->no_path);
-	if (!cub_data->walls->n)
-		ft_error("Texture fail\n");
 	cub_data->walls->s = mlx_load_png(cub_data->map_data->so_path);
-	if (!cub_data->walls->s)
-		ft_error("Texture fail\n");
 	cub_data->walls->e = mlx_load_png(cub_data->map_data->ea_path);
-	if (!cub_data->walls->e)
-		ft_error("Texture fail\n");
 	cub_data->walls->w = mlx_load_png(cub_data->map_data->we_path);
-	if (!cub_data->walls->w)
+	if (!cub_data->walls->w || \
+		!cub_data->walls->n || \
+		!cub_data->walls->s || \
+		!cub_data->walls->e)
 		ft_error("Texture fail\n");
 }

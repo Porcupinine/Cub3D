@@ -44,6 +44,8 @@ int		get_b(int rgba);
 int		get_a(int rgba);
 int		get_rgba(int r, int g, int b, int a);
 void	free_cub(t_data *cub_data);
+void	free_split(char **array);
+void	free_game_data(t_map_data *map_data);
 void	copy_data(t_map_data *map_data, char*file);
 
 #endif //CUB3D_UTILS_H

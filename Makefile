@@ -20,29 +20,30 @@ LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -fPIE -lm $(LIB42)/libft
 
 #------------------------------------------------------------------------Source
 SRC		:= main.c \
-		src/parsing/parsing.c \
-		src/parsing/parse_textures.c \
-		src/parsing/parse_map.c \
-		src/utils/empty_line.c \
-		src/utils/first_map_line.c \
-		src/utils/print_data.c \
-		src/utils/all_digits.c \
-		src/utils/remove_new_line.c \
-		src/utils/rgba.c \
-		src/utils/free.c \
-		src/checkers/check_map.c \
-		src/checkers/check_data.c \
-		src/raycasting/positive_double.c \
-		src/raycasting/raycasting.c \
-		src/raycasting/findRayAttr.c \
-		src/images/images.c \
-		src/hooks/rotate.c \
-		src/hooks/hooks.c \
-		src/hooks/move.c \
-		minimap.c \
-		src/graphics/draw_map.c \
-		src/graphics/load_walls.c \
-		src/graphics/find_coordinates.c
+				src/utils/empty_line.c \
+        		src/utils/first_map_line.c \
+        		src/utils/print_data.c \
+        		src/utils/all_digits.c \
+        		src/utils/remove_new_line.c \
+        		src/utils/rgba.c \
+        		src/checkers/check_map.c \
+        		src/checkers/check_data.c \
+        		src/raycasting/positive_double.c \
+        		src/raycasting/raycasting.c \
+        		src/raycasting/findRayAttr.c \
+        		src/images/images.c \
+        		src/hooks/rotate.c \
+        		src/hooks/hooks.c \
+        		src/hooks/move.c \
+        		minimap.c \
+        		src/graphics/draw_map.c \
+        		src/graphics/load_walls.c \
+        		src/graphics/find_coordinates.c \
+        		src/utils/free.c \
+        		src/utils/copy_file.c \
+        		src/parsing/parsing.c \
+        		src/parsing/parse_textures.c \
+        		src/parsing/parse_map.c
 
 #-----------------------------------------------------------------------Objects
 OBJS	:= ${SRC:.c=.o}

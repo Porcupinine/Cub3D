@@ -76,7 +76,6 @@ static int	get_color( char *str)
 	int		rgba;
 
 	count = 0;
-	rgba = 0;
 	rgba_char = NULL;
 	str[ft_strlen(str) - 1] = '\0';
 	while (str[count] != '\0')
@@ -84,6 +83,8 @@ static int	get_color( char *str)
 		if (ft_isdigit(str[count]) != 0)
 		{
 			rgba_char = ft_split(str + count, ',');
+			if (rgba_char == NULL)
+				ft_error("Fail to get colors!\n");
 			break ;
 		}
 		count++;
@@ -91,7 +92,7 @@ static int	get_color( char *str)
 	check_rgba(rgba_char);
 	rgba = get_rgba(ft_atoi(rgba_char[0]), ft_atoi(rgba_char[1]), \
 	ft_atoi(rgba_char[2]), 255);
-	free(rgba_char);
+	free_split(rgba_char);
 	return (rgba);
 }
 
@@ -127,7 +128,7 @@ void	get_fc(char *line, t_map_data *cub_data)
 {
 	if (ft_strnstr(line, "F ", ft_strlen(line)) != 0)
 	{
-		if (cub_data->floor != 0) //how do I test if it already exists??
+		if (cub_data->floor != 0)
 			ft_error("Invalid map! Multiple colors\n");
 		cub_data->floor = get_color(line);
 	}

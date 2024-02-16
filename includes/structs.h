@@ -104,6 +104,7 @@ typedef struct s_data
 	t_player		*player;
 	mlx_t			*mlx;
 	mlx_image_t		*img;
+	mlx_image_t		*mini_img;
 	mlx_image_t		*strimage; //for the message
 	double			angle;
 	char			texture;

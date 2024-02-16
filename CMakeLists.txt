@@ -30,7 +30,6 @@ SET(SOURCES
 		src/graphics/draw_map.c
 		src/graphics/load_walls.c
 		src/graphics/find_coordinates.c
-		src/graphics/find_coordinates.c
 		src/utils/free.c
 		src/utils/copy_file.c
 		src/parsing/parsing.c

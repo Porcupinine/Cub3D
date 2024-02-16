@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   minimap.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: laura <laura@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/02/16 18:37:29 by laura         #+#    #+#                 */
+/*   Updated: 2024/02/16 18:37:29 by laura         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "includes/cub3d.h"
 #include "includes/parsing.h"
 #include "lib42/include/libft.h"
+#include "includes/utils.h"
 
 void draw_player(t_data *data)
 {
@@ -19,7 +32,7 @@ void draw_square(t_data *data, int draw_x, int draw_y, int color)
 	{
 		while (x < data->scale_map)
 		{
-			mlx_put_pixel(data->img, draw_x * data->scale_map + x, draw_y * data->scale_map + y, color);
+			mlx_put_pixel(data->mini_img, draw_x * data->scale_map + x, draw_y * data->scale_map + y, color);
 			x++;
 		}
 		x = 0;
@@ -29,7 +42,7 @@ void draw_square(t_data *data, int draw_x, int draw_y, int color)
 
 void draw_map(t_data *data)
 {
-	int y = 7;
+	int y = 10;
 	int x = 13;
 	int draw_x = 0;
 	int draw_y = 0;
@@ -41,13 +54,13 @@ void draw_map(t_data *data)
 		{
 			draw_x = (int)(data->player->posX) + x - 6;
 			if (draw_y < 0 || draw_y >= data->map_data->map_y || \
-			draw_x < 0 || draw_x >= ft_strlen(data->map_data->map[draw_y]))
-				draw_square(data, x, y, 0x5A5AFFFF);
+			draw_x < 0 || draw_x >= (int)ft_strlen(data->map_data->map[draw_y]))
+				draw_square(data, x, y, get_rgba(255,255,255,0));
 			else {
 				if (data->map_data->map[draw_y][draw_x] == '1') {
 					draw_square(data, x, y, 0xA1A1FFFF);
 				} else
-					draw_square(data, x, y, 0xFFFFFFFF);
+					draw_square(data, x, y, get_rgba(255,255,255,75));
 			}
 			x--;
 		}

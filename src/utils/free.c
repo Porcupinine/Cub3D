@@ -41,9 +41,22 @@ void	free_game_data(t_map_data *map_data)
 
 void	free_cub(t_data *cub_data)
 {
+	free_game_data(cub_data->map_data);
 	free(cub_data->walls);
 	free(cub_data->player);
-	free_map(cub_data->map_data);
 	free(cub_data->map_data);
 	free(cub_data);
+}
+
+void free_split(char **array)
+{
+	int	x;
+
+	x = 0;
+	while(array[x] != NULL)
+	{
+		free(array[x]);
+		x++;
+	}
+	free(array);
 }

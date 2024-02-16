@@ -13,8 +13,6 @@
 #include "../../includes/parsing.h"
 #include "../../includes/utils.h"
 #include "../../lib42/include/libft.h"
-#include "../../lib42/include/get_next_line.h"
-#include <fcntl.h>
 
 static void	check_extension(char *str)
 {

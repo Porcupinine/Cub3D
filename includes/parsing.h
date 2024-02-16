@@ -24,7 +24,6 @@
  * @return parsed data of the map.
  */
 void	get_data(t_data *cub_data, char *file);
-//int parse_data(int fd, char *file, t_map_data *cub_data);
 /**
  * loops the line containing either F or C to extract the RGBA data.
  * The data is saved as a single integer using rgba.c functions. If it
