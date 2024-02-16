@@ -18,8 +18,11 @@
 void	load_textures(t_data *cub_data)
 {
 	cub_data->walls = ft_calloc(1, sizeof (t_cub_textures));
-		if (cub_data->walls == NULL)
-			ft_error("Malloc fail\n");
+	if (cub_data->walls == NULL)
+	{
+
+		ft_error("Malloc fail\n");
+	}
 	cub_data->walls->n = mlx_load_png(cub_data->map_data->no_path);
 	if (!cub_data->walls->n)
 		ft_error("Texture fail\n");

@@ -29,15 +29,16 @@ SET(SOURCES
 		minimap.c
 		src/graphics/draw_map.c
 		src/graphics/load_walls.c
-		src/graphics/find_coordinates.c)
-
-add_executable(cub3d main.c ${SOURCES}
-        src/graphics/find_coordinates.c
+		src/graphics/find_coordinates.c
+		src/graphics/find_coordinates.c
 		src/utils/free.c
 		src/utils/copy_file.c
 		src/parsing/parsing.c
 		src/parsing/parse_textures.c
-		src/parsing/parse_map.c
+		src/parsing/parse_map.c)
+
+add_executable(cub3d main.c ${SOURCES}
+
 )
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
 target_link_libraries(cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42 m)

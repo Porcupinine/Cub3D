@@ -53,8 +53,8 @@ static void	found_player(t_data *cub_data, int x, int y)
 	cub_data->player = ft_calloc(1, sizeof (t_player));
 	if (cub_data->player == NULL)
 		ft_error("Malloc fail\n");
-	cub_data->player->posY = (double)x;
-	cub_data->player->posX = (double)y;
+	cub_data->player->posY = (double)x + 0.5;
+	cub_data->player->posX = (double)y + 0.5;
 	find_direction(cub_data, cub_data->map_data->map[x][y]);
 }
 

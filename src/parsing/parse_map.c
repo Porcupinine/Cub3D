@@ -86,4 +86,5 @@ void	get_map(t_map_data *map_data)
 		ft_error("Malloc fail\n");
 	copy_map(map_data);
 	map_x_size(map_data);
+	free(m)
 }
