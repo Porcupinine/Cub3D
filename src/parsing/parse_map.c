@@ -6,7 +6,7 @@
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/15 21:37:48 by laura         #+#    #+#                 */
-/*   Updated: 2024/02/16 17:31:45 by lpraca-l      ########   odam.nl         */
+/*   Updated: 2024/02/16 17:36:38 by lpraca-l      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,4 @@ void	get_map(t_map_data *map_data)
 		ft_error("Malloc fail\n");
 	copy_map(map_data);
 	map_x_size(map_data);
-	free()
 }

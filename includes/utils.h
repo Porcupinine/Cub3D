@@ -20,7 +20,7 @@
  * @return 1 if the string is empty and 0 if not
  */
 int		test_isspace(char*str);
-int	test_isspace_limited(char*str, int n);
+int		test_isspace_limited(char*str, int n);
 /**
  *
  * @param str
@@ -44,6 +44,7 @@ int		get_b(int rgba);
 int		get_a(int rgba);
 int		get_rgba(int r, int g, int b, int a);
 void	free_cub(t_data *cub_data);
+void	free_game_data(t_map_data *map_data);
 void	copy_data(t_map_data *map_data, char*file);
 
 #endif //CUB3D_UTILS_H
