@@ -6,7 +6,7 @@
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/15 20:55:11 by laura         #+#    #+#                 */
-/*   Updated: 2024/02/15 20:55:11 by laura         ########   odam.nl         */
+/*   Updated: 2024/02/17 08:35:48 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,21 @@
 #include "../../lib42/include/libft.h"
 #include "../../lib42/include/get_next_line.h"
 
-char	**relloc_data(char** data, int allocated)
+char	**relloc_data(char **data, int *allocated)
 {
 	int		count;
 	char	**new_data;
 
 	count = 0;
-	new_data = ft_calloc(allocated * 2, sizeof (char *));
-	if(new_data == NULL)
+	new_data = ft_calloc((*allocated) * 2, sizeof (char *));
+	if (new_data == NULL)
 		ft_error("Malloc fail\n");
-	while(count != allocated)
+	while (count != *allocated)
 	{
 		new_data[count] = data[count];
 		count++;
 	}
+	*allocated *= 2;
 	free(data);
 	return (new_data);
 }
@@ -48,16 +49,15 @@ void	copy_data(t_map_data *map_data, char *file)
 	map_data->game_data = ft_calloc(allocated, sizeof (char *));
 	if (map_data->game_data == NULL)
 		ft_error("Malloc fail\n");
-	while((line = get_next_line(fd)))
+	line = get_next_line(fd);
+	while (line != NULL)
 	{
 		if (count == allocated)
-		{
-			map_data->game_data = relloc_data(map_data->game_data, allocated);
-			allocated = 2*allocated;
-		}
+			map_data->game_data = relloc_data(map_data->game_data, &allocated);
 		map_data->game_data[count] = line;
 		count++;
 		map_data->data_size++;
+		line = get_next_line(fd);
 	}
 	close(fd);
 }

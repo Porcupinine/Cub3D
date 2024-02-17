@@ -48,6 +48,12 @@ typedef struct s_player
 	mlx_texture_t	*player_png;
 }	t_player;
 
+/**
+ * texture, current_width and current_height refers to the values of the
+ * texture that is being used at the moment
+ * draw_start and draw_end are the position in the screen where the wall
+ * starts and end
+ */
 typedef struct s_cub_textures
 {
 	mlx_texture_t	*n;

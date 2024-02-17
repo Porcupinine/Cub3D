@@ -12,6 +12,7 @@
 
 #include "../../includes/cub3d.h"
 #include "../../includes/parsing.h"
+#include "../../includes/graphics.h"
 
 void	find_ray_direction(t_data *data, int x)
 {
@@ -47,7 +48,7 @@ void	raycasting(t_data *data)
 		find_intersection(data, data->ray->x1, data->ray->y1);
 		dist = find_hit(data);
 		data->wallX = data->player->posX + dist * data->ray->y1;
-		findWallHeight(data, dist, x);
+		draw_walls(data, dist, x);
 		x++;
 	}
 }

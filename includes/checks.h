@@ -26,7 +26,6 @@ void check_map(t_data *cub_data);
  * @param map_data
  */
 void	check_values(t_data *map_data);
-void	load_textures(t_data *cub_data);
 void	find_direction(t_data *cub_data, char dir);
 
 #endif //CUB3D_CHECKS_H

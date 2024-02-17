@@ -23,8 +23,6 @@ void	draw_env(t_data *data);
 
 
 /*drawing3d*/
-void	findWallHeight(t_data *data, double dist, int x);
-int	find_texture_x(t_data *cub_data, double dist);
 //void	drawVerticalLine(t_data *cub_data, int x, int y_start, int y_end, int color);
 
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   parsing2.c                                         :+:    :+:            */
+/*   parsing.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/15 21:26:47 by laura         #+#    #+#                 */
-/*   Updated: 2024/02/15 21:26:47 by laura         ########   odam.nl         */
+/*   Updated: 2024/02/17 08:31:03 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ static void	parse_data(t_map_data *map_data)
 		count++;
 	}
 }
-
 
 void	get_data(t_data *cub_data, char *file)
 {

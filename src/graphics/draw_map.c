@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   draw_map.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 11:00:10 by laura             #+#    #+#             */
-/*   Updated: 2024/02/06 14:00:32 by akrepkov         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   draw_map.c                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: akrepkov <akrepkov@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/01/31 11:00:10 by laura         #+#    #+#                 */
+/*   Updated: 2024/02/17 08:29:17 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ void	draw_env(t_data *data)
 	}
 }
 
-static int get_pixel_color(mlx_texture_t *texture, int x, int y)
+static int	get_pixel_color(mlx_texture_t *texture, int x, int y)
 {
 	int	r;
 	int	g;
 	int	b;
-	int rgba;
+	int	rgba;
 
 	r = texture->pixels[(y * texture->width + x) * texture->bytes_per_pixel];
 	g = texture->pixels[(y * texture->width + x) * texture->bytes_per_pixel + 1];
@@ -51,24 +51,16 @@ static int get_pixel_color(mlx_texture_t *texture, int x, int y)
 	return (rgba);
 }
 
-static void find_wall(t_data *cub_data)
+static void	find_wall(t_data *cub_data)
 {
 	if (cub_data->side == 0 && cub_data->ray->x1 > 0)
-	{
 		cub_data->walls->texture = cub_data->walls->w;
-	}
 	else if (cub_data->side == 0 && cub_data->ray->x1 < 0)
-	{
 		cub_data->walls->texture = cub_data->walls->e;
-	}
 	else if (cub_data->side == 1 && cub_data->ray->y1 < 0)
-	{
 		cub_data->walls->texture = cub_data->walls->s;
-	}
 	else if (cub_data->side == 1 && cub_data->ray->y1 > 0)
-	{
 		cub_data->walls->texture = cub_data->walls->n;
-	}
 	cub_data->walls->current_height = cub_data->walls->texture->height;
 	cub_data->walls->current_width = cub_data->walls->texture->width;
 }
@@ -95,7 +87,7 @@ static void	drawVerticalLine(t_data *cub_data, int tex_x, int x)
 	}
 }
 
-void	findWallHeight(t_data *data, double dist, int x)
+void	draw_walls(t_data *data, double dist, int x)
 {
 	int tex_x;
 

@@ -42,7 +42,7 @@ void draw_square(t_data *data, int draw_x, int draw_y, int color)
 
 void draw_map(t_data *data)
 {
-	int y = 10;
+	int y = 7;
 	int x = 13;
 	int draw_x = 0;
 	int draw_y = 0;
@@ -58,7 +58,7 @@ void draw_map(t_data *data)
 				draw_square(data, x, y, get_rgba(255,255,255,0));
 			else {
 				if (data->map_data->map[draw_y][draw_x] == '1') {
-					draw_square(data, x, y, 0xA1A1FFFF);
+					draw_square(data, x, y, get_rgba(0,0,0,175));
 				} else
 					draw_square(data, x, y, get_rgba(255,255,255,75));
 			}
