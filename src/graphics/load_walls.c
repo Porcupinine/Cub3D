@@ -34,6 +34,8 @@ void	load_textures(t_data *cub_data)
 
 void	delete_texture(t_data *cub_data)
 {
+	if (cub_data->walls == NULL)
+		return ;
 	if (cub_data->walls->n != NULL)
 		mlx_delete_texture(cub_data->walls->n);
 	if (cub_data->walls->s != NULL)

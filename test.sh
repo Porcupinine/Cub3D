@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to the maps folder
-maps_folder="maps/valid_maps"
+maps_folder="maps/invalid_maps"
 
 # Check if the maps folder exists
 if [ ! -d "$maps_folder" ]; then
