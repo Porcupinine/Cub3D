@@ -26,6 +26,8 @@ typedef struct s_map_data
 	char	**map;
 	int		map_y;
 	int		map_x;
+	char	**game_data;
+	int		data_size;
 }	t_map_data;
 
 /**
@@ -46,6 +48,12 @@ typedef struct s_player
 	mlx_texture_t	*player_png;
 }	t_player;
 
+/**
+ * texture, current_width and current_height refers to the values of the
+ * texture that is being used at the moment
+ * draw_start and draw_end are the position in the screen where the wall
+ * starts and end
+ */
 typedef struct s_cub_textures
 {
 	mlx_texture_t	*n;
@@ -102,15 +110,16 @@ typedef struct s_data
 	t_player		*player;
 	mlx_t			*mlx;
 	mlx_image_t		*img;
+	mlx_image_t		*mini_img;
 	mlx_image_t		*strimage; //for the message
 	double			angle;
 	char			texture;
 	int 			scale_map;
 	t_cub_textures	*walls;
 	t_minimap		*map;
-	double r_d2;
-	double r_d;
-	double wallX;
+	double			r_d2;
+	double			r_d;
+	double			wallX;
 } t_data;
 
 

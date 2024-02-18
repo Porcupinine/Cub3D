@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   findRayAttr.c                                      :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: laura <laura@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/02/16 18:31:14 by laura         #+#    #+#                 */
+/*   Updated: 2024/02/16 18:31:14 by laura         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 #include "../../includes/parsing.h"
 #include "../../lib42/include/libft.h"
@@ -7,9 +19,9 @@ double	find_hit(t_data *data)
 {
 	int		hit;
 	double	dist;
-	int		side;
 	int		mapX = data->player->mapX;
 	int		mapY = data->player->mapY;
+
 	hit = 0;
 	while (hit == 0)
 	{

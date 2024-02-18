@@ -24,7 +24,6 @@
  * @return parsed data of the map.
  */
 void	get_data(t_data *cub_data, char *file);
-//int parse_data(int fd, char *file, t_map_data *cub_data);
 /**
  * loops the line containing either F or C to extract the RGBA data.
  * The data is saved as a single integer using rgba.c functions. If it
@@ -34,7 +33,7 @@ void	get_data(t_data *cub_data, char *file);
  * @param cub_data
  * @return
  */
-void get_fc(char *line, t_map_data *cub_data);
+void	get_fc(char *line, t_data *cub_data);
 /**
  * Loops the line to extract the path for the textures used for each side
  * of the walls. If it finds a repeated coordinate or there is no ./ it
@@ -43,14 +42,14 @@ void get_fc(char *line, t_map_data *cub_data);
  * @param cub_data
  * @return
  */
-void get_textures(char* line, t_map_data *cub_data);
+void	get_textures(char* line, t_data *cub_data);
 /**
  *Count how many lines the map part has and parse it into an array
  * of strings. At the end finds the longest string in the array and
  * saves it as the width of the map.
  * @param file
- * @param cub_data
+ * @param map_data
  */
-void get_map(char *file, t_map_data *cub_data);
+void	get_map(t_data *map_data);
 
 #endif //CUB3D_PARSING_H

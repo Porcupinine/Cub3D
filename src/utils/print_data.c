@@ -15,29 +15,41 @@
 #include "../../includes/utils.h"
 #include <stdio.h>
 
-void	print_paths(t_map_data *cub_data)
+void	print_paths(t_map_data *map_data)
 {
 	printf("NO: %s\nSO: %s\nWE: %s\nEA: %s\n", \
-	cub_data->no_path, cub_data->ea_path, cub_data->we_path, \
-	cub_data->ea_path);
+	map_data->no_path, map_data->ea_path, map_data->we_path, \
+	map_data->ea_path);
 }
 
-void	print_colors(t_map_data *cub_data)
+void	print_colors(t_map_data *map_data)
 {
-	printf("F: %d.%d,%d\nC: %d,%d,%d\n", get_r(cub_data->floor), \
-	get_g(cub_data->floor), get_b(cub_data->floor), get_r(cub_data->celling), \
-	get_g(cub_data->celling), get_b(cub_data->celling));
+	printf("F: %d.%d,%d\nC: %d,%d,%d\n", get_r(map_data->floor), \
+	get_g(map_data->floor), get_b(map_data->floor), get_r(map_data->celling), \
+	get_g(map_data->celling), get_b(map_data->celling));
 }
 
-void	print_map(t_map_data *cub_data)
+void	print_map(t_map_data *map_data)
 {
 	int	y;
 
 	y = 0;
-	while (y < cub_data->map_y)
+	while (y < map_data->map_y)
 	{
-		printf("%s", cub_data->map[y]);
+		printf("%s", map_data->map[y]);
 		y++;
 	}
 	printf("\n\n");
+}
+
+void	print_data(t_map_data *map_data)
+{
+	int	count;
+
+	count = 0;
+	while(count <= map_data->data_size)
+	{
+		printf("%s", map_data->game_data[count]);
+		count++;
+	}
 }

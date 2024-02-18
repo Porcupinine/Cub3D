@@ -1,11 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   raycasting.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: laura <laura@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/02/16 19:57:20 by laura         #+#    #+#                 */
+/*   Updated: 2024/02/16 19:57:20 by laura         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 #include "../../includes/parsing.h"
+#include "../../includes/graphics.h"
+#include "../../includes/utils.h"
+#include "../../lib42/include/libft.h"
 
 void	find_ray_direction(t_data *data, int x)
 {
 	double	camera;
-	double	x1;
-	double	y1;
 
 	camera = 2 * x / (double)WIDTH - 1;
 	data->ray->x1 = data->player->dirX + data->ray->planeX * camera;
@@ -26,7 +39,6 @@ void	raycasting(t_data *data)
 {
 	int		x;
 	double	dist;
-	double	ra;
 
 	x = 0;
 	data->player->mapX = (int)data->player->posX;
@@ -37,10 +49,8 @@ void	raycasting(t_data *data)
 		find_ray_direction(data, x);
 		find_intersection(data, data->ray->x1, data->ray->y1);
 		dist = find_hit(data);
-		ra = atan2(data->ray->y1, data->ray->x1);
 		data->wallX = data->player->posX + dist * data->ray->y1;
-		findWallHeight(data, dist, x);
-		//printf("data->wallX %f \n", data->wallX);
+		draw_walls(data, dist, x);
 		x++;
 	}
 }
@@ -49,7 +59,9 @@ void	init_raycast(t_data *data)
 {
 	double	dirlen;
 
-	data->ray = malloc(sizeof(t_ray));
+	data->ray = ft_calloc(1, sizeof (t_ray));
+	if (data->ray == NULL)
+		clean_up(data, "Malloc fail\n");
 	data->ray->sideX = 0.00;
 	data->ray->sideY = 0.00;
 	data->ray->stepX = 0;

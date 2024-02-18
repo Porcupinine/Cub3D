@@ -31,6 +31,5 @@ int	find_texture_x(t_data *cub_data, double dist)
 		tex_x = (int)cub_data->walls->current_width - tex_x - 1;
 	if (cub_data->side == 1 && cub_data->player->dirY < 0)
 		tex_x = (int)cub_data->walls->current_width - tex_x - 1;
-	printf("PosX: %f  PosY: %f  dist: %f  RayX: %f  rayY: %f\n\n", cub_data->player->posX, cub_data->player->posY, dist, cub_data->ray->x1, cub_data->ray->y1);
 	return (tex_x);
 }

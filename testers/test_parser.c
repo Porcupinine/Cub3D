@@ -27,7 +27,7 @@ int main (int argc, char **argv)
 	t_data *cub_data;
 	cub_data = ft_calloc(1, sizeof (t_data));
 	if (cub_data == NULL)
-		ft_error("Malloc fail\n");
+		clean_up(cub_data, "Malloc fail\n");
 	cub_data->map_data = get_data(argv[1]);
 	check_map(cub_data);
 	check_values(cub_data->map_data);

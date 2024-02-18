@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   draw_map.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 11:00:10 by laura             #+#    #+#             */
-/*   Updated: 2024/02/06 14:00:32 by akrepkov         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   draw_map.c                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: akrepkov <akrepkov@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/01/31 11:00:10 by laura         #+#    #+#                 */
+/*   Updated: 2024/02/17 08:29:17 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../MLX42/include/MLX42/MLX42.h"
 #include "../../includes/structs.h"
-#include "../../lib42/include/libft.h"
 #include "../../includes/cub3d.h"
 #include "../../includes/graphics.h"
 #include "../../includes/utils.h"
@@ -38,12 +37,12 @@ void	draw_env(t_data *data)
 	}
 }
 
-int get_pixel_color(mlx_texture_t *texture, int x, int y)
+static int	get_pixel_color(mlx_texture_t *texture, int x, int y)
 {
 	int	r;
 	int	g;
 	int	b;
-	int rgba;
+	int	rgba;
 
 	r = texture->pixels[(y * texture->width + x) * texture->bytes_per_pixel];
 	g = texture->pixels[(y * texture->width + x) * texture->bytes_per_pixel + 1];
@@ -52,34 +51,21 @@ int get_pixel_color(mlx_texture_t *texture, int x, int y)
 	return (rgba);
 }
 
-void find_wall(t_data *cub_data)
+static void	find_wall(t_data *cub_data)
 {
-//	printf("my sde is: %d\n", cub_data->side);
 	if (cub_data->side == 0 && cub_data->ray->x1 > 0)
-	{
-		printf("ray: %f  west\n", cub_data->ray->x1);
 		cub_data->walls->texture = cub_data->walls->w;
-	}
 	else if (cub_data->side == 0 && cub_data->ray->x1 < 0)
-	{
-		printf("ray: %f  east\n", cub_data->ray->x1);
 		cub_data->walls->texture = cub_data->walls->e;
-	}
 	else if (cub_data->side == 1 && cub_data->ray->y1 < 0)
-	{
-		printf("ray: %f  south\n", cub_data->ray->y1);
 		cub_data->walls->texture = cub_data->walls->s;
-	}
 	else if (cub_data->side == 1 && cub_data->ray->y1 > 0)
-	{
-		printf("ray: %f  north\n", cub_data->ray->y1);
 		cub_data->walls->texture = cub_data->walls->n;
-	}
 	cub_data->walls->current_height = cub_data->walls->texture->height;
 	cub_data->walls->current_width = cub_data->walls->texture->width;
 }
 
-void	drawVerticalLine(t_data *cub_data, int tex_x, int x)
+static void	drawVerticalLine(t_data *cub_data, int tex_x, int x)
 {
 	int		y;
 	int		color;
@@ -89,19 +75,19 @@ void	drawVerticalLine(t_data *cub_data, int tex_x, int x)
 
 	y = cub_data->walls->draw_start;
 	step = 1.0 * cub_data->walls->current_height / cub_data->walls->line_height;
-	tex_pos = (cub_data->walls->draw_start - ((double)HEIGHT / 2.0) + ((double)cub_data->walls->line_height / 2.0)) * step;
-	while (y <= cub_data->walls->draw_end)
+	tex_pos = (cub_data->walls->draw_start - ((double)HEIGHT / 2.0) + \
+	((double)cub_data->walls->line_height / 2.0)) * step;
+	while (y < cub_data->walls->draw_end)
 	{
 		tex_y = (int)tex_pos;
 		tex_pos += step;
 		color = get_pixel_color(cub_data->walls->texture, tex_x, tex_y);
 		mlx_put_pixel(cub_data->img, x, y, color);
-		//printf("tex_x: %d   tex_y: %d   color: %d\n", tex_x, tex_y, color);
 		y++;
 	}
 }
 
-void	findWallHeight(t_data *data, double dist, int x)
+void	draw_walls(t_data *data, double dist, int x)
 {
 	int tex_x;
 
@@ -116,6 +102,5 @@ void	findWallHeight(t_data *data, double dist, int x)
 		data->walls->draw_end = HEIGHT - 1;
 	find_wall(data);
 	tex_x = find_texture_x(data, dist);
-	printf("x: %d side: %d dist 3: %f  tex_x: %d\n", x, data->side, dist, tex_x);
 	drawVerticalLine(data, tex_x, x);
 }

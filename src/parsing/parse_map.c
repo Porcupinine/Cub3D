@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/26 11:40:48 by laura         #+#    #+#                 */
-/*   Updated: 2024/01/26 11:42:32 by laura         ########   odam.nl         */
+/*   Created: 2024/02/15 21:37:48 by laura         #+#    #+#                 */
+/*   Updated: 2024/02/17 08:30:13 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,70 +32,58 @@ static void	map_x_size(t_map_data *cub_data)
 	cub_data->map_x = len;
 }
 
-static int	map_y_size(char *file)
+static void	map_y_size(t_map_data *map_data)
 {
 	int		count;
-	char	*line;
-	int		fd;
+	int		y_size;
 
 	count = 0;
-	fd = open(file, O_RDONLY);
-	while ((line = get_next_line(fd)))
+	y_size = 0;
+	while (count <= map_data->data_size)
 	{
-		if (first_map_line(line) == 1 && test_isspace(line) != 1)
+		if (first_map_line(map_data->game_data[count]) == 1 && \
+		test_isspace(map_data->game_data[count]) != 1)
 		{
-			count++;
-			free(line);
-			break ;
+			while (count < map_data->data_size)
+			{
+				y_size++;
+				count++;
+			}
 		}
-		free(line);
-	}
-	while ((line = get_next_line(fd)))
-	{
 		count++;
-		free(line);
 	}
-	close(fd);
-	return (count);
+	map_data->map_y = y_size;
 }
 
-static void	copy_map(char *file, t_map_data *cub_data)
+static void	copy_map(t_map_data *map_data)
 {
-	int		count;
-	char	*line;
-	int		fd;
+	int	count;
+	int	count_copy;
 
-	count = 0;
-	fd = open(file, O_RDONLY);
-	while ((line = get_next_line(fd)))
+	count_copy = 0;
+	count = map_data->data_size - map_data->map_y;
+	while (count <= map_data->data_size)
 	{
-		if (first_map_line(line) == 1 && test_isspace(line) != 1)
+		if (first_map_line(map_data->game_data[count]) == 1 && \
+		test_isspace(map_data->game_data[count]) != 1)
 		{
-			cub_data->map[count] = line;
-			count++;
-			break ;
+			while (count < map_data->data_size)
+			{
+				map_data->map[count_copy] = map_data->game_data[count];
+				count++;
+				count_copy++;
+			}
 		}
-		free(line);
-	}
-	while ((line = get_next_line(fd)))
-	{
-		cub_data->map[count] = line;
 		count++;
 	}
 }
 
-void	get_map(char *file, t_map_data *cub_data)
+void	get_map(t_data *cub_data)
 {
-	int		fd;
-
-	cub_data->map_y = map_y_size(file);
-	cub_data->map = malloc(cub_data->map_y * sizeof(char *));
-	if (cub_data->map == NULL)
-		ft_error("Malloc fail\n");
-	fd = open(file, O_RDONLY);
-	if (fd == -1)
-		ft_error("Fail to read file\n");
-	copy_map(file, cub_data);
-	close(fd);
-	map_x_size(cub_data);
+	map_y_size(cub_data->map_data);
+	cub_data->map_data->map = malloc(cub_data->map_data->map_y * sizeof(char *));
+	if (cub_data->map_data->map == NULL)
+		clean_up(cub_data, "Malloc fail\n");
+	copy_map(cub_data->map_data);
+	map_x_size(cub_data->map_data);
 }

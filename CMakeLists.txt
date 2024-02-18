@@ -4,16 +4,13 @@ project(Cub3D)
 set(CMAKE_C_STANDARD 90)
 
 #add_compile_options(-Wall -Wextra -Werror)
-#add_compile_options(-fsanitize=address -fsanitize=leak)
-#add_link_options(-fsanitize=address -fsanitize=leak)
+add_compile_options(-fsanitize=address -fsanitize=leak)
+add_link_options(-fsanitize=address -fsanitize=leak)
 add_subdirectory(${CMAKE_SOURCE_DIR}/MLX42)
 include_directories(${CMAKE_SOURCE_DIR}/lib42/include)
 
 
 SET(SOURCES
-		src/parsing/parsing.c
-		src/parsing/parse_textures.c
-		src/parsing/parse_map.c
 		src/utils/empty_line.c
 		src/utils/first_map_line.c
 		src/utils/print_data.c
@@ -25,19 +22,24 @@ SET(SOURCES
 		src/raycasting/positive_double.c
 		src/raycasting/raycasting.c
 		src/raycasting/findRayAttr.c
-		src/images/images.c
+		src/graphics/images.c
 		src/hooks/rotate.c
 		src/hooks/hooks.c
 		src/hooks/move.c
-		minimap.c
-		src/graphics/drawing3d.c
+		src/graphics/minimap.c
 		src/graphics/draw_map.c
 		src/graphics/load_walls.c
-		src/graphics/adding_textures.c
-		src/graphics/find_coordinates.c)
+		src/graphics/find_coordinates.c
+		src/utils/free.c
+		src/utils/copy_file.c
+		src/parsing/parsing.c
+		src/parsing/parse_textures.c
+		src/parsing/parse_map.c)
 
 add_executable(cub3d main.c ${SOURCES}
-        src/graphics/find_coordinates.c)
+		src/utils/clean_up.c
+
+)
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
 target_link_libraries(cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42 m)
 

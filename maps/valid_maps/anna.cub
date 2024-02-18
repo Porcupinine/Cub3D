@@ -1,10 +1,10 @@
-NO ./textures/bamboo.png
-SO ./textures/water.png
-WE ./textures/wood.png
-EA ./textures/blackbrick.png
+NO ./textures/Abstract_128x128-13.png
+SO ./textures/Abstract_128x128-14.png
+WE ./textures/Abstract_128x128-15.png
+EA ./textures/Abstract_128x128-16.png
 
-F 56,55,55
-C 160,160,160
+F 190,235,247
+C 242,182,183
 
 
 1111111111111
