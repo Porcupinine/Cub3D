@@ -94,6 +94,16 @@ void	free_game_data(t_map_data *map_data);
 /**
  * copy the file into a array of strings
  */
-void	copy_data(t_map_data *map_data, char*file);
+void	copy_data(t_data *data, char*file);
+/**
+ * delete all textures if not NULL
+ */
+void	delete_texture(t_data *cub_data);
+/**
+ * calls delete_texture and free_cub, and ft_error with
+ * given message
+ */
+void clean_up(t_data *cub_data, char* msg);
+
 
 #endif //CUB3D_UTILS_H

@@ -22,11 +22,11 @@ SET(SOURCES
 		src/raycasting/positive_double.c
 		src/raycasting/raycasting.c
 		src/raycasting/findRayAttr.c
-		src/images/images.c
+		src/graphics/images.c
 		src/hooks/rotate.c
 		src/hooks/hooks.c
 		src/hooks/move.c
-		minimap.c
+		src/graphics/minimap.c
 		src/graphics/draw_map.c
 		src/graphics/load_walls.c
 		src/graphics/find_coordinates.c
@@ -37,6 +37,7 @@ SET(SOURCES
 		src/parsing/parse_map.c)
 
 add_executable(cub3d main.c ${SOURCES}
+		src/utils/clean_up.c
 
 )
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)

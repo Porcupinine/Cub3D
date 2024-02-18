@@ -39,12 +39,25 @@ void	free_game_data(t_map_data *map_data)
 	free(map_data->game_data);
 }
 
+void	free_if_not_null(void *mem)
+{
+	if (mem != NULL)
+		free(mem);
+}
+
 void	free_cub(t_data *cub_data)
 {
 	free_game_data(cub_data->map_data);
-	free(cub_data->walls);
-	free(cub_data->player);
-	free(cub_data->map_data);
+	free_if_not_null(cub_data->map_data->so_path);
+	free_if_not_null(cub_data->map_data->ea_path);
+	free_if_not_null(cub_data->map_data->we_path);
+	free_if_not_null(cub_data->map_data->no_path);
+	free_if_not_null(cub_data->map_data->map);
+	free_if_not_null(cub_data->walls);
+	free_if_not_null(cub_data->player);
+	free_if_not_null(cub_data->map_data);
+	free_if_not_null(cub_data->map);
+	free_if_not_null(cub_data->ray);
 	free(cub_data);
 }
 

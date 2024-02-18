@@ -14,15 +14,16 @@
 #include "../../includes/utils.h"
 #include "../../lib42/include/libft.h"
 
-static void	check_extension(char *str)
+static int	check_extension(char *str)
 {
 	char	*ext;
 
 	ext = ft_strrchr(str, '.');
 	if (ext == 0)
-		ft_error("Error\nNo extension\n");
+		return (1);
 	if (ft_memcmp(ext, ".cub", 5))
-		ft_error("Error\nWrong extension\n");
+		return (1);
+	return (0);
 }
 
 static int	check_textures(const char *line)
@@ -39,29 +40,25 @@ static int	check_floor_celing(const char *line)
 			ft_strnstr(line, "C ", ft_strlen(line)) != 0);
 }
 
-static void	parse_data(t_map_data *map_data)
+static void	parse_data(t_data *cub_data)
 {
 	int	count;
 
 	count = 0;
-	while (count <= map_data->data_size)
+	while (count <= cub_data->map_data->data_size)
 	{
-		if (first_map_line(map_data->game_data[count]) == 1 && \
-		test_isspace(map_data->game_data[count]) != 1)
-		{
-			get_map(map_data);
-			break ;
+		if (first_map_line(cub_data->map_data->game_data[count]) == 1 && \
+		test_isspace(cub_data->map_data->game_data[count]) != 1) {
+			get_map(cub_data);
+			break;
 		}
-		else if (check_textures(map_data->game_data[count]))
-		{
-			get_textures(map_data->game_data[count], map_data);
-		}
-		else if (check_floor_celing(map_data->game_data[count]))
-		{
-			get_fc(map_data->game_data[count], map_data);
-		}
-		else if (test_isspace(map_data->game_data[count]) != 1)
-			ft_error("Invalid data! Trash line \n");
+		else if (check_textures(cub_data->map_data->game_data[count]))
+			get_textures(cub_data->map_data->game_data[count], \
+			cub_data);
+		else if (check_floor_celing(cub_data->map_data->game_data[count]))
+			get_fc(cub_data->map_data->game_data[count], cub_data);
+		else if (test_isspace(cub_data->map_data->game_data[count]) != 1)
+			clean_up(cub_data, "Invalid data! Trash line \n");
 		count++;
 	}
 }
@@ -70,8 +67,9 @@ void	get_data(t_data *cub_data, char *file)
 {
 	cub_data->map_data = ft_calloc(1, sizeof(t_map_data));
 	if (cub_data->map_data == NULL)
-		ft_error("Malloc fail\n");
-	check_extension(file);
-	copy_data(cub_data->map_data, file);
-	parse_data(cub_data->map_data);
+		clean_up(cub_data, "Malloc fail\n");
+	if (check_extension(file) == 1)
+		clean_up(cub_data, "Error with extension\n");
+	copy_data(cub_data, file);
+	parse_data(cub_data);
 }

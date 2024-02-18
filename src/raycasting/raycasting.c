@@ -13,6 +13,8 @@
 #include "../../includes/cub3d.h"
 #include "../../includes/parsing.h"
 #include "../../includes/graphics.h"
+#include "../../includes/utils.h"
+#include "../../lib42/include/libft.h"
 
 void	find_ray_direction(t_data *data, int x)
 {
@@ -57,7 +59,9 @@ void	init_raycast(t_data *data)
 {
 	double	dirlen;
 
-	data->ray = malloc(sizeof(t_ray));
+	data->ray = ft_calloc(1, sizeof (t_ray));
+	if (data->ray == NULL)
+		clean_up(data, "Malloc fail\n");
 	data->ray->sideX = 0.00;
 	data->ray->sideY = 0.00;
 	data->ray->stepX = 0;

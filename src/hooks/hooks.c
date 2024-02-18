@@ -71,6 +71,7 @@ void let_s_move(mlx_key_data_t keydata, t_data *data)
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
 		mlx_terminate(data->mlx);
+		delete_texture(data);
 		free_cub(data);
 		exit(EXIT_SUCCESS);
 	}

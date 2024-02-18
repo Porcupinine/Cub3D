@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../../includes/parsing.h"
+#include "../../includes/utils.h"
 #include "../../lib42/include/libft.h"
 #include "../../includes/graphics.h"
 #include <math.h>
@@ -21,7 +22,7 @@ void	check_values(t_data *cub_data)
 	cub_data->map_data->so_path == NULL || \
 	cub_data->map_data->we_path == NULL || \
 	cub_data->map_data->ea_path == NULL)
-		ft_error("Invalid map. Missing information\n");
+		clean_up(cub_data, "Invalid map. Missing information\n");
 	load_textures(cub_data);
 }
 

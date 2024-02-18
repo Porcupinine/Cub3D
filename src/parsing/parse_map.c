@@ -78,12 +78,12 @@ static void	copy_map(t_map_data *map_data)
 	}
 }
 
-void	get_map(t_map_data *map_data)
+void	get_map(t_data *cub_data)
 {
-	map_y_size(map_data);
-	map_data->map = malloc(map_data->map_y * sizeof(char *));
-	if (map_data->map == NULL)
-		ft_error("Malloc fail\n");
-	copy_map(map_data);
-	map_x_size(map_data);
+	map_y_size(cub_data->map_data);
+	cub_data->map_data->map = malloc(cub_data->map_data->map_y * sizeof(char *));
+	if (cub_data->map_data->map == NULL)
+		clean_up(cub_data, "Malloc fail\n");
+	copy_map(cub_data->map_data);
+	map_x_size(cub_data->map_data);
 }

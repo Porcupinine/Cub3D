@@ -31,16 +31,17 @@ SRC		:= main.c \
         		src/raycasting/positive_double.c \
         		src/raycasting/raycasting.c \
         		src/raycasting/findRayAttr.c \
-        		src/images/images.c \
+        		src/graphics/images.c \
         		src/hooks/rotate.c \
         		src/hooks/hooks.c \
         		src/hooks/move.c \
-        		minimap.c \
+        		src/graphics/minimap.c \
         		src/graphics/draw_map.c \
         		src/graphics/load_walls.c \
         		src/graphics/find_coordinates.c \
         		src/utils/free.c \
         		src/utils/copy_file.c \
+        		src/utils/clean_up.c \
         		src/parsing/parsing.c \
         		src/parsing/parse_textures.c \
         		src/parsing/parse_map.c

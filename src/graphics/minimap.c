@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cub3d.h"
-#include "includes/parsing.h"
-#include "lib42/include/libft.h"
-#include "includes/utils.h"
+#include "../../includes/cub3d.h"
+#include "../../includes/parsing.h"
+#include "libft.h"
+#include "../../includes/utils.h"
 
 void draw_player(t_data *data)
 {
 	if (mlx_image_to_window(data->mlx, data->map->img_player, 6 * data->scale_map, 3 * data->scale_map) < 0)
-		ft_error("Minimap images fail");
+		clean_up(data, "Minimap images fail");
 }
 
 void draw_square(t_data *data, int draw_x, int draw_y, int color)
