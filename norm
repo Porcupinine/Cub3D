@@ -1,0 +1,26 @@
+src/checkers/check_data.c: OK!
+src/checkers/check_map.c: OK!
+src/parsing/parse_map.c: OK!
+src/parsing/parse_textures.c: OK!
+src/parsing/parsing.c: OK!
+src/utils/all_digits.c: OK!
+src/utils/first_map_line.c: OK!
+src/utils/remove_new_line.c: OK!
+src/utils/rgba.c: OK!
+src/utils/empty_line.c: OK!
+src/utils/clean_up.c: OK!
+src/utils/copy_file.c: OK!
+src/utils/free.c: OK!
+src/utils/print_data.c: OK!
+src/graphics/draw_map.c: OK!
+src/graphics/find_coordinates.c: OK!
+src/graphics/images.c: OK!
+src/graphics/load_walls.c: OK!
+src/graphics/minimap.c: OK!
+src/hooks/move.c: OK!
+src/hooks/rotate.c: OK!
+src/hooks/hooks.c: OK!
+src/raycasting/findRayAttr.c: OK!
+src/raycasting/positive_double.c: OK!
+src/raycasting/raycasting.c: Error!
+Error: EMPTY_LINE_FUNCTION  (line:  48, col:   1):	Empty line in function

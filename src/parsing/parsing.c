@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   parsing.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: laura <laura@student.codam.nl>               +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/02/15 21:26:47 by laura         #+#    #+#                 */
-/*   Updated: 2024/02/17 08:31:03 by laura         ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/15 21:26:47 by laura             #+#    #+#             */
+/*   Updated: 2024/02/19 13:10:12 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,10 @@ static void	parse_data(t_data *cub_data)
 	while (count <= cub_data->map_data->data_size)
 	{
 		if (first_map_line(cub_data->map_data->game_data[count]) == 1 && \
-		test_isspace(cub_data->map_data->game_data[count]) != 1) {
+		test_isspace(cub_data->map_data->game_data[count]) != 1)
+		{
 			get_map(cub_data);
-			break;
+			break ;
 		}
 		else if (check_textures(cub_data->map_data->game_data[count]))
 			get_textures(cub_data->map_data->game_data[count], \

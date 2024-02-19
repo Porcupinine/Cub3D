@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   free.c                                             :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: laura <laura@student.codam.nl>               +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/02/15 15:50:50 by laura         #+#    #+#                 */
-/*   Updated: 2024/02/15 15:50:50 by laura         ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   free.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/15 15:50:50 by laura             #+#    #+#             */
+/*   Updated: 2024/02/19 13:11:24 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	free_map(t_map_data *map_data)
 	int	x;
 
 	x = 0;
-	while(x < map_data->map_y)
+	while (x < map_data->map_y)
 	{
 		free(map_data->map[x]);
 		x++;
@@ -61,12 +61,12 @@ void	free_cub(t_data *cub_data)
 	free(cub_data);
 }
 
-void free_split(char **array)
+void	free_split(char **array)
 {
 	int	x;
 
 	x = 0;
-	while(array[x] != NULL)
+	while (array[x] != NULL)
 	{
 		free(array[x]);
 		x++;

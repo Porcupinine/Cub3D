@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   draw_map.c                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: akrepkov <akrepkov@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/01/31 11:00:10 by laura         #+#    #+#                 */
-/*   Updated: 2024/02/17 08:29:17 by laura         ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   draw_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/31 11:00:10 by laura             #+#    #+#             */
+/*   Updated: 2024/02/19 13:16:44 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ void	draw_env(t_data *data)
 	}
 }
 
-static int	get_pixel_color(mlx_texture_t *texture, int x, int y)
+static int	get_pixel_color(mlx_texture_t *t, int x, int y)
 {
 	int	r;
 	int	g;
 	int	b;
 	int	rgba;
 
-	r = texture->pixels[(y * texture->width + x) * texture->bytes_per_pixel];
-	g = texture->pixels[(y * texture->width + x) * texture->bytes_per_pixel + 1];
-	b = texture->pixels[(y * texture->width + x) * texture->bytes_per_pixel + 2];
+	r = t->pixels[(y * t->width + x) * t->bytes_per_pixel];
+	g = t->pixels[(y * t->width + x) * t->bytes_per_pixel + 1];
+	b = t->pixels[(y * t->width + x) * t->bytes_per_pixel + 2];
 	rgba = get_rgba(r, g, b, 255);
 	return (rgba);
 }
@@ -65,7 +65,7 @@ static void	find_wall(t_data *cub_data)
 	cub_data->walls->current_width = cub_data->walls->texture->width;
 }
 
-static void	drawVerticalLine(t_data *cub_data, int tex_x, int x)
+static void	draw_vertical_line(t_data *cub_data, int tex_x, int x)
 {
 	int		y;
 	int		color;
@@ -89,11 +89,9 @@ static void	drawVerticalLine(t_data *cub_data, int tex_x, int x)
 
 void	draw_walls(t_data *data, double dist, int x)
 {
-	int tex_x;
-
+	int	tex_x;
 
 	data->walls->line_height = (int)(HEIGHT / dist);
-
 	data->walls->draw_start = (HEIGHT / 2 - data->walls->line_height / 2);
 	if (data->walls->draw_start < 0)
 		data->walls->draw_start = 0;
@@ -102,5 +100,5 @@ void	draw_walls(t_data *data, double dist, int x)
 		data->walls->draw_end = HEIGHT - 1;
 	find_wall(data);
 	tex_x = find_texture_x(data, dist);
-	drawVerticalLine(data, tex_x, x);
+	draw_vertical_line(data, tex_x, x);
 }

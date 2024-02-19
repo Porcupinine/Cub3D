@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   print_data.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: laura <laura@student.codam.nl>               +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/01/19 11:09:53 by laura         #+#    #+#                 */
-/*   Updated: 2024/01/26 11:47:18 by laura         ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   print_data.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/19 11:09:53 by laura             #+#    #+#             */
+/*   Updated: 2024/02/19 13:11:42 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	print_data(t_map_data *map_data)
 	int	count;
 
 	count = 0;
-	while(count <= map_data->data_size)
+	while (count <= map_data->data_size)
 	{
 		printf("%s", map_data->game_data[count]);
 		count++;

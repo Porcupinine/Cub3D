@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   raycasting.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: laura <laura@student.codam.nl>               +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/02/16 19:57:20 by laura         #+#    #+#                 */
-/*   Updated: 2024/02/16 19:57:20 by laura         ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 19:57:20 by laura             #+#    #+#             */
+/*   Updated: 2024/02/19 14:07:51 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	raycasting(t_data *data)
 	data->player->mapY = (int)data->player->posY;
 	while (x < WIDTH)
 	{
-
 		find_ray_direction(data, x);
 		find_intersection(data, data->ray->x1, data->ray->y1);
 		dist = find_hit(data);

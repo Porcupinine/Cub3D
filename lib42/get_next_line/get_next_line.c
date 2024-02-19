@@ -6,36 +6,36 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 19:17:01 by lpraca-l          #+#    #+#             */
-/*   Updated: 2024/01/25 15:35:52 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:41:38 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*Write a function that returns a line read from a file descriptor
- Repeated calls (e.g., using a loop) to your get_next_line() function should 
-let you read the text file pointed to by the file descriptor, one line at a 
+ Repeated calls (e.g., using a loop) to your get_next_line() function should
+let you read the text file pointed to by the file descriptor, one line at a
 time.
 • Your function should return the line that was read.
 If there is nothing else to read or if an error occurred, it should return NULL.
-• Make sure that your function works as expected both when reading a file and 
+• Make sure that your function works as expected both when reading a file and
 whenreading from the standard input.
-• Please note that the returned line should include the terminating \n 
-character, except if the end of file was reached and does not end with a \n 
+• Please note that the returned line should include the terminating \n
+character, except if the end of file was reached and does not end with a \n
 character.
 • Your header file get_next_line.h must at least contain the prototype of the
 get_next_line() function.
 • Add all the helper functions you need in the get_next_line_utils.c file.
-• Because you will have to read files in get_next_line(), add this option to 
+• Because you will have to read files in get_next_line(), add this option to
 your compiler call: -D BUFFER_SIZE=n
 It will define the buffer size for read().
-The buffer size value will be modified by your peer-evaluators and the 
+The buffer size value will be modified by your peer-evaluators and the
 Moulinette in order to test your code.
-• You will compile your code as follows (a buffer size of 42 is used as an 
+• You will compile your code as follows (a buffer size of 42 is used as an
 example): cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 <files>.c
-• We consider that get_next_line() has an undefined behavior if the file 
-pointed to by the file descriptor changed since the last call whereas read() 
+• We consider that get_next_line() has an undefined behavior if the file
+pointed to by the file descriptor changed since the last call whereas read()
 didn’t reach theend of file.
 • We also consider that get_next_line() has an undefined behavior when reading
-a binary file. However, you can implement a logical way to handle this 
+a binary file. However, you can implement a logical way to handle this
 behavior if you want to.
 */
 
@@ -44,7 +44,7 @@ behavior if you want to.
 #include "../include/libft.h"
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 10
+#define BUFFER_SIZE 10
 #endif
 
 /***
@@ -56,6 +56,7 @@ behavior if you want to.
  * @return 0 if it fails, 3 if it doesn't find a new line or null
  * terminator and 2 if it finds the new line or null terminator
  */
+
 static int	get_line(char *buff, char **lines, long buff_len, long *len)
 {
 	int		start;
@@ -82,7 +83,7 @@ static int	get_line(char *buff, char **lines, long buff_len, long *len)
 	else
 	{
 		temp = *lines;
-		if (*len == buff_len )
+		if (*len == buff_len)
 		{
 			(*lines) = ft_strjoin_gnl((*lines), &(buff[start]), line_size);
 			free(temp);
@@ -106,7 +107,7 @@ char	*get_next_line(int fd)
 	char			*lines;
 	static long		len = 0;
 	static long		buff_len = 0;
-	long				ret;
+	long			ret;
 
 	lines = NULL;
 	ret = 0;
@@ -133,3 +134,4 @@ char	*get_next_line(int fd)
 	}
 	return (lines);
 }
+
