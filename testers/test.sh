@@ -12,7 +12,7 @@ function loops() {
       if [ -f "$map_file" ]; then
           echo "$map_file"
           # Run the program with the map file as an argument
-          valgrind ./cub3d "$map_file" &
+          .././cub3d "$map_file" &
           # Store the process ID of the program
           pid=$!
           # Wait for a moment to ensure the program starts
@@ -33,7 +33,7 @@ function loops() {
 }
 
 # Path to the maps folder
-maps_folder="maps/invalid_maps"
+maps_folder="../maps/invalid_maps"
 loops
-maps_folder="maps/valid_maps"
+maps_folder="../maps/valid_maps"
 loops
