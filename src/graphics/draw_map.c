@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:00:10 by laura             #+#    #+#             */
-/*   Updated: 2024/02/19 13:16:44 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:03:46 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ static int	get_pixel_color(mlx_texture_t *t, int x, int y)
 static void	find_wall(t_data *cub_data)
 {
 	if (cub_data->side == 0 && cub_data->ray->x1 > 0)
-		cub_data->walls->texture = cub_data->walls->w;
-	else if (cub_data->side == 0 && cub_data->ray->x1 < 0)
 		cub_data->walls->texture = cub_data->walls->e;
+	else if (cub_data->side == 0 && cub_data->ray->x1 < 0)
+		cub_data->walls->texture = cub_data->walls->w;
 	else if (cub_data->side == 1 && cub_data->ray->y1 < 0)
-		cub_data->walls->texture = cub_data->walls->s;
-	else if (cub_data->side == 1 && cub_data->ray->y1 > 0)
 		cub_data->walls->texture = cub_data->walls->n;
+	else if (cub_data->side == 1 && cub_data->ray->y1 > 0)
+		cub_data->walls->texture = cub_data->walls->s;
 	cub_data->walls->current_height = cub_data->walls->texture->height;
 	cub_data->walls->current_width = cub_data->walls->texture->width;
 }
