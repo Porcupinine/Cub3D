@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 19:17:01 by lpraca-l          #+#    #+#             */
-/*   Updated: 2024/01/25 15:35:42 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:13:26 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,8 +140,8 @@ char	*get_next_line_exit(int fd)
 	static long		len = 0;
 	static long		buff_len = 0;
 	long			ret;
-	ret = 0;
 
+	ret = 0;
 	lines = NULL;
 	while (1)
 	{

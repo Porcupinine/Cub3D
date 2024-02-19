@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   images.c                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: laura <laura@student.codam.nl>               +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/02/17 21:16:18 by laura         #+#    #+#                 */
-/*   Updated: 2024/02/17 21:16:18 by laura         ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   images.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/17 21:16:18 by laura             #+#    #+#             */
+/*   Updated: 2024/02/19 13:18:09 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	init_map_images(t_data *data)
 	if (mlx_image_to_window(data->mlx, data->map->img_player, \
 		6 * data->scale_map, 3 * data->scale_map) < 0)
 		clean_up(data, "Minimap images to window fail");
-	data->strimage = mlx_put_string(data->mlx, "Stop rotating! You make me dizzy", \
-		WIDTH / 2, HEIGHT / 2);
+	data->strimage = mlx_put_string(data->mlx, "Stop rotating! \
+		You make me dizzy", WIDTH / 2, HEIGHT / 2);
 	if (!data->strimage)
 		clean_up(data, "Message fail");
 	data->strimage->enabled = false;
@@ -44,9 +44,6 @@ void	init_image(t_data *data)
 		data->scale_map = WIDTH / 50;
 	else
 		data->scale_map = HEIGHT / 50;
-//	data->mlx = mlx_init(WIDTH, HEIGHT, "CUB", true);
-//	if (!data->mlx)
-//		clean_up(cub_data, "MLX initialization fail\n");
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	if (mlx_image_to_window(data->mlx, data->img, 0, 0) < 0)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_putchar_fd.c                                    :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lpraca-l <lpraca-l@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/17 16:56:32 by lpraca-l      #+#    #+#                 */
-/*   Updated: 2022/10/17 17:00:29 by lpraca-l      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/17 16:56:32 by lpraca-l          #+#    #+#             */
+/*   Updated: 2024/02/19 14:09:43 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ fd: The file descriptor on which to write.*/
 
 void	ft_putchar_fd(char c, int fd)
 {
-	int x;
+	int	x;
 
 	x = write(fd, &c, 1);
 	(void)x;

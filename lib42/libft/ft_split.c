@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_split.c                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lpraca-l <lpraca-l@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/20 13:59:41 by lpraca-l      #+#    #+#                 */
-/*   Updated: 2022/10/31 18:24:52 by lpraca-l      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/20 13:59:41 by lpraca-l          #+#    #+#             */
+/*   Updated: 2024/02/19 14:09:52 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	count_words(char const *s, char c)
 	count = 0;
 	count_words = 0;
 	while (s[count] == c && s[count] != '\0')
-			count++;
+		count++;
 	while (s[count] != '\0')
 	{
 		while (s[count] != c && s[count] != '\0')

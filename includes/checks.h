@@ -6,13 +6,12 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:32:16 by laura             #+#    #+#             */
-/*   Updated: 2024/02/06 15:03:40 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:45:19 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKS_H
 # define CHECKS_H
-
 # include "structs.h"
 
 /**

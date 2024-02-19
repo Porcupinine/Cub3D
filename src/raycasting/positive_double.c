@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   positive_double.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/19 14:07:34 by akrepkov          #+#    #+#             */
+/*   Updated: 2024/02/19 15:52:12 by akrepkov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 #include "../../includes/parsing.h"
 
@@ -7,32 +19,3 @@ double	fm(double a)
 		return (-a);
 	return (a);
 }
-
-//void	draw_vertical(t_data *data, int x, int y_start, int y_end, int color)
-//{
-//	int	y;
-//
-//	y = y_start;
-//	while (y <= y_end)
-//	{
-//		mlx_put_pixel(data->img, x, y, color);
-//		y++;
-//	}
-//}
-//
-//void	find_orientation(t_data *data, int x, double camera)
-//{
-//	double	x1;
-//	double	y1;
-//
-//	x1 = data->player->dirx + data->ray->planex * camera;
-//	y1 = data->player->diry + data->ray->planey * camera;
-//	if (x1 < 0)
-//		data->player->orientation = 0;
-//	else
-//		data->player->orientation = 1;
-//	if (y1 < 0)
-//		data->player->orientation += 1;
-//	else
-//		data->player->orientation += 3;
-//}

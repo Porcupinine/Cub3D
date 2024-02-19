@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   parse_map.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: laura <laura@student.codam.nl>               +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/02/15 21:37:48 by laura         #+#    #+#                 */
-/*   Updated: 2024/02/17 08:30:13 by laura         ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   parse_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/15 21:37:48 by laura             #+#    #+#             */
+/*   Updated: 2024/02/19 13:09:07 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,8 @@ static void	copy_map(t_map_data *map_data)
 void	get_map(t_data *cub_data)
 {
 	map_y_size(cub_data->map_data);
-	cub_data->map_data->map = malloc(cub_data->map_data->map_y * sizeof(char *));
+	cub_data->map_data->map = malloc(cub_data->map_data->map_y * \
+		sizeof(char *));
 	if (cub_data->map_data->map == NULL)
 		clean_up(cub_data, "Malloc fail\n");
 	copy_map(cub_data->map_data);

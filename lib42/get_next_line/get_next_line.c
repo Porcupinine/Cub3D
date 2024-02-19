@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 19:17:01 by lpraca-l          #+#    #+#             */
-/*   Updated: 2024/01/25 15:35:52 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:46:46 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "get_next_line.h"
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 10
+#define BUFFER_SIZE 10
 #endif
 
 /***

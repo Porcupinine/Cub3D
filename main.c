@@ -6,7 +6,7 @@
 /*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:05:45 by laura             #+#    #+#             */
-/*   Updated: 2024/02/14 13:16:22 by akrepkov         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:08:13 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ void	game_loop(t_data *data)
 	if (data->scale_map > 2 && data->scale_map < 100)
 	{
 		init_map_images(data);
-		draw_map(data);
+		draw_map(data, 7, 13);
 	}
 	mlx_key_hook(data->mlx, (void *)&let_s_move, data);
 	mlx_mouse_hook(data->mlx, (void *)&mousing, data);
 	mlx_loop(data->mlx);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_data *cub_data;
+	t_data	*cub_data;
 
 	if (argc != 2)
 	{

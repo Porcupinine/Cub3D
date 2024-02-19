@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_atoi.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lpraca-l <lplacerdadesign@gmail.com>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/16 20:58:58 by lpraca-l      #+#    #+#                 */
-/*   Updated: 2022/10/22 19:54:32 by lpraca-l      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akrepkov <akrepkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/16 20:58:58 by lpraca-l          #+#    #+#             */
+/*   Updated: 2024/02/19 14:12:07 by akrepkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ return The converted value.*/
 
 static int	deal_isspace_issign(char *a, int *count, int *count_m, int *count_p)
 {
-	while (a[*count] == ' ' || a[*count] == '\t'
-		|| a[*count] == '\r' || a[*count] == '\n'
+	while (a[*count] == ' ' || a[*count] == '\t' \
+		|| a[*count] == '\r' || a[*count] == '\n' \
 		|| a[*count] == '\v' || a[*count] == '\f')
-			(*count)++;
+		(*count)++;
 	while (a[*count] == '-')
 	{
 		if (a[*count + 1] == '+' || a[*count + 1] == '-')
@@ -60,8 +60,8 @@ int	ft_atoi(const char *nptr)
 		return (0);
 	while (ft_isdigit(alias[count]) != 0)
 	{
-			nbr = ((nbr * 10) + (alias[count] - 48));
-			count++;
+		nbr = ((nbr * 10) + (alias[count] - 48));
+		count++;
 	}
 	if (count_m == 1)
 	{
