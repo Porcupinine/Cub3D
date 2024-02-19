@@ -48,11 +48,11 @@ void draw_map(t_data *data)
 	int draw_y = 0;
 	while (y > 0)
 	{
-		draw_y = (int)(data->player->posY) + y - 3;
+		draw_y = (int)(data->player->posy) + y - 3;
 		x = 13;
 		while (x > 0)
 		{
-			draw_x = (int)(data->player->posX) + x - 6;
+			draw_x = (int)(data->player->posx) + x - 6;
 			if (draw_y < 0 || draw_y >= data->map_data->map_y || \
 			draw_x < 0 || draw_x >= (int)ft_strlen(data->map_data->map[draw_y]))
 				draw_square(data, x, y, get_rgba(255,255,255,0));

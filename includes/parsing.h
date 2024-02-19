@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_PARSING_H
-#define CUB3D_PARSING_H
+#ifndef PARSING_H
+# define PARSING_H
 
-#include "structs.h"
+# include "structs.h"
 
 /**
  * checks for the extension and loops the data looking for patterns
@@ -42,7 +42,7 @@ void	get_fc(char *line, t_data *cub_data);
  * @param cub_data
  * @return
  */
-void	get_textures(char* line, t_data *cub_data);
+void	get_textures(char *line, t_data *cub_data);
 /**
  *Count how many lines the map part has and parse it into an array
  * of strings. At the end finds the longest string in the array and
@@ -52,4 +52,4 @@ void	get_textures(char* line, t_data *cub_data);
  */
 void	get_map(t_data *map_data);
 
-#endif //CUB3D_PARSING_H
+#endif //PARSING_H

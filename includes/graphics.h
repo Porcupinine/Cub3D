@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_GRAPHICS_H
-#define CUB3D_GRAPHICS_H
+#ifndef GRAPHICS_H
+# define GRAPHICS_H
 
-#include "structs.h"
+# include "structs.h"
 
 /**
  * draw celling and floor
@@ -40,4 +40,5 @@ int		find_texture_x(t_data *cub_data, double dist);
  * @param x pint on th "wall"
  */
 void	draw_walls(t_data *data, double dist, int x);
-#endif //CUB3D_GRAPHICS_H
+
+#endif //GRAPHICS_H

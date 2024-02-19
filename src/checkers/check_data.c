@@ -29,16 +29,16 @@ void	check_values(t_data *cub_data)
 void	find_direction(t_data *cub_data, char dir)
 {
 	if (dir == 'N' || dir == 'S')
-		cub_data->player->dirX = 0;
+		cub_data->player->dirx = 0;
 	if (dir == 'E' || dir == 'W')
-		cub_data->player->dirY = 0;
+		cub_data->player->diry = 0;
 	if (dir == 'E')
-		cub_data->player->dirX = 1;
+		cub_data->player->dirx = 1;
 	if (dir == 'W')
-		cub_data->player->dirX = -1;
+		cub_data->player->dirx = -1;
 	if (dir == 'N')
-		cub_data->player->dirY = -1;
+		cub_data->player->diry = -1;
 	if (dir == 'S')
-		cub_data->player->dirY = 1;
-	cub_data->angle = atan2(cub_data->player->dirY, cub_data->player->dirX);
+		cub_data->player->diry = 1;
+	cub_data->angle = atan2(cub_data->player->diry, cub_data->player->dirx);
 }

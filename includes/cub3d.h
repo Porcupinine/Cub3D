@@ -1,21 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   cub3d.h                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lpraca-l <lpraca-l@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/02/19 13:41:22 by lpraca-l      #+#    #+#                 */
+/*   Updated: 2024/02/19 13:41:22 by lpraca-l      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef CUB3D_H
-#define CUB3D_H
-#include <unistd.h>
-#include <stdlib.h>
-#include <memory.h>
-#include <fcntl.h>
-#include <math.h>
-#include <errno.h>
-#include <stdio.h>
-#include "structs.h"
-#define BUFFER_SIZE 1
-#define WIDTH 1200
-#define HEIGHT 1200
-#define PI 3.1415
-#define COLOR_AMMO 0xeda705 //git rid of them
-#define COLOR_BLUE 0xbfbd2c
-#define COLOR_RED 0xFF0000FF
+# define CUB3D_H
+# include <unistd.h>
+# include <stdlib.h>
+# include <memory.h>
+# include <fcntl.h>
+# include <math.h>
+# include <errno.h>
+# include <stdio.h>
+# include "structs.h"
+# define BUFFER_SIZE 1
+# define WIDTH 1200
+# define HEIGHT 1200
+# define PI 3.1415
+# define COLOR_AMMO 0xeda705 //git rid of them
+# define COLOR_BLUE 0xbfbd2c
+# define COLOR_RED 0xFF0000FF
 
 /*Hooks*/
 void	let_s_move(mlx_key_data_t keydata, t_data *data);

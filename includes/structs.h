@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_STRUCTS_H
-#define CUB3D_STRUCTS_H
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
-#include "../MLX42/include/MLX42/MLX42.h"
+# include "../MLX42/include/MLX42/MLX42.h"
 
 typedef struct s_map_data
 {
@@ -32,19 +32,19 @@ typedef struct s_map_data
 
 /**
  * orientation where we are looking
- * posX and posY are characters position
- * mapX and mapY are current square of the map the ray is in
- * dirX and dirY are looking
+ * posx and posy are characters position
+ * mapx and mapy are current square of the map the ray is in
+ * dirx and diry are looking
  */
 typedef struct s_player
 {
-	int	orientation;
-	double	posX;
-	double	posY;
-	int		mapX;
-	int		mapY;
-	double	dirX;
-	double	dirY;
+	int				orientation;
+	double			posx;
+	double			posy;
+	int				mapx;
+	int				mapy;
+	double			dirx;
+	double			diry;
 	mlx_texture_t	*player_png;
 }	t_player;
 
@@ -65,31 +65,31 @@ typedef struct s_cub_textures
 	uint32_t		current_height;
 	int				line_height;
 	int				draw_start;
-	int 			draw_end;
+	int				draw_end;
 }	t_cub_textures;
 
 /**
- * stepX and stepY are where to go
- * sideX and sideY are initially the distance the ray has to travel from its
+ * stepx and stepy are where to go
+ * sidex and sidey are initially the distance the ray has to travel from its
  * start position to the first x-side and the first y-side.
- * deltaX and deltaY are distance the ray has to travel to go from 1 x-side
+ * deltax and deltay are distance the ray has to travel to go from 1 x-side
  * to the next x-side, or from 1 y-side to the next y-side.
- * planeX and planeY are area we can see
+ * planex and planey are area we can see
  * x1 and y1 are were we are going
  */
 typedef struct s_ray
 {
-	int		stepX;
-	int		stepY;
-	double	sideX;
-	double	sideY;
-	double	deltaX;
-	double	deltaY;
-	double	planeX;
-	double	planeY;
+	int		stepx;
+	int		stepy;
+	double	sidex;
+	double	sidey;
+	double	deltax;
+	double	deltay;
+	double	planex;
+	double	planey;
 	double	x1;
 	double	y1;
-} t_ray;
+}	t_ray;
 
 typedef struct s_minimap
 {
@@ -99,8 +99,7 @@ typedef struct s_minimap
 	mlx_image_t		*img_player;
 	mlx_image_t		*img_wall;
 	mlx_image_t		*img_floor;
-	
-} t_minimap;
+}	t_minimap;
 
 typedef struct s_data
 {
@@ -111,16 +110,15 @@ typedef struct s_data
 	mlx_t			*mlx;
 	mlx_image_t		*img;
 	mlx_image_t		*mini_img;
-	mlx_image_t		*strimage; //for the message
+	mlx_image_t		*strimage;
 	double			angle;
 	char			texture;
-	int 			scale_map;
+	int				scale_map;
 	t_cub_textures	*walls;
 	t_minimap		*map;
 	double			r_d2;
 	double			r_d;
-	double			wallX;
-} t_data;
+	double			wallx;
+}	t_data;
 
-
-#endif // CUB3D_STRUCTS_H
+#endif //STRUCTS_H

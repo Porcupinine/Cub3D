@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_UTILS_H
-#define CUB3D_UTILS_H
-#include "structs.h"
+#ifndef UTILS_H
+# define UTILS_H
+
+# include "structs.h"
 
 /**
  * testes if the string only contains ISSPACE chars
@@ -103,7 +104,6 @@ void	delete_texture(t_data *cub_data);
  * calls delete_texture and free_cub, and ft_error with
  * given message
  */
-void clean_up(t_data *cub_data, char* msg);
+void	clean_up(t_data *cub_data, char *msg);
 
-
-#endif //CUB3D_UTILS_H
+#endif //UTILS_H

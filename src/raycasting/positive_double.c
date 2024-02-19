@@ -25,8 +25,8 @@ double	fm(double a)
 //	double	x1;
 //	double	y1;
 //
-//	x1 = data->player->dirX + data->ray->planeX * camera;
-//	y1 = data->player->dirY + data->ray->planeY * camera;
+//	x1 = data->player->dirx + data->ray->planex * camera;
+//	y1 = data->player->diry + data->ray->planey * camera;
 //	if (x1 < 0)
 //		data->player->orientation = 0;
 //	else

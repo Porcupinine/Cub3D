@@ -19,32 +19,32 @@ double	find_hit(t_data *data)
 {
 	int		hit;
 	double	dist;
-	int		mapX = data->player->mapX;
-	int		mapY = data->player->mapY;
+	int		mapX = data->player->mapx;
+	int		mapY = data->player->mapy;
 
 	hit = 0;
 	while (hit == 0)
 	{
-		if (data->ray->sideX < data->ray->sideY)
+		if (data->ray->sidex < data->ray->sidey)
 		{
-			data->ray->sideX += data->ray->deltaX;
-			mapX += data->ray->stepX;
+			data->ray->sidex += data->ray->deltax;
+			mapX += data->ray->stepx;
 
 			data->side = 0;
 		}
 		else
 		{
-			data->ray->sideY += data->ray->deltaY;
-			mapY += data->ray->stepY;
+			data->ray->sidey += data->ray->deltay;
+			mapY += data->ray->stepy;
 			data->side = 1;
 		}
 		if (data->map_data->map[mapY][mapX] == '1')
 			hit = 1;
 	}
 	if (data->side == 0)
-		dist = data->ray->sideX - data->ray->deltaX;
+		dist = data->ray->sidex - data->ray->deltax;
 	else
-		dist = data->ray->sideY - data->ray->deltaY;
+		dist = data->ray->sidey - data->ray->deltay;
 	return (dist);
 }
 
@@ -53,35 +53,35 @@ void	find_first_step(t_data *data, double x1, double y1)
 	int	x;
 	int	y;
 
-	x = data->player->mapX;
-	y = data->player->mapY;
-	data->ray->stepX = 1;
-	data->ray->stepY = 1;
+	x = data->player->mapx;
+	y = data->player->mapy;
+	data->ray->stepx = 1;
+	data->ray->stepy = 1;
 	if (x1 < 0)
 	{
-		data->ray->stepX = -1;
-		data->ray->sideX = (data->player->posX - x) * data->ray->deltaX;
+		data->ray->stepx = -1;
+		data->ray->sidex = (data->player->posx - x) * data->ray->deltax;
 	}
 	else
-		data->ray->sideX = (x + 1.00 - data->player->posX) * data->ray->deltaX;
+		data->ray->sidex = (x + 1.00 - data->player->posx) * data->ray->deltax;
 	if (y1 < 0)
 	{
-		data->ray->stepY = -1;
-		data->ray->sideY = (data->player->posY - y) * data->ray->deltaY;
+		data->ray->stepy = -1;
+		data->ray->sidey = (data->player->posy - y) * data->ray->deltay;
 	}
 	else
-		data->ray->sideY = (y + 1.00 - data->player->posY) * data->ray->deltaY;
+		data->ray->sidey = (y + 1.00 - data->player->posy) * data->ray->deltay;
 }
 
 void	find_intersection(t_data *data, double x1, double y1)
 {
 	if (x1 == 0)
-		data->ray->deltaX = INFINITY;
+		data->ray->deltax = INFINITY;
 	else
-		data->ray->deltaX = fm(1 / x1);
+		data->ray->deltax = fm(1 / x1);
 	if (y1 == 0)
-		data->ray->deltaY = INFINITY;
+		data->ray->deltay = INFINITY;
 	else
-		data->ray->deltaY = fm(1 / y1);
+		data->ray->deltay = fm(1 / y1);
 	find_first_step(data, x1, y1);
 }

@@ -23,12 +23,12 @@ void	rotate_left(t_data *data, double angle)
 	double oldDirX;
 	double oldPlaneX;
 
-	oldDirX = data->player->dirX;
-	data->player->dirX = data->player->dirX * cos(angle) + data->player->dirY * sin(angle);
-	data->player->dirY = -oldDirX * sin(angle) + data->player->dirY * cos(angle);
-	oldPlaneX = data->ray->planeX;
-	data->ray->planeX = data->ray->planeX * cos(angle) + data->ray->planeY * sin(angle);
-	data->ray->planeY = -oldPlaneX * sin(angle) + data->ray->planeY * cos(angle);
+	oldDirX = data->player->dirx;
+	data->player->dirx = data->player->dirx * cos(angle) + data->player->diry * sin(angle);
+	data->player->diry = -oldDirX * sin(angle) + data->player->diry * cos(angle);
+	oldPlaneX = data->ray->planex;
+	data->ray->planex = data->ray->planex * cos(angle) + data->ray->planey * sin(angle);
+	data->ray->planey = -oldPlaneX * sin(angle) + data->ray->planey * cos(angle);
 	update_images(data);
 }
 
@@ -37,11 +37,11 @@ void	rotate_right(t_data *data, double angle)
 	double oldDirX;
 	double oldPlaneX;
 
-	oldDirX = data->player->dirX;
-	data->player->dirX = data->player->dirX * cos(angle) - data->player->dirY * sin(angle);
-	data->player->dirY = oldDirX * sin(angle) + data->player->dirY * cos(angle);
-	oldPlaneX = data->ray->planeX;
-	data->ray->planeX = data->ray->planeX * cos(angle) - data->ray->planeY * sin(angle);
-	data->ray->planeY = oldPlaneX * sin(angle) + data->ray->planeY * cos(angle);
+	oldDirX = data->player->dirx;
+	data->player->dirx = data->player->dirx * cos(angle) - data->player->diry * sin(angle);
+	data->player->diry = oldDirX * sin(angle) + data->player->diry * cos(angle);
+	oldPlaneX = data->ray->planex;
+	data->ray->planex = data->ray->planex * cos(angle) - data->ray->planey * sin(angle);
+	data->ray->planey = oldPlaneX * sin(angle) + data->ray->planey * cos(angle);
 	update_images(data);
 }
