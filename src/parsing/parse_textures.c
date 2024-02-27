@@ -57,7 +57,7 @@ static int	check_rgba(char **rgba_char)
 		if (all_digits(rgba_char[count]) == 0)
 			return (1);
 		if (ft_strlen(rgba_char[count]) == 3 && \
-		ft_strncmp(rgba_char[count], "255", 3) > 0)
+		ft_strncmp(rgba_char[count], "255", 3) > 0 || ft_strlen(rgba_char[count]) > 3)
 		{
 			printf("nb: %s\n", rgba_char[count]);
 			return (1);

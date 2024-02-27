@@ -44,6 +44,6 @@ void	delete_texture(t_data *cub_data)
 		mlx_delete_texture(cub_data->walls->e);
 	if (cub_data->walls->w != NULL)
 		mlx_delete_texture(cub_data->walls->w);
-	if (cub_data->map->player_png != NULL)
+	if (cub_data->map != NULL && cub_data->map->player_png != NULL)
 		mlx_delete_texture(cub_data->map->player_png);
 }

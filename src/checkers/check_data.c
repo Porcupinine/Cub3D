@@ -21,7 +21,9 @@ void	check_values(t_data *cub_data)
 	if (cub_data->map_data->no_path == NULL || \
 	cub_data->map_data->so_path == NULL || \
 	cub_data->map_data->we_path == NULL || \
-	cub_data->map_data->ea_path == NULL)
+	cub_data->map_data->ea_path == NULL || \
+	cub_data->map_data->floor == 0 || \
+	cub_data->map_data->celling == 0)
 		clean_up(cub_data, "Invalid map. Missing information\n");
 	load_textures(cub_data);
 }
