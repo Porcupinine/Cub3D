@@ -3,10 +3,20 @@ project(Cub3D)
 
 set(CMAKE_C_STANDARD 90)
 
-#add_compile_options(-Wall -Wextra -Werror)
+# Add compilation flags
+add_compile_options(-Wall -Wextra -Werror)
 add_compile_options(-fsanitize=address -fsanitize=leak)
 add_link_options(-fsanitize=address -fsanitize=leak)
+# Add MLX42
 add_subdirectory(${CMAKE_SOURCE_DIR}/MLX42)
+# Add custom target to compile lib42 using its Makefile
+add_custom_target(lib42
+		COMMAND ${CMAKE_MAKE_PROGRAM}
+		WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/lib42
+)
+# Add lib42 compilation as a dependency for cub3d
+add_dependencies(Cub3D lib42)
+# Include directories for lib42
 include_directories(${CMAKE_SOURCE_DIR}/lib42/include)
 
 
@@ -34,12 +44,11 @@ SET(SOURCES
 		src/utils/copy_file.c
 		src/parsing/parsing.c
 		src/parsing/parse_textures.c
-		src/parsing/parse_map.c)
+		src/parsing/parse_map.c
+		src/utils/clean_up.c)
 
-add_executable(cub3d main.c ${SOURCES}
-		src/utils/clean_up.c
+add_executable(cub3d main.c ${SOURCES})
 
-)
 set_target_properties(cub3d PROPERTIES LINKER_LANGUAGE C)
 target_link_libraries(cub3d ${CMAKE_SOURCE_DIR}/lib42/libft.a mlx42 m)
 

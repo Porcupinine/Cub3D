@@ -73,9 +73,11 @@ $(NAME): libmlx lib42_build $(OBJECTS_PREFIXED)
 clean:
 	@rm -rf $(OBJ_DIR)
 	@rm -rf $(LIBMLX)/build
+	@rm -rf $(LIB42)/objs
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f $(LIB42)/libft.a
 
 re: clean all
 
