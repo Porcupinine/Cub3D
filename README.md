@@ -9,6 +9,7 @@ to emulate a 3D environment using Raycasting.
 ### Download and usage
 You can [download](https://github.com/Porcupinine/Cub3D/archive/refs/heads/main.zip)
 the zip version of the project or clone it using the terminal.
+First you are going to need to make it, just typing make at the root of the project. Then
 you can run the program with:
 ```console
 ./cub3d maps/valid_maps/"map_of_your_choice"
