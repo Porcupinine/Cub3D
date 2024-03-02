@@ -5,8 +5,7 @@ NAME := cub3d
 CC := cc
 
 #-------------------------------------------------------------------------Flags
-CFLAGS	+= -Wextra -Wall -Werror -O3 -fsanitize=address
-ASANFLAGS += -fsanitize=address -fsanitize=leak
+CFLAGS	+= -Wextra -Wall -Werror -O3
 
 #----------------------------------------------------------------Libraries path
 LIBMLX	:= ./MLX42

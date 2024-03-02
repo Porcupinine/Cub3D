@@ -50,8 +50,8 @@ Once we have our map is saved as an array of strings, and we know the position a
 of our player, we need to set a range of view and with the help of math we can determine which walls
 we are looking at and how far we are form it. That point is going to be our x coordinate on the 3D view 
 based on the distance we can calculate the height of the wall and start drawing it on our scree vertical line 
-by vertical line. For more detailed explanation we recomend the [Lode's Computer Graphics Tutorial](https://lodev.org/cgtutor/raycasting.html)
-and [Super Fast Ray Casting in Tiled Worlds using DDA](https://www.youtube.com/watch?v=NbSee-XM7WA&ab_channel=javidx9).
+by vertical line. For more detailed explanation we recommend checking out the [Lode's Computer Graphics Tutorial](https://lodev.org/cgtutor/raycasting.html)
+and the [Super Fast Ray Casting in Tiled Worlds using DDA](https://www.youtube.com/watch?v=NbSee-XM7WA&ab_channel=javidx9).
 
 ### **Sources**
 
