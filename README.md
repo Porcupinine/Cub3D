@@ -45,9 +45,12 @@ map and can't have an empty space as a neighbour.
 For example of good maps, please check **maps/valid_maps**
 
 
-
 ### How raycasting works
-
+Once we have our map is saved as an array of strings and we know the position and orientation
+of our player, we need to set a range of view and with the help of math we can determine which walls
+we are looking at and how far we are form it. That point is going to be our x coordinate on the 3D view 
+based on the distance we can calculate the height of the wall and start drawing it on our scree vertical line 
+by vertical line.
 
 ### **Sources**
 
