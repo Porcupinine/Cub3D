@@ -15,9 +15,38 @@ you can run the program with:
 ```
 or you can create your own map, but it must follow some rules.
 
-### How raycasting works
-
 ### What is a valid map
+In case you want to make your own map, it is composed of two parts
+
+**First part** is a set of paths to the textures that are going to be used for the 
+walls and the RGB for the colors that will be used for the floor and the celling.
+They are recognized by the program using key characters and the must be separated by
+as many **empty lines** you desire. As key words we have:
+* NO ./"path for north texture"
+* SO ./"path for south texture"
+* WE ./"path for west texture"
+* EA ./"path for east texture"
+* C "***R***ed value,***G***reen value,***B***lue value"
+* F "***R***ed value,***G***reen value,***B***lue value"
+
+It doesn't matter in which order they are put and you can have spaces between 
+the coordinate and "./" for the textures but no extra spaces between the RGB values.
+
+**Last part** The parsing of the map starts as son as we find a line 
+that only contains, walls(1), walking spaces(0), and empty spaces " ". Of course the 
+map also have to follow some rules:
+* You must have one and only one player, and it is recognized by the letters 
+N(north), S(south), E(east), W(west). The letter decides in which direction the player
+will be looking at when the game starts.
+* The map must be surrounded, AKA 0s and the player can only be in the middle part of the 
+map and can't have an empty space as a neighbour.
+* No more empty lines, not even a line at the end of the map.
+
+For example of good maps, please check **maps/valid_maps**
+
+
+
+### How raycasting works
 
 
 ### **Sources**
